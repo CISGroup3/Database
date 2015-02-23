@@ -1,0 +1,27 @@
+	For User									
+	Primary Key 	Name	Varible 							
+	Y           	USERID	UNQIUE NUMBER							
+	              USERNICKNAME	UNQIUE NUMBER							
+              	EMAIL	VarChar (15) 							
+              	NAME	Char (15)							
+              	SURNAME 	Char (15)							
+              	PASSWORD	VarChar (15) 	encripted 						
+										
+	For Form 									
+Table 1	Primary Key 	Name	Varible 		                  Table 2 	Primary Key 	Name	Varible 	        	Both of these tables would be linked        	FK	      USERID	UNQIUE NUMBER			                       FK	         USERID	UNQIUE NUMBER		
+            Y	        QUESTION ID 	UNQIUE NUMBER		                    Y         COMMENT ID 	UNQIUE NUMBER		
+  		                QUESTION	CHAR (500)				                                COMMENTS 	CHAR (500)		
+					 FK         USER ID  UNQIUE NUMBER                            FK        USER ID UNIQIUE NUMBER
+					
+										
+	For Comparison page 									
+	NO DATABASE NEEDED									
+		WILL BE STATIC								
+										
+										
+	For F&Q page 									
+	NO DATABASE NEEDED									
+		WILL BE STATIC								
+										
+										
+										
