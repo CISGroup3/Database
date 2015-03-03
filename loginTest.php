@@ -81,6 +81,8 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 		
 		if ($count!=1) {
 		echo "Wrong Username or Password";
+		session_unset(); 
+		header("location:Index2.php"); //redirects if not successful 
 		}
 }
 ?>

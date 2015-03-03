@@ -3,31 +3,18 @@ session_start(); //starts the session to store certain variables using cookies
  ?>
 
 <!DOCTYPE html>
-	
+<html lang="en">
+
 <head>
-<title>Home page</title>
+<title>FAQ page</title>
 <meta charset = "utf-8">
+
+
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
 <link rel="stylesheet" type="text/css" href="mystyle.css"/>
 
-<script type="text/javascript" src="Javascript/Google.js"></script>
-<script src="Javascript/newsfeed.js"
-type="text/javascript"></script>
 
-<div id = "newsfeedcss">
-<style type="text/css">
-@import url("CSS/newsfeedstyle.css");
-</style>
-
-</div>
-<script type="text/javascript">
-function load() {
-var feed ="http://feeds.feedburner.com/Securityweek?format=xml";
-new GFdynamicFeedControl(feed, "feedControl");
-
-}
-google.load("feeds", "1");
-google.setOnLoadCallback(load);
-</script>
 </head>
 
 <body>
@@ -61,7 +48,7 @@ google.setOnLoadCallback(load);
 				<div id = "nav2">
 					<nav>
 						<ul>
-						<?php //if user is logged in, welcome them by user forum name
+							<?php //if user is logged in, welcome them by user forum name
 						if($loggedIn == "true" && !empty($_SESSION['userNickname']))
 						{
 						   echo "<li> <b> Welcome, " .$_SESSION['userNickname'] ."!</li> </b>"; 
@@ -78,9 +65,8 @@ google.setOnLoadCallback(load);
 				<div id = "nav3">
 					<nav>
 						<ul>
-							<li><a href="registryTest.php">Register</a></li>
+							<li><a href="index.html">Register</a></li>
 							<li><b>|</b></li>
-							
 							<?php
 							if ($loggedIn == "false")
 							
@@ -91,10 +77,8 @@ google.setOnLoadCallback(load);
 							if ($loggedIn == "true")
 							
 							echo "<li><a href=logout.php>Sign out</a></li>"
-							
-							
+					
 							?>
-							
 						</ul>
 					</nav>
 				</div>
@@ -103,27 +87,57 @@ google.setOnLoadCallback(load);
 	</div>
 	
 	<div id="wrapper">
-		<div class="logoimg">
-			<img src="Images/Aegislogo.png" alt="Aegis Security" title="Aegis Security" height="150" width="200">
+		<div id = "heading">
+		<p>Anti-Virus</p>
 		</div>
-		<p>
-			Welcome to Aegis Security, iuhguirhaufbaerbfuhewbuhfbeuhwfbuhebfojhbejhfbehbfewifbeuhvfhevwfhbe
-			efbfhewbfuhebvwuhfv	hewfbwlhefbjh	ew fjcfewbhf  fvuh fhe fug ephf fhgew fuh ewf
-			eofni nro fbe fbuheb ouhebfije	buh fnfuenfpbhe fuh fbe hbhfv eh fbe jibfpeuhbfog yug eybiej bfhb lf
-			 heu f upebfuhebqfuhbuhfbouh3wbfquhbouhewbrhufrbewjbjibcehf iurpgb;jirbg  bruhfbiewbfihbe iefjreqbg
-			 grniqihtpuiehpi  urh rhuthqekgnoierjg;j verhqrej heherqn ihuih huiviurn bnghrughruu hunbnkjnjnjf
-			 nihinnfbub rviurbhgiurbhgbr g uu huh rugighih qiq ofqriuig huhh ih ijh irghruqbruhgu rhberbrgb
-			 uijigiuhr i uihuhhgr  uruighijeir righrr urhfqbbg yhghryeugrybjqefnfeh ehuqe hu
-	
-			<br><br>
-	
-			The website contains SUPRISE!
-		</p>
+			<table width = "100%" border = "black solid 1px">
+  <tr>
+
+    <td width = "23%">Malware</td>
+
+    <td>Smith</td>		
+
+  </tr>
+  <tr>
+    <td width = "23%">Anti viruses</td>
+    <td>Jackson</td>		
+
+  </tr>
+  <tr>
+    <td width = "23%">Whats wrong with my computer</td>
+    <td>Doe</td>		
+ 
+  </tr>
+   <tr>
+    <td width = "23%">Mobile/tablet support</td>
+    <td>Doe</td>		
+ 
+  </tr>
+   <tr>
+    <td width = "23%">Operating systems</td>
+    <td>Doe</td>		
+ 
+  </tr>
+   <tr>
+    <td width = "23%">Browsers</td>
+    <td>Doe</td>		
+ 
+  </tr>
+   <tr>
+    <td width = "23%">Misc</td>
+    <td>Doe</td>		
+ 
+  </tr>
+</table>
+		
+		
+<!-- end of wrapper -->
 	</div>
 	
-<div id="feedControl">Loading...</div>
 
+		
 	<div id="footer">
+	<footer>
 			<ul>
 				<li><a href="index.html">Home</a></li>
 				<li><b>|</b></li>
@@ -135,6 +149,19 @@ google.setOnLoadCallback(load);
 				<li><b>|</b></li>
 				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>	
 			</ul>
+		
+	</footer>
 	</div>
+	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+        <script>
+            $('.help').tooltip()
+
+        </script>
+
 </body>
 </html>
