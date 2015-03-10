@@ -82,7 +82,7 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 		
 		$_SESSION['userID'] = $read; 
 		
-		header("location:Index2.php"); //redirects if successful
+		header("location:index.php"); //redirects if successful
 		
 		} //end if 
 		
