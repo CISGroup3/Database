@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 
 <head>
 <title> Registry Test </title>
@@ -6,8 +6,8 @@
 
 <?php if(isset($_GET['login']));/*user wants to login link*/?> 
 
-
-
+		
+		
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 			Email Address:<br>
 			<input type="text" name="userEmail">
@@ -19,7 +19,7 @@
 			<br>
 
 		<input type="submit" value="SUBMIT" /> 
-		
+				
 		</form> 
 
 <?php //default
@@ -75,15 +75,23 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 		//echo $read;
 		
 		$_SESSION['userNickname'] = $read; //retrieves corresponding details and assigns to another session variable 
-		header("location:Index2.php"); //redirects if successful
+		
+		$result = @mysql_query("SELECT userID FROM webforum.userdetails WHERE userEmail='$userEmail' and userPassword='$userPassword'");
+		$row= mysql_fetch_row($result);
+		$read = $row[0]; 
+		
+		$_SESSION['userID'] = $read; 
+		
+		header("location:index.php"); //redirects if successful
 		
 		} //end if 
 		
 		if ($count!=1) {
 		echo "Wrong Username or Password";
 		session_unset(); 
-		header("location:Index2.php"); //redirects if not successful 
+		header("location:index.php"); //redirects if not successful 
 		}
 }
 ?>
-	
+
+</html>
