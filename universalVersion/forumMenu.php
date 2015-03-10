@@ -43,7 +43,7 @@ session_start(); //starts the session to store certain variables using cookies
 						}
 						if($loggedIn == "false")
 						{
-							echo "<li><b> Welcome, user!</li></b>";
+							echo "<li><b></li></b>";
 						}
 							?>
 						</ul>
@@ -79,10 +79,10 @@ session_start(); //starts the session to store certain variables using cookies
 		</div>
 		
 		<div id = "tablepad">
-	<table width = "100%" border = "black solid 1px">
+	<table width = "100%">
 	<tr>
 
-    <td width = "10%">Malware pic</td>
+    <td width = "10%"><img src="Images/malware.png" alt="Malware" title="Malware" height="50" width="90"/></td>
 
     <td>
 	<div id = "table-heading">
@@ -93,7 +93,7 @@ session_start(); //starts the session to store certain variables using cookies
  </tr>
 
   <tr>
-    <td width = "10%">Anti-viruses pic</td>
+    <td width = "10%"><img src="Images/antiviruses.png" alt="Anti-Viruses" title="Anti-Viruses" height="50" width="90"/></td>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Anti-Viruses</a>
@@ -103,7 +103,7 @@ session_start(); //starts the session to store certain variables using cookies
   </tr>
   
   <tr>
-    <td width = "10%">Customer s pic</td>
+    <td width = "10%"><img src="Images/computersupport.png" alt="Computer Support" title="Computer Support" height="50" width="90"/></td>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Computer Support</a>
@@ -113,7 +113,7 @@ session_start(); //starts the session to store certain variables using cookies
  
   </tr>
    <tr>
-    <td width = "10%">Mobile/tablet support pic</td>
+    <td width = "10%"><img src="Images/mobiletablet.png" alt="Mobile/Tablet Support" title="Mobile/Tablet Support" height="50" width="90"/></td>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Mobile/Tablet Support</a>
@@ -124,7 +124,7 @@ session_start(); //starts the session to store certain variables using cookies
 		
   </tr>
    <tr>
-    <td width = "10%">Operating systems pic</td>
+    <td width = "10%"><img src="Images/operate.png" alt="Mobile/Tablet Support" title="Mobile/Tablet Support" height="50" width="90"/></td>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Operating Systems</a>
@@ -134,7 +134,7 @@ session_start(); //starts the session to store certain variables using cookies
  
   </tr>
    <tr>
-    <td width = "10%">Browsers pic</td>
+    <td width = "10%"><img src="Images/browsers.png" alt="Mobile/Tablet Support" title="Mobile/Tablet Support" height="50" width="90"/></td>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Browsers</a>
@@ -144,7 +144,7 @@ session_start(); //starts the session to store certain variables using cookies
  
   </tr>
    <tr>
-    <td width = "10%">Misc pic</td>
+    <td width = "10%"><img src="Images/misc.png" alt="Miscellaneous" title="Miscellaneous" height="50" width="90"/></td>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Miscellaneous</a>
@@ -178,18 +178,5 @@ session_start(); //starts the session to store certain variables using cookies
 		
 	</footer>
 	</div>
-	 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="Javascript/1.11.1.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="Javascript/3.2.0.js"></script>
-
-        <script>
-            $('.help').tooltip()
-
-        </script>
-
-	
-
-
 </body>
 </html>

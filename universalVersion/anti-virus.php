@@ -13,7 +13,7 @@ session_start(); //starts the session to store certain variables using cookies
 
 </head>
 
-<body>
+<div id ="b2">
 <?php
 		$loggedIn = "false";
 		
@@ -42,7 +42,7 @@ session_start(); //starts the session to store certain variables using cookies
 						}
 						if($loggedIn == "false")
 						{
-							echo "<li><b> Welcome, user!</li></b>";
+							echo "<li><b></li></b>";
 						}
 							?>
 						</ul>
@@ -78,10 +78,10 @@ session_start(); //starts the session to store certain variables using cookies
 		</div>
 		
 		<div id = "tablepad">
-	<table width = "100%" border = "black solid 1px">
+	<table width = "100%">
 	<tr>
 
-    <td width = "10%">Norton Logo</td>
+    <td width = "10%"><img src="Images/nortonlogo.png" alt="Norton" title="Norton" height="50" width="90"/></td>
 
     <td>
 	<div id = "table-heading">
@@ -92,7 +92,7 @@ session_start(); //starts the session to store certain variables using cookies
   </tr>
   
   <tr>
-    <td width = "10%">AVG Logo</td>
+    <td width = "10%"><img src="Images/avglogo.png" alt="AVG" title="AVG" height="50" width="90"/></td>
     <td>
 		<div id = "table-heading">
 	Anti-Virus Guard (AVG)
@@ -102,7 +102,7 @@ session_start(); //starts the session to store certain variables using cookies
   </tr>
   
   <tr>
-    <td width = "10%">Avast Logo</td>
+    <td width = "10%"><img src="Images/avastlogo.png" alt="Avast" title="Avast" height="50" width="90"/></td>
     <td>
 		<div id = "table-heading">
 	Avast
@@ -112,7 +112,7 @@ session_start(); //starts the session to store certain variables using cookies
   </tr>
   
    <tr>
-    <td width = "10%">McAfee Logo</td>
+    <td width = "10%"><img src="Images/mcafeelogo.png" alt="McAfee" title="McAfee" height="50" width="90"/></td>
     <td>
 		<div id = "table-heading">
 	McAfee
@@ -122,7 +122,7 @@ session_start(); //starts the session to store certain variables using cookies
  
   </tr>
    <tr>
-    <td width = "10%">Windows Defender Logo</td>
+    <td width = "10%"><img src="Images/wdefend.png" alt="Windows Defender" title="Windows Defender" height="50" width="90"/></td>
     <td>
 		<div id = "table-heading">
 	Windows Defender
@@ -133,12 +133,16 @@ session_start(); //starts the session to store certain variables using cookies
 
 </table>
 		</div>
+		<div id = "heading3">
+		Comparison Table
+		</div>
+<div id="antitablepic">
+<img src="Images/comparisontable.png" alt="Comparison Table" width="945" height="350"/>
+</div>
 		
 <!-- end of wrapper -->
 	</div>
 	
-
-		
 	<div id="footer">
 	<footer>
 			<ul>
@@ -155,18 +159,5 @@ session_start(); //starts the session to store certain variables using cookies
 		
 	</footer>
 	</div>
-	 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="Javascript/1.11.1.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="Javascript/3.2.0.js"></script>
-
-        <script>
-            $('.help').tooltip()
-
-        </script>
-
-	
-
-
-</body>
+</div>
 </html>

@@ -63,7 +63,7 @@ google.setOnLoadCallback(load);
 						}
 						if($loggedIn == "false")
 						{
-							echo "<li><b> Welcome, user!</li></b>";
+							echo "<li><b></li></b>";
 						}
 							?>
 						</ul>
@@ -97,7 +97,10 @@ google.setOnLoadCallback(load);
 	</div>
 	
 	<div id="wrapper">
-			<img src="Images/athenasecuritylogo.png" alt="Athena Security" title="Athena Security" height="150" width="200"/>
+	<div id="homepic">
+			<img src="Images/athenasecuritylogo.png" alt="Athena Security" title="Athena Security" height="150" width="350"/>
+			</div>
+
 		<p>
 			Paragraph explaining who we are, the purpose of this website and why this website was made 
 			(Use research to back up the creation of this website ie. News) Also make it interesting as

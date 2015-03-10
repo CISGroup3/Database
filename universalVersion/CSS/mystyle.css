@@ -39,14 +39,12 @@ text-align:justify;
 margin-left:9px;
 }
 
-
 /*Dimensions used for news feed*/
 #feedControl 
 {
 padding-bottom:10px;
-width:936px;
+width:940px;
 font-size:12px;
-margin:0 auto;
 }
 
 p
@@ -104,7 +102,6 @@ padding:14px 5px;
 text-decoration:none;
 font-weight:bold;
 color:#FF6600;
-margin-right:103px;
 }
 
 /*Used for positioning/alteration of "Welcome" in the navigation bar*/
@@ -116,8 +113,13 @@ text-decoration:none;
 font-weight:bold;
 color:#FF6600;
 padding-left:90px;
+
 }
 
+#nav3 li 
+{
+float:right;
+}
 
 /*Used for positioning of the content on the navigation bar (This is used for sign in/register)*/
 #nav3 ul 
@@ -126,17 +128,11 @@ list-style:none;
 width:100%;
 }
 
-/*Used for moving the content on the navigation bar to the right*/
-#nav3 li
-{
-padding-left:10px;
-}
-
 /*Used for positioning/alteration of the text in the navigation bar (This is used for sign in/register)*/
 #nav3 li a
 {
 display:block;
-padding:14px 5px;
+padding:14px 15px;
 text-decoration:none;
 font-weight:bold;
 color:#FF6600;
@@ -146,7 +142,7 @@ color:#FF6600;
 #nav3 li b
 {
 display:block;
-padding:13px 0.5px;
+padding:14px 4px;
 text-decoration:none;
 font-weight:bold;
 color:#FF6600;
@@ -178,10 +174,19 @@ padding-bottom:10px;
 padding-top:60px;
 }
 
+#heading3 /*Header used for comparison table*/
+{
+text-align: center;
+font-size: 30px;
+font-weight: 5px;
+margin:0px;
+padding-bottom:10px;
+}
+
 #table-heading
 {
-text-align:center;
 font-size: 18px;
+margin-bottom:8px;
 color:red;
 }
 
@@ -205,15 +210,16 @@ margin:0 auto;
 }
 
 /*Used for the positioning of the main logo on the home page*/
-#wrapper img 
+#homepic
 {
-width:360px;
-height:130px;
 margin-left:300px;
 }
 
-/*Main header for web pages*/
-
+#antitablepic
+{
+position:relative;
+padding-bottom: 10px;
+}
 /*Used for creating the navigation bar for the footer*/
 #footer
 {
