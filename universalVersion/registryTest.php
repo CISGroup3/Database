@@ -120,7 +120,7 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 				if (@mysql_query($sql))
 					{
 						echo '<p>Your account has been made.</p>';
-						echo '<META HTTP-EQUIV="Refresh" Content="0; URL=Index2.php">'; //redirects to prevent the user refreshing the page and creating a user account twice
+						echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">'; //redirects to prevent the user refreshing the page and creating a user account twice
 					}
 				
 				else if ($sql === false) //if the query doesn't work/returns false, then catch the error gracefully
