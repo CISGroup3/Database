@@ -37,7 +37,7 @@ session_start(); //starts the session to store certain variables using cookies
 	<div id = "nav">
 		<nav>
 			<ul>
-				<li><img src="Images/Aegislogo.png" alt="Aegis Security" title="Aegis Security" height="50" width="80"></li>
+				<li><img src="Images/athenalogo.png" alt="Athena Security" title="Athena Security" height="50" width="65"></li>
 				<li><a href="index.php">Home</a></li>
 				<li><a href="anti-virus.php">Anti-Virus</a></li>
 				<li><a href="FAQ.php">FAQ</a></li>
@@ -90,7 +90,7 @@ session_start(); //starts the session to store certain variables using cookies
 
 	<div id="wrapper">
 	<div class="logoimg">
-			<img src="Images/Aegislogo.png" alt="Aegis Security" title="Aegis Security" height="150" width="200">
+			<img src="Images/athenasecuritylogo.png" alt="Athena Security" title="Athena Security" height="150" width="200"/> 
 		</div>
 		
 	<?php if(isset($_GET['login']));/*user wants to login link*/?> 
