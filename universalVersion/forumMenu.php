@@ -27,10 +27,10 @@ session_start(); //starts the session to store certain variables using cookies
 		<nav>
 			<ul>
 				<li><img src="Images/athenalogo.png" alt="Athena Security" title="Athena Security" height="50" width="65"></li>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="News.html">Anti-Virus</a></li>
-				<li><a href="FAQ.html">FAQ</a></li>
-				<li><a href="Forum.html">Forum</a></li>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="anti-virus.php">Anti-Virus</a></li>
+				<li><a href="FAQ.php">FAQ</a></li>
+				<li><a href="forumMenu.php">Forum</a></li>
 				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>
 				
 				<div id = "nav2">
@@ -53,7 +53,7 @@ session_start(); //starts the session to store certain variables using cookies
 				<div id = "nav3">
 					<nav>
 						<ul>
-							<li><a href="PHP/loginTest.php">Register</a></li>
+							<li><a href="registryTest.php">Register</a></li>
 							<li><b>|</b></li>
 							<?php
 							if ($loggedIn == "false")
@@ -165,13 +165,13 @@ session_start(); //starts the session to store certain variables using cookies
 	<div id="footer">
 	<footer>
 			<ul>
-				<li><a href="index.html">Home</a></li>
+				<li><a href="index.php">Home</a></li>
 				<li><b>|</b></li>
-				<li><a href="News.html">Anti-Virus</a></li>
+				<li><a href="anti-virus.php">Anti-Virus</a></li>
 				<li><b>|</b></li>
-				<li><a href="FAQ.html">FAQ</a></li>
+				<li><a href="FAQ.php">FAQ</a></li>
 				<li><b>|</b></li>
-				<li><a href="News.html">Forum</a></li>
+				<li><a href="forumMenu.php">Forum</a></li>
 				<li><b>|</b></li>
 				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>	
 			</ul>

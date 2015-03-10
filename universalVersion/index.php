@@ -74,7 +74,7 @@ google.setOnLoadCallback(load);
 					<nav>
 						<ul>
 
-							<li><a href="PHP/loginTest.php">Register</a></li>
+							<li><a href="registryTest.php">Register</a></li>
 							<li><b>|</b></li>
 							<?php
 							if ($loggedIn == "false")
