@@ -2,54 +2,43 @@
 session_start(); //starts the session to store certain variables using cookies
  ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<title>FAQ page</title>
+<title>FAQ</title>
 <meta charset = "utf-8">
 
-
-
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
-<link rel="stylesheet" type="text/css" href="mystyle.css"/>
+<link  rel="stylesheet" type="text/css" href="CSS/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="CSS/mystyle.css"/>
 
 
 </head>
-
-<body>
-
 <?php
 		$loggedIn = "false";
-		//$_SESSION["userForumName"] = "";
-		//$_SESSION["userEmail"] = ""; //sets variables for remembering login information
-		echo "Session variables have been set "; 
 		
-		if (array_key_exists('userEmail', $_SESSION) && !empty($_SESSION['userEmail'])) {
-		$loggedIn = "true";
-		echo "User name is " . $_SESSION['userEmail'] . " "; 
-			if(isset($_SESSION['userNickname']))
+		if (array_key_exists('userEmail', $_SESSION) && !empty($_SESSION['userEmail'])) 
 			{
-				echo "Hello " .$_SESSION['userNickname'];
+				$loggedIn = "true";
 			}
-		}
 ?>
-
+<div id = "b2">
 	<div id = "nav">
-		<nav>
+	<nav>
+				
 			<ul>
-				<li><img src="Images/Aegislogo.png" alt="Aegis Security" title="Aegis Security" height="50" width="80"></li>
-				<li><a href="Index2.php">Home</a></li>
-				<li><a href="News.php">Anti-Virus</a></li>
-				<li><a href="FAQ.html">FAQ</a></li>
-				<li><a href="Forum.html">Forum</a></li>
+
+				<li><img src="Images/athenalogo.png" alt="Athena Security" title="Athena Security" height="50" width="65"></li>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="anti-virus.php">Anti-Virus</a></li>
+				<li><a href="FAQ.php">FAQ</a></li>
+				<li><a href="forumMenu.php">Forum</a></li>
 				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>
 				
 				<div id = "nav2">
 					<nav>
 						<ul>
-						<?php //if user is logged in, welcome them by user forum name
+							<?php //if user is logged in, welcome them by user forum name
 						if($loggedIn == "true" && !empty($_SESSION['userNickname']))
 						{
 						   echo "<li> <b> Welcome, " .$_SESSION['userNickname'] ."!</li> </b>"; 
@@ -60,12 +49,13 @@ session_start(); //starts the session to store certain variables using cookies
 						}
 							?>
 						</ul>
-					</nav>
+					<nav>
 				</div>
 				
 				<div id = "nav3">
-					<nav>
+				<nav>
 						<ul>
+							
 							<li><a href="index.html">Register</a></li>
 							<li><b>|</b></li>
 							<?php
@@ -79,17 +69,17 @@ session_start(); //starts the session to store certain variables using cookies
 							
 							echo "<li><a href=logout.php>Sign out</a></li>"
 							
-							
 							?>
 						</ul>
-					</nav>
+						<nav>
 				</div>
 			</ul>	
-		</nav>
+			<nav>
 	</div>
-	
+
+
 	<div id="wrapper">
-		<div id = "heading">
+		<div id = "heading2">
 		<p>FAQ</p>
 		</div>
 		<p>
@@ -344,13 +334,13 @@ session_start(); //starts the session to store certain variables using cookies
 	<div id="footer">
 	<footer>
 			<ul>
-				<li><a href="index.html">Home</a></li>
+				<li><a href="index.php">Home</a></li>
 				<li><b>|</b></li>
-				<li><a href="News.html">Anti-Virus</a></li>
+				<li><a href="anti-virus.php">Anti-Virus</a></li>
 				<li><b>|</b></li>
-				<li><a href="FAQ.html">FAQ</a></li>
+				<li><a href="FAQ.php">FAQ</a></li>
 				<li><b>|</b></li>
-				<li><a href="Forum.html">Forum</a></li>
+				<li><a href="forumMenu.php">Forum</a></li>
 				<li><b>|</b></li>
 				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>	
 			</ul>
@@ -359,14 +349,14 @@ session_start(); //starts the session to store certain variables using cookies
 	</div>
 	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="Javascript/1.11.1.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="Javascript/3.2.0.js"></script>
 
         <script>
             $('.help').tooltip()
 
         </script>
 
-</body>
+</div>
 </html>
