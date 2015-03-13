@@ -209,6 +209,30 @@ max-width:945px;
 margin:0 auto;
 }
 
+ #troubleshoot-button
+{
+	padding-bottom:5px;
+	padding-left: 350px;
+	
+} 
+button
+{
+	
+    width: 192px;
+    height: 40px;
+    font-size: 19px;
+    background-color: #FF6600;
+    color: #000000;
+    border: solid 3px #fff;
+    box-shadow: #999 0 2px 5px 0;
+    line-height: normal;
+    cursor:pointer;
+    border-radius: 5px;
+    text-align:center;
+}
+
+
+
 /*Used for the positioning of the main logo on the home page*/
 #homepic
 {

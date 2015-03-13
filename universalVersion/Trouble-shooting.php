@@ -6,14 +6,15 @@ session_start(); //starts the session to store certain variables using cookies
 <html lang="en">
 
 <head>
-<title>Anti-Virus</title>
+<title>Forum</title>
 <meta charset = "utf-8">
 
 <link rel="stylesheet" type="text/css" href="CSS/mystyle.css"/>
 
+
 </head>
 
-<div id ="b2">
+<body>
 <?php
 		$loggedIn = "false";
 		
@@ -74,75 +75,29 @@ session_start(); //starts the session to store certain variables using cookies
 	
 	<div id="wrapper">
 		<div id = "heading">
-		Anti-Virus
+		Troubleshooting
 		</div>
 		
-		<div id = "tablepad">
-	<table width = "100%">
-	<tr>
+	
+		<form action="">
+<input type="checkbox" name="ComputerIssue" value="Computer-slow">My computer is very slow<br>
+<input type="checkbox" name="ComputerIssue" value="Pop-ups">I have a large amount of pop-ups appearing<br>
+<input type="checkbox" name="ComputerIssue" value="Browser">My browser won't open<br>
+<input type="checkbox" name="ComputerIssue" value="Crashing">My computer keeps crashing<br>
+<input type="checkbox" name="ComputerIssue" value="Starting">My computer won't start<br>
+<input type="checkbox" name="ComputerIssue" value="Internet">I can't connect to the internet<br>
+<input type="checkbox" name="ComputerIssue" value="Hard-drive">My hard drive isn't functioning correctly<br>
+<input type="checkbox" name="ComputerIssue" value="Files">I have missing files<br>
+</form>
 
-    <td width = "10%"><img src="Images/nortonlogo.png" alt="Norton" title="Norton" height="50" width="90"/></td>
-
-    <td>
-	<div id = "table-heading">
-		Norton
-	</div>
-	Small paragraph of information and facts about the anti-virus
-	</td>		
-  </tr>
-  
-  <tr>
-    <td width = "10%"><img src="Images/avglogo.png" alt="AVG" title="AVG" height="50" width="90"/></td>
-    <td>
-		<div id = "table-heading">
-	Anti-Virus Guard (AVG)
-	</div>
-	Small paragraph of information and facts about the anti-virus
-	</td>		
-  </tr>
-  
-  <tr>
-    <td width = "10%"><img src="Images/avastlogo.png" alt="Avast" title="Avast" height="50" width="90"/></td>
-    <td>
-		<div id = "table-heading">
-	Avast
-	</div>
-	Small paragraph of information and facts about the anti-virus
-	</td>		
-  </tr>
-  
-   <tr>
-    <td width = "10%"><img src="Images/mcafeelogo.png" alt="McAfee" title="McAfee" height="50" width="90"/></td>
-    <td>
-		<div id = "table-heading">
-	McAfee
-	</div>
-	Small paragraph of information and facts about the anti-virus
-	</td>		
- 
-  </tr>
-   <tr>
-    <td width = "10%"><img src="Images/wdefend.png" alt="Windows Defender" title="Windows Defender" height="50" width="90"/></td>
-    <td>
-		<div id = "table-heading">
-	Windows Defender
-	</div>
-	Small paragraph of information and facts about the anti-virus
-	</td>		
-  </tr>
-
-</table>
-		</div>
-		<div id = "heading3">
-		Comparison Table
-		</div>
-<div id="antitablepic">
-<img src="Images/comparisontable.png" alt="Comparison Table" width="945" height="350"/>
-</div>
-		
+<div id= "troubleshoot-button">
+<button type= "button">Submit </button> 
+</div>		
 <!-- end of wrapper -->
 	</div>
 	
+
+		
 	<div id="footer">
 	<footer>
 			<ul>
@@ -159,5 +114,5 @@ session_start(); //starts the session to store certain variables using cookies
 		
 	</footer>
 	</div>
-</div>
+</body>
 </html>
