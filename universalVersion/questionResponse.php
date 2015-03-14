@@ -5,38 +5,50 @@ session_start(); //starts the session to store certain variables using cookies
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-<title> Add New Question </title>
+<title> Forum Questions </title>
 <meta charset = "utf-8">
 <link rel="stylesheet" type="text/css" href="CSS/mystyle.css"/>
 
 </head>
 
 <body>
-<?php
-
-	function runMyFunction()
-		{
-			//echo '<p>Function ran!</p>';
-		}
-	
+<?php		
+		
 	if (isset($_GET['upvote'])) 
 		{
-			$_SESSION['vote']= 'Up';
-			header("location:voteChange.php"); 
+				$_SESSION['vote']= 'Up';
+				header("location:voteChange.php"); 
 		}
 	
 	if (isset($_GET['downvote'])) 
 		{
-			$_SESSION['vote']= 'Down';
-			header("location:voteChange.php"); 
+					$_SESSION['vote']= 'Down';
+					header("location:voteChange.php"); 
 		}
-
+	
+	if (isset($_GET['cancel'])) 
+		{
+					$_SESSION['vote']= 'Cancel';
+					header("location:voteChange.php"); 
+		}
+	
+	if (isset($_GET['delete']))
+		{
+			header("location:deleteQuestion.php"); 
+		}
+		
 		$loggedIn = "false";
 		
 		if (array_key_exists('userEmail', $_SESSION) && !empty($_SESSION['userEmail'])) 
 			{
 				$loggedIn = "true";
 			}
+		
+		if (isset($_GET['postResponse']) && $loggedIn == "true")
+			{
+				header("location:postResponse.php");
+			}
+		
 		
 		$dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 	if (!$dbcnx) //if a connection cannot be made, the code will exit gracefully 
@@ -52,9 +64,17 @@ session_start(); //starts the session to store certain variables using cookies
 			}
 		$_SESSION['responseCategoryID'] = 1; //holds the response category
 		$responseCategoryID = 1; 
-		$responseID = 57; //holds the primary key of the question 
+		$responseID = 59; //holds the primary key of the question 
 		$_SESSION['questionID'] = $responseID; 
 		$userID = 17; 
+		
+		$checkExists = "SELECT * FROM questiondetails WHERE questionID = '$responseID'";
+		$result = mysql_query($checkExists);
+		
+		if (mysql_num_rows($result) == 0)
+			{
+					header("location:forumMenu.php");
+			}
 ?>
 
 	<div id = "nav">
@@ -122,7 +142,13 @@ session_start(); //starts the session to store certain variables using cookies
 		$sessionVariableHere = 'placeholder'; //ignore this for now
 		$getCategory = "SELECT title FROM categories INNER JOIN questionDetails
 		ON categories.categoryID = questionDetails.categoryID WHERE categoryID = '$sessionVariableHere'"; //once a session variable is passed, this can be used to select the category
-	
+		
+		
+		if ($loggedIn == "true" && $userID == $_SESSION['userID'])
+			{
+			echo "<a href='deleteQuestion.php?delete=true'>Delete Your Question</a>";
+			}
+		
 		$responseCategoryID = 1;  //for now the category is set to 1. 
 		#show the section of the question 
 		$sectionQuery = "SELECT title FROM categories WHERE categoryID = '$responseCategoryID'";
@@ -131,7 +157,10 @@ session_start(); //starts the session to store certain variables using cookies
 		$categoryTitle = $row[0]; 
 		echo "<h1 id='questionFormat'>$categoryTitle</h1>";
 		
-		echo "<p><button type='button' onclick=''>Post a reply!</button>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Page No.</p>";
+		if ($userID != $_SESSION['userID'])
+		{
+			echo "<p><a href='questionResponse.php?postResponse=true'>Post a Reply!</a>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Page No.</p>";
+		}
 		
 		$responseQuery = "SELECT userNickname FROM userDetails INNER JOIN questionDetails 
 		ON userDetails.userID = questionDetails.userID
@@ -167,10 +196,43 @@ session_start(); //starts the session to store certain variables using cookies
 		$score = $row[0];
 		$_SESSION['score'] = $score; 
 		
+		$responseQuery = "SELECT userID FROM questionDetails
+			WHERE questionID = '$responseID'"; 
+			$result = mysql_query($responseQuery); 
+			$row = mysql_fetch_row($result);
+			$posterID = $row[0]; //assign the ID of the poster of the question to a variable
 		
-		echo "<p id=questionHeader>&#8593 <a href='questionResponse.php?upvote=true'>Up Vote</a> &nbsp; &#8595 <a href='questionResponse.php?downvote=true'>Down Vote</a> Score: $score
+			$sameUser = ""; 
+			$answerCheck = $_SESSION['voteCount']; 
+			
+		if ($posterID == $_SESSION['userID'])
+			{
+				$sameUser = "true"; 
+			}
+			
+		if ($posterID != $_SESSION['userID'])
+			{
+				$sameUser = "false"; 
+			}
+		
+		if ($sameUser == "false" && $answerCheck != 1)
+		{
+		echo "<p id=questionHeader>&#8593 <a href='questionResponse.php?upvote=true'>Up Vote</a> &nbsp; &#8595 <a href='questionResponse.php?downvote=true'>Down Vote</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Score: <big><b>$score</b></big>
 		</p> ";
-	
+		}
+		
+		if ($sameUser == "false" or $answerCheck  != 0)
+		{
+		echo "<p id=questionHeader> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='questionResponse.php?cancel=true'>Cancel Vote</a>&nbsp;&nbsp;&nbsp;Score: <big><b>$score</b></big>
+		</p> ";
+		}
+		
+		if ($sameUser == "true")
+		{
+		echo "<p id=questionHeader> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Score: <big><b>$score</b></big>
+		</p> ";
+		}
+		
 	//now we need to retrieve any responses
 		$getAllResponses = "SELECT responseContent, userID FROM responseDetails WHERE questionID = $responseID";
 		$responseList = mysql_query($getAllResponses); 
@@ -207,54 +269,16 @@ session_start(); //starts the session to store certain variables using cookies
 				$responderNickname = $row[0]; 
 				echo "<p>answered by $responderNickname</p>"; 
 			}
-			
 		
 	?>
 	
 	
 	
-
-	
 	
 	<hr> </hr>
-	<form action="<?php echo $_SERVER["PHP_SELF"]; if($loggedIn != "true"){echo'style ="display:none"';} ?>" method="post" id="questionFormat" input type="text" name="responseContent">
-	<textarea action="<?php  if($loggedIn != "true"){echo'style ="display:none"';} echo $_SERVER["PHP_SELF"];?>" method="post" style="width: 300px; height: 150px" id="questionFormat" name="responseContent">Please post your response here.</textarea>
-	<br>
-	<?php 
-			if ($loggedIn == "true")
-				{
-					echo'<input type="submit" value="SUBMIT" />'; 
-					
-				}
-			else
-				{
-					echo '<p>You must be logged in to respond</p>
-					'; 
-					
-				}
-		?>
-	</form>
+
 	
 	</div> <!--end wrapper--> 
-
-<?php //code for posting a response
-	if (isset($_POST['responseContent'])) 
-		{
-			$responseContent = $_POST['responseContent']; 
-			echo "<p>Response content is" .$responseContent ."here</p>";
-			$responseDate = time(); 
-			$sql = "INSERT INTO responseDetails SET userID = '$userID', questionID = '$responseID', score = 0, responseDate = FROM_UNIXTIME($responseDate), preferredAnswer = 'F', responseContent = '$responseContent'";
-			
-			
-			if (@mysql_query($sql))
-					{
-						echo '<p>Your query has been submitted.</p>';
-						//echo '<META HTTP-EQUIV="Refresh" Content="0; URL=Index2.php">'; //redirects to prevent the user refreshing the page and creating a user account twice
-					} 
-			
-		} //end if 
-
-?> 
 	
 <div id="feedControl">Loading...</div>
 		<p>Codes of Conduct and Terms of Service to go here</p>

@@ -81,7 +81,7 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 		$read = $row[0]; 
 		
 		$_SESSION['userID'] = $read; 
-		
+		$_SESSION['voteCount'] = 0; 
 		header("location:index.php"); //redirects if successful
 		
 		} //end if 

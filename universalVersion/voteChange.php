@@ -13,7 +13,7 @@ session_start(); //starts the session to store certain variables using cookies
 
 <body>
 <?php
-
+		$_SESSION['voteCount'] = 1; 
 		$loggedIn = "false";
 		if (array_key_exists('userEmail', $_SESSION) && !empty($_SESSION['userEmail'])) 
 			{
@@ -34,8 +34,11 @@ session_start(); //starts the session to store certain variables using cookies
 					}
 					
 //change the score
+			$_SESSION['oldScore'] = 0; //initialise variable to hold the previous score of the question 
+
 			if ($_SESSION['vote'] == 'Up')
 				{
+					$_SESSION['oldScore'] = $_SESSION['score']; //hold the old score in case the user wants to their up/down vote
 					$_SESSION['score'] = $_SESSION['score'] + 1; 
 					$_SESSION['currentScore'] = $_SESSION['score']; 
 					$newScore = $_SESSION['score'];
@@ -50,6 +53,7 @@ session_start(); //starts the session to store certain variables using cookies
 			
 			if ($_SESSION['vote'] == 'Down')
 				{
+					$_SESSION['oldScore'] = $_SESSION['score']; //hold the old score in case the user wants to their up/down vote
 					$_SESSION['score'] = $_SESSION['score'] - 1; 
 					$_SESSION['currentScore'] = $_SESSION['score']; 
 					$newScore = $_SESSION['score'];
@@ -60,6 +64,19 @@ session_start(); //starts the session to store certain variables using cookies
 							{
 								header("location:questionResponse.php"); 
 							}
+				}
+			if ($_SESSION['vote'] == 'Cancel')
+				{
+					$_SESSION['score'] = $_SESSION['oldScore']; 
+					$newScore = $_SESSION['score'];
+					$questionID = $_SESSION['questionID'];
+					$_SESSION['voteCount'] = 0; //reset the vote count so the user can re-vote 
+					$sql = "UPDATE questionDetails SET score = $newScore WHERE questionID = $questionID";
+						if($result = mysql_query($sql))
+							{
+								header("location:questionResponse.php"); 
+							}
+			
 				} //end if
 ?>
 
