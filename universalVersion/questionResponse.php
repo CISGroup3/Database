@@ -64,7 +64,7 @@ session_start(); //starts the session to store certain variables using cookies
 			}
 		$_SESSION['responseCategoryID'] = 1; //holds the response category
 		$responseCategoryID = 1; 
-		$responseID = 59; //holds the primary key of the question 
+		$responseID = 57; //holds the primary key of the question 
 		$_SESSION['questionID'] = $responseID; 
 		$userID = 17; 
 		
