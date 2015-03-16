@@ -12,13 +12,12 @@ padding:0px;
 margin:0 auto;
 width:945px;
 font:13px/22px Helveltica, Arial, "sans-serif";
-/*background-image: url("../Images/background.jpg");*/
-background-size:100%;
-background-size:cover;
-vertical-align:top;
 position:relative;
 top:0;
 text-align:justify;
+background-image: url("../Images/background.jpg");
+background-repeat: no-repeat;
+background-size: cover;
 }
 
 #b2
@@ -45,6 +44,28 @@ margin-left:9px;
 padding-bottom:10px;
 width:940px;
 font-size:12px;
+}
+
+#borderimg
+{
+position: absolute;
+z-index: -1;
+margin-top:45px;
+margin-left:40px;
+}
+
+#borderimg2
+{
+position: absolute;
+z-index: -1;
+margin-top:20px;
+margin-left:40px;
+}
+
+#container
+{
+padding-top:70px;
+margin-left:280px;
 }
 
 p
@@ -151,7 +172,7 @@ color:#FF6600;
 /*When cursor is over the text in the navigation bar, the background colour is changed*/
 #nav li a:hover 
 {
-background-color:#C4C4C4;
+background-color:#f7C57E;
 }
 
 #heading /*Main header (FAQ)*/

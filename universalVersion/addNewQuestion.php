@@ -21,17 +21,17 @@ session_start(); //starts the session to store certain variables using cookies
 			}
 		
 		$dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
-	if (!$dbcnx) //if a connection cannot be made, the code will exit gracefully 
-		{
-			exit( '<p> Unable to connect to the ' . 'database server at this time. </p>' );
-		}
+			if (!$dbcnx) //if a connection cannot be made, the code will exit gracefully 
+				{
+					exit( '<p> Unable to connect to the ' . 'database server at this time. </p>' );
+				}
 		
-//select the webforum db 
-	if(!@mysql_select_db('webforum'))
-		if (!@mysql_select_db('webforum')) //if the connection is made but the database cannot be found, exit gracefully 
-			{
-				exit('<p>Unable to locate the forum ' . 'database at this time. </p>'); 
-			}
+			//select the webforum db 
+				if(!@mysql_select_db('webforum'))
+					if (!@mysql_select_db('webforum')) //if the connection is made but the database cannot be found, exit gracefully 
+						{
+							exit('<p>Unable to locate the forum ' . 'database at this time. </p>'); 
+						}
 ?>
 
 	<div id = "nav">
@@ -109,8 +109,8 @@ session_start(); //starts the session to store certain variables using cookies
 
 			//get the category
 			$arrayCounter = 0; 
-			$variableArray = array();
-			$idArray = array(); 
+			$variableArray = array(); //malware, antivirus etc.
+			$idArray = array(); //1...7 
 			$categoryList = @mysql_query('SELECT title, categoryID FROM categories');
 			
 			
@@ -121,10 +121,10 @@ session_start(); //starts the session to store certain variables using cookies
 				while ($category = mysql_fetch_array($categoryList)) 
 					{
 						$categoryText = $category['title'];
-						$variableArray[$arrayCounter] = $category['title']; 
-						$idArray[$arrayCounter] = $category['categoryID'];
+						$variableArray[$arrayCounter] = $category['title']; //category[0] = malware etc.
+						$idArray[$arrayCounter] = $category['categoryID']; //ID[0] = 1
 						//echo $variableArray[$arrayCounter]; 
-						$arrayCounter = $arrayCounter + 1; 
+						$arrayCounter = $arrayCounter + 1; //array counter = 7 at end
 						
 					}	
 				
@@ -133,7 +133,7 @@ session_start(); //starts the session to store certain variables using cookies
 				foreach($variableArray as $title)
 					{
 						echo "<option value='$title'>$title</option>";
-					}
+					} //displays dropdown
 				echo'</select>';
 
 
@@ -159,9 +159,9 @@ session_start(); //starts the session to store certain variables using cookies
 //If variables have been submitted through the form, assign them and post them
 	if (isset($_POST['questionTitle'])) 
 		{
-			$variableArray = array(" ", "something"); //creates an array to hold each of the values 
+			//$variableArray = array(" ", "something"); //creates an array to hold each of the values 
 			$questionTitle = $_POST['questionTitle'];
-			$variableArray[0] = $questionTitle; 
+			//$variableArray[0] = $questionTitle; 
 			$checker = "true"; //remains true as long as user enters a value in each box
 			
 			//$categoryID = $_SESSION['category']; 
@@ -170,9 +170,10 @@ session_start(); //starts the session to store certain variables using cookies
 			
 			$categoryItem = $_POST['Category'];
 			echo "<p>$categoryItem</p>";
-			$counter = 0 - $arrayCounter;
 			
-			foreach ($variableArray as $value)
+			$counter = 0;
+			
+			foreach ($variableArray as $value) //find the ID of the category chosen by the user
 				{
 						if ($value != $categoryItem)
 							{
@@ -185,7 +186,8 @@ session_start(); //starts the session to store certain variables using cookies
 							}
 				}
 			
-			
+			echo $arrayCounter;
+			echo $counter;
 			$categoryID = $idArray[$counter];
 			//echo $categoryID;
 			
@@ -204,16 +206,16 @@ session_start(); //starts the session to store certain variables using cookies
 				
 				//echo"<p>$questionTitle, $userID, $categoryID, $questionText</p>"; 
 			
-				$sql = "INSERT INTO questionDetails SET questionTitle='$questionTitle', userID ='$userID', categoryID = '$categoryID', questionText = '$questionText', questionStatus = 'Open', questionDate = FROM_UNIXTIME($questionDate)";
+				$sql = "INSERT INTO questionDetails SET questionTitle='$questionTitle', userID ='$userID', categoryID = '$categoryID', questionText = '$questionText', questionStatus = 'Open', questionDate = FROM_UNIXTIME($questionDate), score =0";
 				//creates a new user through a SQL insert query
-				echo 'You have reached this line.'; 
+				
 				
 			if ($checker == "true")
 			{
 				if (@mysql_query($sql))
 					{
 						echo '<p>Your query has been submitted.</p>';
-						echo '<META HTTP-EQUIV="Refresh" Content="0; URL=Index2.php">'; //redirects to prevent the user refreshing the page and creating a user account twice
+						echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">'; //redirects to prevent the user refreshing the page and creating a user account twice
 					}
 			}	
 				else if ($sql === false) //if the query doesn't work/returns false, then catch the error gracefully
