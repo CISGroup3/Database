@@ -69,8 +69,9 @@ session_start(); //starts the session to store certain variables using cookies
 							
 							<?php
 							if ($loggedIn == "false")
-							
-							echo "<li><a href=loginTest.php>Sign in</a></li>"
+							{
+							echo "<li><a href=loginTest.php>Sign in</a></li>";
+							}
 							
 							?>
 							<?php
