@@ -9,7 +9,6 @@ session_start(); //starts the session to store certain variables using cookies
 <!DOCTYPE html>
 <html lang="en">
 <meta charset = "utf-8">
-<link rel="stylesheet" type="text/css" href="CSS/mystyle.css"/>
 </head>
 
 <div id = "b2">
@@ -55,14 +54,16 @@ session_start(); //starts the session to store certain variables using cookies
 							<li><b>|</b></li>
 							<?php
 							if ($loggedIn == "false")
-							
-							echo "<li><a href=loginTest.php>Sign in</a></li>"
-							
+							{
+							echo "<li><a href=loginTest.php>Sign in</a></li>";
+							$_SESSION['userID'] = "";
+							$_SESSION['voteCount'] = 0; 
+							}
 							?>
 							<?php
 							if ($loggedIn == "true")
 							
-							echo "<li><a href=logout.php>Sign out</a></li>"
+							echo "<li><a href=logout.php>Sign out</a></li>";
 							?>
 						</ul>
 					</nav>

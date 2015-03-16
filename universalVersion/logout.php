@@ -2,7 +2,7 @@
     session_start();
     $_SESSION = array();
     session_unset();
-    $page = "Index2.php";
+    $page = "index.php";
     
 	
             // if redirect to is a restricted page, redirect to index

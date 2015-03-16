@@ -75,14 +75,16 @@ session_start(); //starts the session to store certain variables using cookies
 							
 							<?php
 							if ($loggedIn == "false")
-							
-							echo "<li><a href=loginTest.php>Sign in</a></li>"
-							
+							{
+							echo "<li><a href=loginTest.php>Sign in</a></li>";
+							$_SESSION['userID'] = "";
+							$_SESSION['voteCount'] = 0; 
+							}
 							?>
 							<?php
 							if ($loggedIn == "true")
 							
-							echo "<li><a href=logout.php>Sign out</a></li>"
+							echo "<li><a href=logout.php>Sign out</a></li>";
 							
 							
 							?>

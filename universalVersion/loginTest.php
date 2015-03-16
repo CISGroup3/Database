@@ -9,7 +9,6 @@ session_start(); //starts the session to store certain variables using cookies
 <!DOCTYPE html>
 <html lang="en">
 <meta charset = "utf-8">
-<link rel="stylesheet" type="text/css" href="CSS/mystyle.css"/>
 </head>
 
 <div id = "b2">
@@ -55,14 +54,16 @@ session_start(); //starts the session to store certain variables using cookies
 							<li><b>|</b></li>
 							<?php
 							if ($loggedIn == "false")
-							
-							echo "<li><a href=loginTest.php>Sign in</a></li>"
-							
+							{
+							echo "<li><a href=loginTest.php>Sign in</a></li>";
+							$_SESSION['userID'] = "";
+							$_SESSION['voteCount'] = 0; 
+							}
 							?>
 							<?php
 							if ($loggedIn == "true")
 							
-							echo "<li><a href=logout.php>Sign out</a></li>"
+							echo "<li><a href=logout.php>Sign out</a></li>";
 							?>
 						</ul>
 					</nav>
@@ -141,7 +142,7 @@ session_start(); //starts the session to store certain variables using cookies
 
 <?php //default
 //connect to the db 
-//session_start(); DO WE NEED THIS
+
 
 
 $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
@@ -179,10 +180,10 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 	
 		// Mysql_num_row is counting table row
 		$count=mysql_num_rows($result);
-
+		
 		// If result matched $myusername and $mypassword, table row must be 1 row
 
-		if($count==1){
+		if($count == 1){
 		
 		$result = @mysql_query("SELECT userNickname FROM webforum.userdetails WHERE userEmail='$userEmail' and userPassword='$userPassword'"); 
 		$row = mysql_fetch_row($result);
@@ -199,14 +200,16 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 		
 		$_SESSION['userID'] = $read; 
 		$_SESSION['voteCount'] = 0; 
-		header("location:index.php"); //redirects if successful
+		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">'; 
+		//header("location:index.php"); redirects if successful
 		
 		} //end if 
 		
 		if ($count!=1) {
 		echo "Wrong Username or Password";
 		session_unset(); 
-		header("location:index.php"); //redirects if not successful 
+		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">'; 
+		//header("location:index.php"); redirects if not successful 
 		}
 }
 ?>
