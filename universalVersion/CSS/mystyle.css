@@ -15,7 +15,7 @@ font:13px/22px Helveltica, Arial, "sans-serif";
 position:relative;
 top:0;
 text-align:justify;
-background-image: url("../Images/background.jpg");
+/*background-image: url("../Images/background.jpg");*/
 background-repeat: no-repeat;
 background-size: cover;
 }

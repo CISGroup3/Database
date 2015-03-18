@@ -232,9 +232,12 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 				
 				if (@mysql_query($sql))
 					{
-						echo '<p>Your account has been made.</p>';
+						//echo '<p>Your account has been made.</p>';
+						$x = null; 
+						$_SESSION['userEmail'] = $x; //specifically ensure that the system does not auto login the user after they are registered. 
+						session_unset(); //unset the session variables 
 						echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">'; //redirects to prevent the user refreshing the page and creating a user account twice
-					}
+					} //end if here 
 				
 				else if ($sql === false) //if the query doesn't work/returns false, then catch the error gracefully
 					{

@@ -64,12 +64,17 @@ session_start(); //starts the session to store certain variables using cookies
 				<div id = "nav3">
 					<nav>
 						<ul>
-							<li><a href="registryTest.php">Register</a></li>
-							<li><b>|</b></li>
+							
+						
+							
+							
+							
 							
 							<?php
 							if ($loggedIn == "false")
 							{
+							echo "<li><a href='registryTest.php'>Register</a></li>";
+							echo "<li><b>|</b></li>";
 							echo "<li><a href=loginTest.php>Sign in</a></li>";
 							}
 							
