@@ -86,9 +86,9 @@ google.setOnLoadCallback(load);
 							?>
 							<?php
 							if ($loggedIn == "true")
-							
+							{
 							echo "<li><a href=logout.php>Sign out</a></li>";
-							
+							}
 							
 							?>
 						</ul>
