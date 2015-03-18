@@ -235,7 +235,7 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 						//echo '<p>Your account has been made.</p>';
 						$x = null; 
 						$_SESSION['userEmail'] = $x; //specifically ensure that the system does not auto login the user after they are registered. 
-						session_unset(); 
+						session_unset(); //unset the session variables 
 						echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">'; //redirects to prevent the user refreshing the page and creating a user account twice
 					}
 				
