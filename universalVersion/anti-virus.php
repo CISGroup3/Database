@@ -13,7 +13,7 @@ session_start(); //starts the session to store certain variables using cookies
 
 </head>
 
-<div id = "b2">
+<body>
 <?php
 		$loggedIn = "false";
 		
@@ -74,7 +74,6 @@ session_start(); //starts the session to store certain variables using cookies
 		</nav>
 	</div>
 	
-	<div id="wrapper">
 		<div id = "heading">
 		Anti-Virus
 		</div>
@@ -83,53 +82,58 @@ session_start(); //starts the session to store certain variables using cookies
 	<table width = "100%">
 	<tr>
 
-    <td width = "10%"><img src="Images/nortonlogo.png" alt="Norton" title="Norton" height="50" width="90"/></td>
+    <td width = "10%"><img src="Images/nortonlogo.png" alt="Norton" title="Norton" height="90" width="90"/></td>
 
     <td>
 	<div id = "table-heading">
 		Norton
 	</div>
-	Small paragraph of information and facts about the anti-virus
+	Norton anti-virus is one of the market leaders in anti-virus companies founded in 1991, 
+	they have been providing premium software ever since helping to protect devices ranging from tablets and phones to laptops.
 	</td>		
   </tr>
   
   <tr>
-    <td width = "10%"><img src="Images/avglogo.png" alt="AVG" title="AVG" height="50" width="90"/></td>
+    <td width = "10%"><img src="Images/avglogo.png" alt="AVG" title="AVG" height="90" width="90"/></td>
     <td>
 		<div id = "table-heading">
 	Anti-Virus Guard (AVG)
 	</div>
-	Small paragraph of information and facts about the anti-virus
+	AVG is one of the leading free anti-virus software out there and despite being a relatively new is 
+	regarded as one of the best and most consistent anti-virus software out there.
 	</td>		
   </tr>
   
   <tr>
-    <td width = "10%"><img src="Images/avastlogo.png" alt="Avast" title="Avast" height="50" width="90"/></td>
+    <td width = "10%"><img src="Images/avastlogo.png" alt="Avast" title="Avast" height="75" width="90"/></td>
     <td>
 		<div id = "table-heading">
 	Avast
 	</div>
-	Small paragraph of information and facts about the anti-virus
+	Avast is also a high quality anti-virus software provider; even though they are not as impressive as 
+	AVG they still provide a high quality service for free.
 	</td>		
   </tr>
   
    <tr>
-    <td width = "10%"><img src="Images/mcafeelogo.png" alt="McAfee" title="McAfee" height="50" width="90"/></td>
+    <td width = "10%"><img src="Images/mcafeelogo.png" alt="McAfee" title="McAfee" height="70" width="90"/></td>
     <td>
 		<div id = "table-heading">
 	McAfee
 	</div>
-	Small paragraph of information and facts about the anti-virus
+	MacAfee is one of the oldest anti-virus companies out there consistently providing protection for 
+	all manner of users ranging from home use to office security.
 	</td>		
  
   </tr>
    <tr>
-    <td width = "10%"><img src="Images/wdefend.png" alt="Windows Defender" title="Windows Defender" height="50" width="90"/></td>
+    <td width = "10%"><img src="Images/wdefend.png" alt="Windows Defender" title="Windows Defender" height="90" width="90"/></td>
     <td>
 		<div id = "table-heading">
 	Windows Defender
 	</div>
-	Small paragraph of information and facts about the anti-virus
+	Windows defender comes free with every copy of a windows operating system and offers a good basic 
+	protection from many of the issues that are faced by users with security issues.
 	</td>		
   </tr>
 
@@ -141,9 +145,6 @@ session_start(); //starts the session to store certain variables using cookies
 <div id="antitablepic">
 <img src="Images/comparisontable.png" alt="Comparison Table" width="945" height="350"/>
 </div>
-		
-<!-- end of wrapper -->
-	</div>
 	
 	<div id="footer">
 	<footer>
@@ -161,5 +162,5 @@ session_start(); //starts the session to store certain variables using cookies
 		
 	</footer>
 	</div>
-</div>
+</body>
 </html>

@@ -15,38 +15,22 @@ font:13px/22px Helveltica, Arial, "sans-serif";
 position:relative;
 top:0;
 text-align:justify;
-/*background-image: url("../Images/background.jpg");*/
-background-repeat: no-repeat;
+background-image: url("../Images/background.jpg");
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
 background-size: cover;
+vertical-align: middle;
 }
 
-#b2
-{
-/*centre elements using margin 0*/
-height:100%;
-padding:0px;
-margin:0 auto;
-width:945px;
-font:13px/22px Helveltica, Arial, "sans-serif";
-/*background-image: url("../Images/background.jpg");*/
-background-size:100%;
-background-size:cover;
-vertical-align:top;
-position:relative;
-top:0;
-text-align:justify;
-margin-left:9px;
-}
-
-/*Dimensions used for news feed*/
-#feedControl 
+#feedControl /*Dimensions used for news feed*/
 {
 padding-bottom:10px;
-width:940px;
+width:941px;
 font-size:12px;
 }
 
-#borderimg
+#borderimg /*Used for the postioning of the image used in the sign in page*/
 {
 position: absolute;
 z-index: -1;
@@ -54,7 +38,7 @@ margin-top:45px;
 margin-left:40px;
 }
 
-#borderimg2
+#borderimg2 /*Used for the positioning of the image used in the register page*/
 {
 position: absolute;
 z-index: -1;
@@ -62,29 +46,38 @@ margin-top:20px;
 margin-left:40px;
 }
 
-#container
+#container /*Used for the positioning of the PHP forms used for both sign in and register pages*/
 {
 padding-top:70px;
 margin-left:280px;
 }
 
-p
+#loadhead /*Header used for deleting question*/
+{
+text-align:center;
+font-size: 30px;
+font-weight: 5px;
+margin:0px;
+padding-top:250px;
+padding-right:20px;
+}
+
+p /*Used to set width of text in content*/
 {
 width:941px;
 }
 
-/*Used for creating the navigation bar*/
-#nav 
+
+#nav  /*Used for creating the navigation bar*/
 { 
 height:50px; 
-width:100%;
+width:945px;
 float:left;
 padding:0;
 background-color:#262827;
 }
 
-/*Used for positioning of the content on the navigation bar (Logo, Home, Anti-Virus, FAQ, Forum, Trouble-Shooting)*/
-#nav ul 
+#nav ul  /*Used for positioning of the content on the navigation bar (Logo, Home, Anti-Virus, FAQ, Forum, Trouble-Shooting)*/
 {
 list-style:none;
 width:945px;
@@ -92,14 +85,12 @@ margin:0 auto;
 padding:0;
 }
 
-/*Used for moving the content on the navigation bar to the left*/
-#nav li 
+#nav li /*Used for moving the content on the navigation bar to the left*/
 {
 float:left;
 }
 
-/*Used for positioning/alteration of the text (Home, Anti-Virus, FAQ, Forum, Trouble-Shooting) in the navigation bar*/
-#nav li a 
+#nav li a /*Used for positioning/alteration of the text (Home, Anti-Virus, FAQ, Forum, Trouble-Shooting) in the navigation bar*/
 {
 display:block;
 padding:14px 15px;
@@ -108,15 +99,13 @@ font-weight:bold;
 color:#FF6600;
 }
 
-/*Used for positioning of the content on the navigation bar (Welcome, Name)*/
-#nav2 ul
+#nav2 ul /*Used for positioning of the content on the navigation bar (Welcome, Name)*/
 {
 list-style:none;
 width:100%;
 }
 
-/*Used for positioning/alteration of "Name" in the navigation bar (won't be highlighted when the cursor is over)*/
-#nav2 li a
+#nav2 li a /*Used for positioning/alteration of "Name" in the navigation bar (won't be highlighted when the cursor is over)*/
 {
 display:block;
 padding:14px 5px;
@@ -125,8 +114,7 @@ font-weight:bold;
 color:#FF6600;
 }
 
-/*Used for positioning/alteration of "Welcome" in the navigation bar*/
-#nav2 li b
+#nav2 li b /*Used for positioning/alteration of "Welcome" in the navigation bar*/
 {
 display:block;
 padding:14px 5px;
@@ -134,23 +122,20 @@ text-decoration:none;
 font-weight:bold;
 color:#FF6600;
 padding-left:90px;
-
 }
 
-#nav3 li 
+#nav3 li /*Moves sign in and register on the navigation bar to the right*/
 {
 float:right;
 }
 
-/*Used for positioning of the content on the navigation bar (This is used for sign in/register)*/
-#nav3 ul 
+#nav3 ul /*Used for positioning of the content on the navigation bar (This is used for sign in/register)*/
 {
 list-style:none;
 width:100%;
 }
 
-/*Used for positioning/alteration of the text in the navigation bar (This is used for sign in/register)*/
-#nav3 li a
+#nav3 li a /*Used for positioning/alteration of the text in the navigation bar (This is used for sign in/register)*/
 {
 display:block;
 padding:14px 15px;
@@ -159,8 +144,7 @@ font-weight:bold;
 color:#FF6600;
 }
 
-/*Used for "|" next to the sign in/register so it doesn't get highlighted when the cursor goes over it*/
-#nav3 li b
+#nav3 li b /*Used for "|" next to the sign in/register so it doesn't get highlighted when the cursor goes over it*/
 {
 display:block;
 padding:14px 4px;
@@ -169,23 +153,12 @@ font-weight:bold;
 color:#FF6600;
 }
 
-/*When cursor is over the text in the navigation bar, the background colour is changed*/
-#nav li a:hover 
+#nav li a:hover /*When cursor is over the text in the navigation bar, the background colour is changed*/
 {
 background-color:#f7C57E;
 }
 
-#heading /*Main header (FAQ)*/
-{
-text-align: center;
-font-size: 30px;
-font-weight: 5px;
-margin:0px;
-padding-top:60px;
-padding-bottom:10px;
-}
-
-#heading2/*Main header (FAQ)*/
+#heading/*Main header (FAQ)*/
 {
 text-align: center;
 font-size: 30px;
@@ -204,14 +177,29 @@ margin:0px;
 padding-bottom:10px;
 }
 
-#table-heading
+#heading4 /*Header used for terms and conditions*/
+{
+text-align: center;
+font-size: 30px;
+font-weight: 5px;
+margin:0px;
+padding-top:20px;
+padding-bottom:10px;
+}
+
+#table-heading /*Header used for forum categories*/
 {
 font-size: 18px;
 margin-bottom:8px;
 color:red;
 }
 
-a:visited { text-decoration: none; color:red; }
+#center
+{
+text-align: center;
+}
+
+a:visited { text-decoration: none; color:red; } /*Colours hyperlinks to a different colour (Does not apply to news feed)*/
 
 #tablepad
 {
@@ -223,6 +211,9 @@ padding-bottom:10px;
 text-decoration: underline;
 }
 
+<<<<<<< HEAD
+#homepic /*Used for the positioning of the main logo on the home page*/
+=======
 /*Used to keep everything in the center, even when the window is adjusted*/
 #wrapper  
 {
@@ -256,19 +247,20 @@ button
 
 /*Used for the positioning of the main logo on the home page*/
 #homepic
+>>>>>>> origin/master
 {
 margin-left:300px;
 }
 
-#antitablepic
+#antitablepic /*Used for the positioning of the comparison table*/
 {
 position:relative;
 padding-bottom: 10px;
 }
-/*Used for creating the navigation bar for the footer*/
-#footer
+
+#footer /*Used for creating the navigation bar for the footer*/
 {
-width:100%;
+width:945px;
 float:left;
 margin:0 0 0em 0;
 padding:0;
@@ -277,8 +269,7 @@ position:relative; /*Change this line if you want the footer to follow directly 
 bottom:0;
 }
 
-/*Used for the positioning of the content in the footer*/
-#footer ul
+#footer ul /*Used for the positioning of the content in the footer*/
 {
 list-style:none;
 width:945px;
@@ -286,14 +277,12 @@ margin:0 auto;
 padding:0; 
 }
 
-/*Used for moving the content of the footer to the left*/
-#footer li 
+#footer li /*Used for moving the content of the footer to the left*/
 {
 float:left; 
 }
 
-/*Used for hyperlinks on footer*/
-#footer li a  
+#footer li a  /*Used for hyperlinks on footer*/
 {
 display:block;
 padding:8px 63px;
@@ -302,8 +291,7 @@ font-weight:bold;
 color:#FF6600;
 }
 
-/*Used for "|" in footer*/
-#footer li b 
+#footer li b /*Used for "|" in footer*/
 {
 display:block;
 padding:8px 1px;
@@ -312,80 +300,3 @@ font-weight:bold;
 color:#FF6600;
 font-size:25px;
 }
-
-/*h1
-{
-/*padding:20px;*/
-/*margin: 100px;*/
-/*font-size:32px;
-line-height:44px;
-font-family: 'Gochi Hand', cursive
-}
-
-
-p
-{
-padding-bottom:22px;
-}*/
-
-/*#banner
-{
-margin-top:66px;
-}
-
-.BannerImage
-{
-border-radius:50px;
-}*/
-/*navigation specifications*/
-
-/*Text box appearance*/
-/* /* .TextBox
-{
-/*margin: 40px;
-padding: 10px 15px 5px 15px;*/
-/*border-radius:20px;
-background: -o-linear-gradient(#F5FFFA, #3399CC); 
-background: -moz-linear-gradient(#F5FFFA, #3399CC);
-background: linear-gradient(#F5FFFA, #3399CC);
-word-wrap:break-word;
-width: 100%;
-}
-/*Gallery on home page specifications*/
-/*#Gallery
-div.img
-{
-  position:relative;
-  display:block;
-  margin:52px;
-  padding:5px;
-    float:left;
-  text-align:center;
- }
-div.img img
-  {
-  float:left;
-  display:block;
-    }
-div.img a:hover img
-  {
-  border:1px solid #0000ff;
-  }
-div.desc
-  {
-  text-align:center;
-  width:120px;
-  margin:5px;
-}
-/*Centring images on Dog Walking, Grooming and News pages*/
-/*#image
-{
-margin-left:318px;
-margin-right:318px;
-}
-/*Centring google maps and giving it a gap from the bottom of the page*/
-/*.googlemap
-{
-margin-bottom:50px;
-margin-left:200px;
-} */ 

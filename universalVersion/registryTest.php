@@ -11,7 +11,7 @@ session_start(); //starts the session to store certain variables using cookies
 <meta charset = "utf-8">
 </head>
 
-<div id = "b2">
+<body>
 <?php
 		$loggedIn = "false";
 		
@@ -42,6 +42,7 @@ session_start(); //starts the session to store certain variables using cookies
 						{
 							echo "<li><b></li></b>";
 						}
+						
 							?>
 						</ul>
 					</nav>
@@ -80,7 +81,7 @@ session_start(); //starts the session to store certain variables using cookies
 	
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
 			First name:<br>
-			<input type="text" name="firstname" maxlength="10" size="50">
+			<input type="text" name="firstname" maxlength="15" size="50">
 			<br>
 
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -95,29 +96,28 @@ session_start(); //starts the session to store certain variables using cookies
 
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 			Email Address:<br>
-			<input type="text" name="userEmail" maxlength="40" size="50">
+			<input type="text" name="userEmail" maxlength="70" size="50">
 			<br>
 
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" size="50">
 			Password:<br>
-			<input type="password" name="userPassword" title="Do not include spaces in your password." maxlength="15" size="50">
+			<input type="password" name="userPassword" title="Do not include spaces in your password." maxlength="14" size="50">
 			<br>
 
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" maxlength="15">
 			Retype password:<br>
-			<input type="password" name="confirmPassword" size="50">
+			<input type="password" name="confirmPassword" maxlength="14" size="50">
 			<br><br>
 		
-		<input type="submit" value="Register" /> 
+		<input type="submit" value="Register"/> 
 		
 		</form> 
 		</div>
 		
-		<div id = "heading">
+		<div id = "heading4">
 		Terms and Conditions
 		</div>
 		
-				<p>
 		<ul>
 		<li>Do not submit comments that contain personal information.</li>
 		<li>Do not submit comments that are unlawful, harassing, abusive, threatening, harmful, obscene, profane, sexually orientated or racially offensive.</li>
@@ -135,12 +135,10 @@ session_start(); //starts the session to store certain variables using cookies
 		<li>Do not impersonate other forum members or falsely claim to represent a person or organisation.</li>
 		<li>Do not submit comments or choose user names that contain personal information that would identify yourself or others. For example last names, addresses, phone numbers, email addresses or other online contact details either relating to yourself or other individuals.</li>
 		<li>Do not post comments in languages other than English. </li>
-		<li>Do not advertise or promote products or services. </li>
 		<li>Do not spam or flood the forum. Only submit a comment once. Do not resubmit the same, or similar, comments. Keep the number of comments you submit on a topic at a reasonable level. Multiple comments from the same individual, or a small number of individuals, may discourage others from contributing. </li>
 		<li>Do not use an inappropriate user name (vulgar, offensive etc.).</li>
 		<li>If you are under the age of 12 please get your parent/guardian's permission before participating in this forum. Users without this consent are not allowed to participate or provide us with personal information.</li>
 		</ul>
-		</p>
 
 		<div id="footer">
 		<ul>
@@ -178,6 +176,7 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 			$variableArray[0] = $firstname; 
 			$checker = "true"; //remains true as long as user enters a value in each box
 			$_SESSION['firstname'] = $firstname; 
+			$accountCreated = "false"; 
 			
 		if (isset($_POST['lastname']))
 			{
@@ -232,12 +231,20 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 				
 				if (@mysql_query($sql))
 					{
-						//echo '<p>Your account has been made.</p>';
-						$x = null; 
-						$_SESSION['userEmail'] = $x; //specifically ensure that the system does not auto login the user after they are registered. 
+						
+						$x = null;
+						$_SESSION['userEmail'] = $x; //specifically ensure that the system does not auto login the user after they are registered.
 						session_unset(); //unset the session variables 
-						echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">'; //redirects to prevent the user refreshing the page and creating a user account twice
-					} //end if here 
+						//$_SESSION['accountCreated'] = "true"; 
+						//echo '<META HTTP-EQUIV="Refresh" Content="0; URL=registryTest.php">'; 
+						//redirects to prevent the user refreshing the page and creating a user account twice
+						?>
+						<script>if (window.confirm('Would you like to login now? Your account will still be created if you choose Cancel.')) {
+							window.location.href='loginTest.php';
+						}
+						</script> <!--runs a script to redirect the user, asking if they want to log in right away -->
+						<?php
+					}
 				
 				else if ($sql === false) //if the query doesn't work/returns false, then catch the error gracefully
 					{
@@ -259,7 +266,5 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 		} //end if 
 	
 ?> 
-	
-
-</div>
-
+</body>
+</html>

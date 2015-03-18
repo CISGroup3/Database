@@ -11,7 +11,7 @@ session_start(); //starts the session to store certain variables using cookies
 
 </head>
 
-<div id= "b2">
+<body>
 <?php		
 		
 	if (isset($_GET['upvote'])) 
@@ -97,7 +97,7 @@ session_start(); //starts the session to store certain variables using cookies
 						}
 						if($loggedIn == "false")
 						{
-							echo "<li><b> Welcome, user!</li></b>";
+							echo "<li><b></li></b>";
 							$_SESSION['userID'] = "";
 							$_SESSION['voteCount'] = 0; 
 						}
@@ -109,21 +109,20 @@ session_start(); //starts the session to store certain variables using cookies
 				<div id = "nav3">
 					<nav>
 						<ul>
-							
+							<li><a href="registryTest.php">Register</a></li>
+							<li><b>|</b></li>
 							
 							<?php
 							if ($loggedIn == "false")
-							{
-							echo "<li><a href='registryTest.php'>Register</a></li>
-							<li><b>|</b></li>"; 
-							echo "<li><a href=loginTest.php>Sign in</a></li>";
-							}
+							
+							echo "<li><a href=loginTest.php>Sign in</a></li>"
+							
 							?>
 							<?php
 							if ($loggedIn == "true")
-							{
-							echo "<li><a href=logout.php>Sign out</a></li>";
-							} 
+							
+							echo "<li><a href=logout.php>Sign out</a></li>"
+							
 							
 							?>
 							
@@ -134,11 +133,6 @@ session_start(); //starts the session to store certain variables using cookies
 		</nav>
 	</div>
 
-	<div id="wrapper">
-		<div class="logoimg">
-			<img height="150" width="200"/> 
-		</div>
-		
 	<?php if(isset($_GET['login']));/*user wants to login link*/?> 
 	
 	<?php
@@ -158,7 +152,7 @@ session_start(); //starts the session to store certain variables using cookies
 		$result = mysql_query($sectionQuery);
 		$row = mysql_fetch_row($result);
 		$categoryTitle = $row[0]; 
-		echo "<h1 id='questionFormat'>$categoryTitle</h1>";
+		echo "<br><br><center><h1>$categoryTitle</h1></center>";
 		
 		if ($loggedIn == 'true')
 		{
@@ -185,13 +179,13 @@ session_start(); //starts the session to store certain variables using cookies
 		$result = mysql_query($responseQuery); 
 		$row = mysql_fetch_row($result);
 		$questionTitle = $row[0];
-		echo "<h2 id='questionFormat'>$questionTitle</h2>"; 
+		echo "<center><h2 id='questionFormat'>$questionTitle</h2></center>"; 
 		
 		$responseQuery = "SELECT questionText FROM questionDetails WHERE questionID = '$responseID'"; 
 		$result = mysql_query($responseQuery); 
 		$row = mysql_fetch_row($result);
 		$questionContent = $row[0];
-		echo "<p id='questionFormat'>$questionContent</p>"; 
+		echo "<center><p id='questionFormat'>$questionContent</p></center>"; 
 	
 		$responseQuery = "SELECT score FROM questionDetails WHERE questionID = '$responseID'"; 
 		$result = mysql_query($responseQuery); 
@@ -218,19 +212,19 @@ session_start(); //starts the session to store certain variables using cookies
 				$sameUser = "false"; 
 			}
 		
-		if ($sameUser == "false" && $answerCheck != 1)
+		if ($sameUser == "false" && $answerCheck != 1 && $loggedIn == "true")
 		{
 		echo "<p id=questionHeader>&#8593 <a href='questionResponse.php?upvote=true'>Up Vote</a> &nbsp; &#8595 <a href='questionResponse.php?downvote=true'>Down Vote</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Score: <big><b>$score</b></big>
 		</p> ";
 		}
 		
-		if ($answerCheck  != 0)
+		if ($answerCheck  != 0 && $loggedIn == "true")
 		{
 		echo "<p id=questionHeader> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='questionResponse.php?cancel=true'>Cancel Vote</a>&nbsp;&nbsp;&nbsp;Score: <big><b>$score</b></big>
 		</p> ";
 		}
 		
-		if ($sameUser == "true")
+		if ($sameUser == "true" or $loggedIn == "false")
 		{
 		echo "<p id=questionHeader> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Score: <big><b>$score</b></big>
 		</p> ";
@@ -264,7 +258,7 @@ session_start(); //starts the session to store certain variables using cookies
 		$counter = 0; 
 		foreach ($responseArray as $value)
 			{
-				echo "<p id=questionFormat>$value</p>";
+				echo "<center><p id=questionFormat>$value</p></center>";
 				$userID = $responderArray[$counter];
 				$sql = "SELECT userNickname FROM userDetails WHERE userID = $userID";
 				$responderNickname = mysql_query($sql); 
@@ -272,19 +266,35 @@ session_start(); //starts the session to store certain variables using cookies
 				$responderNickname = $row[0]; 
 				echo "<p>answered by $responderNickname</p>"; 
 			}
-		
 	?>
 	
-	
-	
-	
-	<hr> </hr>
+	<div id = "heading4">
+		Terms and Conditions
+		</div>
 
-	
-	</div> <!--end wrapper--> 
-	
-<div id="feedControl">Loading...</div>
-		<p>Codes of Conduct and Terms of Service to go here</p>
+		<ul>
+		<li>Do not submit comments that contain personal information.</li>
+		<li>Do not submit comments that are unlawful, harassing, abusive, threatening, harmful, obscene, profane, sexually orientated or racially offensive.</li>
+		<li>Do not swear or use language that could offend other forum participants.</li>
+		<li>Do not advertise or promote products or services.</li>
+		<li>Do not spam or flood the forum. Only submit a comment once.</li>
+		<li>Do not resubmit the same, or similar, comments.</li>
+		<li>Keep your comments relevant to the discussion topic.</li>
+		<li>Do not submit defamatory comments (comments that are untrue and capable of damaging the reputation of a person or organisation).</li>
+		<li>Do not condone illegal activity or incite people to commit any crime, including incitement of racial hatred.</li>
+		<li>Do not submit comments that could prejudice on-going or forthcoming court proceedings (contempt of court) or break a court injunction.</li>
+		<li>Do not submit comments containing someone else's copyright material.</li>
+		<li>Do not swear or use language that could offend other forum participants.</li>
+		<li>Do not otherwise submit comments that are unlawful, harassing, abusive, threatening, harmful, obscene, profane, sexually orientated or racially offensive. This includes comments that are offensive to others with regards to religion, gender, nationality or other personal characteristic.</li>
+		<li>Do not impersonate other forum members or falsely claim to represent a person or organisation.</li>
+		<li>Do not submit comments or choose user names that contain personal information that would identify yourself or others. For example last names, addresses, phone numbers, email addresses or other online contact details either relating to yourself or other individuals.</li>
+		<li>Do not advertise or promote products or services. </li>
+		<li>Do not spam or flood the forum. Only submit a comment once. Do not resubmit the same, or similar, comments. Keep the number of comments you submit on a topic at a reasonable level. Multiple comments from the same individual, or a small number of individuals, may discourage others from contributing. </li>
+		<li>Do not use an inappropriate user name (vulgar, offensive etc.).</li>
+		<li>If you are under the age of 12 please get your parent/guardian's permission before participating in this forum. Users without this consent are not allowed to participate or provide us with personal information.</li>
+		</ul>
+
+		
 	<div id="footer">
 			<ul>
 				<li><a href="index.php">Home</a></li>
@@ -298,5 +308,5 @@ session_start(); //starts the session to store certain variables using cookies
 				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>	
 			</ul>
 	</div>
-</div>
+</body>
 </html>
