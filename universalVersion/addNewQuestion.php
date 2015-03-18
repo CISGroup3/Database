@@ -95,20 +95,18 @@ session_start(); //starts the session to store certain variables using cookies
 	</div>
 
 	<div id="wrapper">
-	<div class="logoimg">
-			<img src="Images/athenasecuritylogo.png" alt="Athena Security" title="Athena Security" height="150" width="200"/> 
-		</div>
+	
 		
 	<?php if(isset($_GET['login']));/*user wants to login link*/?> 
 	
-		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
-			Title:<br>
-			<input type="text" name="questionTitle">
+		
+		<center><form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name = "questionPost"> 
+			<br><h1>Title:</h1><br>
+			<input type="text">
 			<br>
 		
 		<textarea rows = "4" cols="50" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="questionContent">Add your question text here.
-		</textarea> <br>
-		
+		</textarea> <br></center>
 		
 		
 		<?php
@@ -135,7 +133,7 @@ session_start(); //starts the session to store certain variables using cookies
 					}	
 				
 				
-				echo '<select name="Category" id = "Category" project="Category">';
+				echo '<center><select name="Category" id = "Category" project="Category"></center>';
 				foreach($variableArray as $title)
 					{
 						echo "<option value='$title'>$title</option>";
