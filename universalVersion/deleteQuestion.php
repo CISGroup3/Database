@@ -35,10 +35,63 @@ session_start(); //starts the session to store certain variables using cookies
 							}
 ?>
 
-<div id = "loadhead">
-Loading...
-</div>
+	<div id = "nav">
+		<nav>
+			<ul>
+				<li><img src="Images/athenalogo.png" alt="Athena Security" title="Athena Security" height="50" width="65"></li>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="anti-virus.php">Anti-Virus</a></li>
+				<li><a href="FAQ.php">FAQ</a></li>
+				<li><a href="forumMenu.php">Forum</a></li>
+				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>
+				
+				<div id = "nav2">
+					<nav>
+						<ul>
+						
+						
+						</ul>
+					</nav>
+				</div>
+				
+				<div id = "nav3">
+					<nav>
+						<ul>
+							<li><a href="registryTest.php">Register</a></li>
+							<li><b>|</b></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</ul>	
+		</nav>
+	</div>
 
+	<div id="wrapper">
+		<div class="logoimg">
+			<img height="150" width="200"/> 
+		</div>
 
+	<hr> </hr>
+
+	
+	</div> <!--end wrapper--> 
+	
+<div id="feedControl">Loading...</div>
+		
+	<div id="footer">
+			<ul>
+				<li><a href="index.php">Home</a></li>
+				<li><b>|</b></li>
+				<li><a href="anti-virus.php">Anti-Virus</a></li>
+				<li><b>|</b></li>
+				<li><a href="FAQ.php">FAQ</a></li>
+				<li><b>|</b></li>
+				<li><a href="forumMenu.php">Forum</a></li>
+				<li><b>|</b></li>
+				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>	
+			</ul>
+	</div>
 </body>
 </html>

@@ -22,7 +22,7 @@ session_start(); //starts the session to store certain variables using cookies
 				$loggedIn = "true";
 			}
 ?>
-<body>
+<div id = "b2">
 	<div id = "nav">
 	<nav>
 				
@@ -77,7 +77,9 @@ session_start(); //starts the session to store certain variables using cookies
 			<nav>
 	</div>
 
-		<div id = "heading">
+
+	<div id="wrapper">
+		<div id = "heading2">
 		<p>FAQ</p>
 		</div>
 		<p>
@@ -85,7 +87,7 @@ session_start(); //starts the session to store certain variables using cookies
 		Below are a number of frequently asked questions which our users have sent us. By following our advice you can minimise the chance of compromising your computers security.
 		</p>
 		<div id = "FAQ-subheading">
-		<p><b>Malware</b></p>
+		<p> Malware </p>
 		</div>
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
@@ -98,8 +100,7 @@ session_start(); //starts the session to store certain variables using cookies
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-        Malware is a piece of software which has been installed on a computer without any permission. 
-		It will aim to infiltrate or damage a computer system. It is also known as malicious software. 
+        Malware is a piece of software which has been installed on a computer without any permission. It will aim to infiltrate or damage a computer system. It is also known as malicious software. 
       </div>
     </div>
   </div>
@@ -113,11 +114,7 @@ session_start(); //starts the session to store certain variables using cookies
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
-        There are a number of threats which are associated with malware. 
-		Firstly you need to understand the types of malware which can harm your computer. 
-		There are a number of different variations including viruses, worms and trojan horses. 
-		Each type of malware will carry with it its own level of risk, for this reason it is important 
-		to treat every piece of malware seriously to ensure that damage to your computer is kept to a minimum.
+        There are a number of threats which are associated with malware. Firstly you need to understand the types of malware which can harm your computer. There are a number of different variations including viruses, worms and trojan horses. Each type of malware will carry with it its own level of risk, for this reason it is important to treat every piece of malware seriously to ensure that damage to your computer is kept to a minimum.
       </div>
     </div>
   </div>
@@ -131,14 +128,13 @@ session_start(); //starts the session to store certain variables using cookies
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
-        Yes. There are a number of ways to protect yourself, the most reliable way is to use a piece of anti virus software. 
-		This will act like a barrier (fire wall) to any malware that are trying to gain access to your computer.
+        Yes. There are a number of ways to protect yourself, the most reliable way is to use a piece of anti virus software. this will act like a barrier (fire wall) to any malware that are trying to gain access to your computer.
       </div>
     </div>
   </div>
 </div>
 <div id = "FAQ-subheading">
-	<p><b>Protecting your computer</b><p>
+	<p>Protecting your computer<p>
 	</div>
 
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -152,9 +148,7 @@ session_start(); //starts the session to store certain variables using cookies
     </div>
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="panel-body">
-        Anti viruses are pieces of software that will stop malware from gaining access to your computer. 
-		They will also perform scans which should identify any malware which has got through and then delete them to ensure no damage is 
-		caused to your computer.
+        Anti viruses are pieces of software that will stop malware from gaining access to your computer. They will also perform scans which should identify any malware which has got through and then delete them to ensure no damage is caused to your computer.
       </div>
     </div>
   </div>
@@ -168,9 +162,7 @@ session_start(); //starts the session to store certain variables using cookies
     </div>
     <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
       <div class="panel-body">
-        There is no single anti virus which will provide a service which will cater to your needs perfectly, also you should get a anti virus 
-		which is suited for you and the way that you use your computer. To help you choose the best anti virus for you, have a look at our comparison page. 
-		Here we have laid out the features that different anti viruses posses as well as the prices. 
+        There is no single anti virus which will provide a service which will cater to your needs perfectly, also you should get a anti virus which is suited for you and the way that you use your computer. To help you choose the best anti virus for you have a look at our comparison page. Here we have laid out the features that different anti viruses posses as well as the prices. 
       </div>
     </div>
   </div>
@@ -184,8 +176,7 @@ session_start(); //starts the session to store certain variables using cookies
     </div>
     <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
       <div class="panel-body">
-        You should make sure that the anti virus is catered to how you use your computer. There is no point spending a large amount of money of 
-		something which you believe would not benefit you.
+        You should make sure that the anti virus is catered to how you use your computer. There is no point spending a large amount of money of something which you believe would not benefit you.
       </div>
     </div>
   </div>
@@ -193,7 +184,7 @@ session_start(); //starts the session to store certain variables using cookies
 
 </p>
 		<div id = "FAQ-subheading">
-		<p><b>Internet threats</b></p>
+		<p> Internet threats </p>
 		</div>
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
@@ -206,8 +197,7 @@ session_start(); //starts the session to store certain variables using cookies
     </div>
     <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
       <div class="panel-body">
-        There are many different ways that you can be exploited on the internet the most notable ways are via malicious e-mails, 
-		suspicious links, downloads and phishing websites. These methods can exploit you however it is easy to avoid them.
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
   </div>
@@ -221,10 +211,7 @@ session_start(); //starts the session to store certain variables using cookies
     </div>
     <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
       <div class="panel-body">
-	  The main threats you are exposed to when browsing the internet can be avoided with just a basic knowledge of what to avoid e.g. 
-	  never opening emails from sources you don’t know/don’t trust, only visiting websites that you know are safe, not downloading or 
-	  opening anything from websites you don’t trust and only entering secure/personal information into sites with that have valid certificates 
-	  show by a green padlock next to the URL.
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
   </div>
@@ -238,15 +225,14 @@ session_start(); //starts the session to store certain variables using cookies
     </div>
     <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNine">
       <div class="panel-body">
-	  Anti-virus software will provide you with a good level of protection but none of them will offer complete security so it is best 
-	  to stay vigilant and follow the steps above when browsing the internet to ensure you are as safe as possible.
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
   </div>
 </div>
 
 <div id = "FAQ-subheading">
-		<p><b>Infected computers</b></p>
+		<p> Infected computers </p>
 		</div>
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
@@ -259,9 +245,7 @@ session_start(); //starts the session to store certain variables using cookies
     </div>
     <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen">
       <div class="panel-body">
-If you feel as if your computer has been attacked by a virus the best thing to do is to run a full scan using your 
-anti-virus software and this will hopefully highlight the problem, it’s also a good idea to create system restore points which can easily 
-done on every windows machine this allows you to revert your computer back to a point where there was no issues.
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
   </div>
@@ -275,9 +259,7 @@ done on every windows machine this allows you to revert your computer back to a 
     </div>
     <div id="collapseEleven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEleven">
       <div class="panel-body">
-Chances are if your computer is slow you are running too many background programs at once, to check this look at the bottom right 
-corner of your screen and clicking the arrow to expand and make sure to shut down any programs that aren’t needed. 
-There’s also a chance that malware is causing your computer to run follow the steps in the question below to help remedy the issue.
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
   </div>
@@ -291,15 +273,14 @@ There’s also a chance that malware is causing your computer to run follow the 
     </div>
     <div id="collapseTwelve" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwelve">
       <div class="panel-body">
-The best way to check for malware is to see if there are any programs that you don’t remember installing (but ensure that they are 
-not build into the operating system) and removes them via the control panel and also run an anti-virus scan to try and route out the malware and remove it.
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
   </div>
 </div>
 
 <div id = "FAQ-subheading">
-		<p><b>Protecting other devices</b></p>
+		<p> Protecting other devices </p>
 		</div>
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
@@ -312,7 +293,7 @@ not build into the operating system) and removes them via the control panel and 
     </div>
     <div id="collapseThirteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThirteen">
       <div class="panel-body">
-All devices can be under the threat of malware, just like computers.
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
   </div>
@@ -326,8 +307,7 @@ All devices can be under the threat of malware, just like computers.
     </div>
     <div id="collapseFourteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFourteen">
       <div class="panel-body">
-There are many pieces of anti-virus software available for devices such as 
-tablets and phones and provided you follow the same vigilance as you do when browsing the web on a computer and you shouldn’t have any issues.
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
   </div>
@@ -341,14 +321,15 @@ tablets and phones and provided you follow the same vigilance as you do when bro
     </div>
     <div id="collapseFifteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFifteen">
       <div class="panel-body">
-		In the scenario that you believe your device is infected by malware, go to the 'settings' and select the 'Apps' option, this will display
-		all applications which are installed on the device. Search through the applications and try and notice anything that seems out of the ordinary,
-		this could be an application which you don't recognize/remember installing. Once discovered, uninstall the application and then refer to the previous
-		question to prevent this scenario from occurring again.
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
   </div>
 </div>
+<!-- end of wrapper -->
+	</div>
+	
+
 		
 	<div id="footer">
 	<footer>
@@ -377,5 +358,5 @@ tablets and phones and provided you follow the same vigilance as you do when bro
 
         </script>
 
-</body>
+</div>
 </html>

@@ -86,8 +86,10 @@ google.setOnLoadCallback(load);
 							?>
 							<?php
 							if ($loggedIn == "true")
-							
+							{
 							echo "<li><a href=logout.php>Sign out</a></li>";
+							}
+							
 							?>
 						</ul>
 					</nav>
@@ -96,35 +98,25 @@ google.setOnLoadCallback(load);
 		</nav>
 	</div>
 	
+	<div id="wrapper">
 	<div id="homepic">
 			<img src="Images/athenasecuritylogo.png" alt="Athena Security" title="Athena Security" height="150" width="350"/>
 			</div>
 
-			Athena Security was founded with the purpose of informing novice users about the threats of cyber-crime and 
-			how they can protect themselves. The information which is provided will help users will a number of devices 
-			from phone/tablets to computers. Athena Security provides a vast amount of information as well as a number of tools to ensure you can find 
-			whatever information that you need. The tools which are available include:
+		<p>
+			Paragraph explaining who we are, the purpose of this website and why this website was made 
+			(Use research to back up the creation of this website ie. News) Also make it interesting as
+			possible, it will be the first thing the user will see so its important that it gets their
+			attention and curiosity.
 			
-			<ul>
-			<li>
-			<b>Anti-Virus Page</b>
-			– This has a number of anti-virus software and will help you decide which bests suites your needs.
-			<li>
-			<b>FAQ Page</b> 
-			– This has basic information which will help you stay protected from cyber-crime.
-			<li>
-			<b>Forum Page</b> 
-			– This page allows you to post questions which the team at Athena security and the general public will 
-			answer, this ensures you can get advice which is personalised for your needs.
-			<li>
-			<b>Trouble-Shooting Page</b> 
-			– This page will help you diagnose the issue with your computer, it will then give you 
-			some advice on how to get any issues that you are facing.
-			</ul>
-			A news feed is also available which will allow to you keep up to date with recent cyber-crimes, this can be seen below. 
-
+			<br><br>
 	
-<div id="feedControl"><br><br><br><br><br><br><br></div>
+			Short summary of what this website has to offer. (NOTE: Make sure there's enough content
+			so that the footer is at the bottom of the page (no white space at the bottom)
+		</p>
+	</div>
+	
+<div id="feedControl">Loading...</div>
 
 	<div id="footer">
 			<ul>
@@ -139,6 +131,14 @@ google.setOnLoadCallback(load);
 				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>	
 			</ul>
 	</div>
-	</div>
+	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="Javascript/1.11.1.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="Javascript/3.2.0.js"></script>
+
+        <script>
+            $('.help').tooltip()
+
+        </script>
 </body>
 </html>

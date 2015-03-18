@@ -13,7 +13,7 @@ session_start(); //starts the session to store certain variables using cookies
 
 </head>
 
-<body>
+<div id = "b2">
 <?php
 		$loggedIn = "false";
 		
@@ -65,7 +65,7 @@ session_start(); //starts the session to store certain variables using cookies
 							<?php
 							if ($loggedIn == "true")
 							
-							echo "<li><a href=logout.php>Sign out</a></li>"
+							echo "<li><a href=logout.php>Sign out</a></li>";
 							?>
 						</ul>
 					</nav>
@@ -74,6 +74,7 @@ session_start(); //starts the session to store certain variables using cookies
 		</nav>
 	</div>
 	
+	<div id="wrapper">
 		<div id = "heading">
 		Forum
 		</div>
@@ -82,33 +83,33 @@ session_start(); //starts the session to store certain variables using cookies
 	<table width = "100%">
 	<tr>
 
-    <td width = "10%"><img src="Images/malware.png" alt="Malware" title="Malware" height="65" width="90"/></td>
+    <td width = "10%"><img src="Images/malware.png" alt="Malware" title="Malware" height="50" width="90"/></td>
 
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Malware</a>
 	</div>
-	Discuss problems and ask questions about malware.
+	Short description of topic
 	</td>		
  </tr>
 
   <tr>
-    <td width = "10%"><img src="Images/antiviruses.png" alt="Anti-Viruses" title="Anti-Viruses" height="60" width="90"/></td>
+    <td width = "10%"><img src="Images/antiviruses.png" alt="Anti-Viruses" title="Anti-Viruses" height="50" width="90"/></td>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Anti-Viruses</a>
 	</div>
-	Discuss problems and ask questions about anti-viruses.
+	Short description of topic
 	</td>		
   </tr>
   
   <tr>
-    <td width = "10%"><img src="Images/computersupport.png" alt="Computer Support" title="Computer Support" height="65" width="90"/></td>
+    <td width = "10%"><img src="Images/computersupport.png" alt="Computer Support" title="Computer Support" height="50" width="90"/></td>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Computer Support</a>
 	</div>
-	Discuss problems and ask questions about computers.
+	Short description of topic
 	</td>		
  
   </tr>
@@ -118,28 +119,28 @@ session_start(); //starts the session to store certain variables using cookies
 	<div id = "table-heading">
 	<a href="index.php">Mobile/Tablet Support</a>
 	</div>
-		Discuss problems and ask questions about about mobile or tablets.
+	Short description of topic
 	</td>	
 	
 		
   </tr>
    <tr>
-    <td width = "10%"><img src="Images/operate.png" alt="Operating Systems" title="Operating Systems" height="60" width="90"/></td>
+    <td width = "10%"><img src="Images/operate.png" alt="Mobile/Tablet Support" title="Mobile/Tablet Support" height="50" width="90"/></td>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Operating Systems</a>
 	</div>
-	Discuss problems and ask questions about operating systems.
+	Short description of topic
 	</td>	
  
   </tr>
    <tr>
-    <td width = "10%"><img src="Images/browsers.png" alt="Browsers" title="Browsers" height="50" width="90"/></td>
+    <td width = "10%"><img src="Images/browsers.png" alt="Mobile/Tablet Support" title="Mobile/Tablet Support" height="50" width="90"/></td>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Browsers</a>
 	</div>
-	Discuss problems and questions about browsers.
+	Short description of topic
 	</td>		
  
   </tr>
@@ -149,17 +150,18 @@ session_start(); //starts the session to store certain variables using cookies
 	<div id = "table-heading">
 	<a href="index.php">Miscellaneous</a>
 	</div>
-	Discuss problems and ask questions about anything not covered within the previous categories.
+	Short description of topic
 	</td>	
  
   </tr>
 </table>
 </div>
 
-		<div id = "heading4">
+		<div id = "heading">
 		Terms and Conditions
 		</div>
 		
+				<p>
 		<ul>
 		<li>Do not submit comments that contain personal information.</li>
 		<li>Do not submit comments that are unlawful, harassing, abusive, threatening, harmful, obscene, profane, sexually orientated or racially offensive.</li>
@@ -176,12 +178,19 @@ session_start(); //starts the session to store certain variables using cookies
 		<li>Do not otherwise submit comments that are unlawful, harassing, abusive, threatening, harmful, obscene, profane, sexually orientated or racially offensive. This includes comments that are offensive to others with regards to religion, gender, nationality or other personal characteristic.</li>
 		<li>Do not impersonate other forum members or falsely claim to represent a person or organisation.</li>
 		<li>Do not submit comments or choose user names that contain personal information that would identify yourself or others. For example last names, addresses, phone numbers, email addresses or other online contact details either relating to yourself or other individuals.</li>
+		<li>Do not post comments in languages other than English. </li>
 		<li>Do not advertise or promote products or services. </li>
 		<li>Do not spam or flood the forum. Only submit a comment once. Do not resubmit the same, or similar, comments. Keep the number of comments you submit on a topic at a reasonable level. Multiple comments from the same individual, or a small number of individuals, may discourage others from contributing. </li>
 		<li>Do not use an inappropriate user name (vulgar, offensive etc.).</li>
 		<li>If you are under the age of 12 please get your parent/guardian's permission before participating in this forum. Users without this consent are not allowed to participate or provide us with personal information.</li>
 		</ul>
+		</p>
+		
+<!-- end of wrapper -->
+	</div>
 	
+
+
 	<div id="footer">
 	<footer>
 			<ul>
@@ -198,5 +207,5 @@ session_start(); //starts the session to store certain variables using cookies
 		
 	</footer>
 	</div>
-</body>
+</div>
 </html>
