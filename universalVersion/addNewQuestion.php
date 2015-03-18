@@ -8,10 +8,10 @@ session_start(); //starts the session to store certain variables using cookies
 <title> Add New Question </title>
 <meta charset = "utf-8">
 <link rel="stylesheet" type="text/css" href="CSS/mystyle.css"/>
-
 </head>
 
 <body>
+
 <?php
 		$loggedIn = "false";
 		
@@ -37,7 +37,6 @@ session_start(); //starts the session to store certain variables using cookies
 	<div id = "nav">
 		<nav>
 			<ul>
-				<li><img src="Images/athenalogo.png" alt="Athena Security" title="Athena Security" height="50" width="65"></li>
 				<li><a href="index.php">Home</a></li>
 				<li><a href="anti-virus.php">Anti-Virus</a></li>
 				<li><a href="FAQ.php">FAQ</a></li>
@@ -54,7 +53,7 @@ session_start(); //starts the session to store certain variables using cookies
 						}
 						if($loggedIn == "false")
 						{
-							echo "<li><b> Welcome, user!</li></b>";
+							echo "<li><b></li></b>";
 						}
 							?>
 						</ul>
@@ -64,17 +63,12 @@ session_start(); //starts the session to store certain variables using cookies
 				<div id = "nav3">
 					<nav>
 						<ul>
-							
-						
-							
-							
-							
+							<li><a href="registryTest.php">Register</a></li>
+							<li><b>|</b></li>
 							
 							<?php
 							if ($loggedIn == "false")
 							{
-							echo "<li><a href='registryTest.php'>Register</a></li>";
-							echo "<li><b>|</b></li>";
 							echo "<li><a href=loginTest.php>Sign in</a></li>";
 							}
 							
@@ -94,19 +88,16 @@ session_start(); //starts the session to store certain variables using cookies
 		</nav>
 	</div>
 
-	<div id="wrapper">
-	
 		
 	<?php if(isset($_GET['login']));/*user wants to login link*/?> 
 	
-		
-		<center><form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name = "questionPost"> 
-			<br><h1>Title:</h1><br>
-			<input type="text">
+		<center><form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
+			<b>Title:</b><br>
+			<input type="text" name="questionTitle" size="30" maxlength="30">
 			<br>
 		
-		<textarea rows = "4" cols="50" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="questionContent">Add your question text here.
-		</textarea> <br></center>
+		<textarea rows = "6" cols="132" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="questionContent" placeholder="Please post your response here"></textarea> <center><br>
+		
 		
 		
 		<?php
@@ -143,11 +134,11 @@ session_start(); //starts the session to store certain variables using cookies
 
 		?>
 		<br>
-		
+		<div id = "center">
 		<?php 
 			if ($loggedIn == "true")
 				{
-					echo'<input type="submit" value="SUBMIT" />'; 
+					echo'<center><input type="submit" value="SUBMIT" /></center>'; 
 				}
 			else
 				{
@@ -155,7 +146,33 @@ session_start(); //starts the session to store certain variables using cookies
 				}
 		?>
 		</form>
-</div>
+		</div>
+		
+		<div id = "heading4">
+		Terms and Conditions
+		</div>
+
+		<ul>
+		<li>Do not submit comments that contain personal information.</li>
+		<li>Do not submit comments that are unlawful, harassing, abusive, threatening, harmful, obscene, profane, sexually orientated or racially offensive.</li>
+		<li>Do not swear or use language that could offend other forum participants.</li>
+		<li>Do not advertise or promote products or services.</li>
+		<li>Do not spam or flood the forum. Only submit a comment once.</li>
+		<li>Do not resubmit the same, or similar, comments.</li>
+		<li>Keep your comments relevant to the discussion topic.</li>
+		<li>Do not submit defamatory comments (comments that are untrue and capable of damaging the reputation of a person or organisation).</li>
+		<li>Do not condone illegal activity or incite people to commit any crime, including incitement of racial hatred.</li>
+		<li>Do not submit comments that could prejudice on-going or forthcoming court proceedings (contempt of court) or break a court injunction.</li>
+		<li>Do not submit comments containing someone else's copyright material.</li>
+		<li>Do not swear or use language that could offend other forum participants.</li>
+		<li>Do not otherwise submit comments that are unlawful, harassing, abusive, threatening, harmful, obscene, profane, sexually orientated or racially offensive. This includes comments that are offensive to others with regards to religion, gender, nationality or other personal characteristic.</li>
+		<li>Do not impersonate other forum members or falsely claim to represent a person or organisation.</li>
+		<li>Do not submit comments or choose user names that contain personal information that would identify yourself or others. For example last names, addresses, phone numbers, email addresses or other online contact details either relating to yourself or other individuals.</li>
+		<li>Do not advertise or promote products or services. </li>
+		<li>Do not spam or flood the forum. Only submit a comment once. Do not resubmit the same, or similar, comments. Keep the number of comments you submit on a topic at a reasonable level. Multiple comments from the same individual, or a small number of individuals, may discourage others from contributing. </li>
+		<li>Do not use an inappropriate user name (vulgar, offensive etc.).</li>
+		<li>If you are under the age of 12 please get your parent/guardian's permission before participating in this forum. Users without this consent are not allowed to participate or provide us with personal information.</li>
+		</ul>
 
 <?php //default
 //connect to the db 
@@ -234,12 +251,8 @@ session_start(); //starts the session to store certain variables using cookies
 					echo '<p> You have neglected to fill in all of the textboxes.</p>'; 
 				}
 		} //end if 
-	
-	
-	
 ?> 
-	
-<div id="feedControl">Loading...</div>
+
 
 	<div id="footer">
 			<ul>
