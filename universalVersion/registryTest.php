@@ -42,6 +42,7 @@ session_start(); //starts the session to store certain variables using cookies
 						{
 							echo "<li><b></li></b>";
 						}
+						
 							?>
 						</ul>
 					</nav>
@@ -175,6 +176,7 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 			$variableArray[0] = $firstname; 
 			$checker = "true"; //remains true as long as user enters a value in each box
 			$_SESSION['firstname'] = $firstname; 
+			$accountCreated = "false"; 
 			
 		if (isset($_POST['lastname']))
 			{
@@ -229,8 +231,19 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 				
 				if (@mysql_query($sql))
 					{
-						echo '<p>Your account has been made.</p>';
-						echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">'; //redirects to prevent the user refreshing the page and creating a user account twice
+						
+						$x = null;
+						$_SESSION['userEmail'] = $x; //specifically ensure that the system does not auto login the user after they are registered.
+						session_unset(); //unset the session variables 
+						//$_SESSION['accountCreated'] = "true"; 
+						//echo '<META HTTP-EQUIV="Refresh" Content="0; URL=registryTest.php">'; 
+						//redirects to prevent the user refreshing the page and creating a user account twice
+						?>
+						<script>if (window.confirm('Would you like to login now? Your account will still be created if you choose Cancel.')) {
+							window.location.href='loginTest.php';
+						}
+						</script> <!--runs a script to redirect the user, asking if they want to log in right away -->
+						<?php
 					}
 				
 				else if ($sql === false) //if the query doesn't work/returns false, then catch the error gracefully
