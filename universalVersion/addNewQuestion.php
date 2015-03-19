@@ -156,8 +156,6 @@ session_start(); //starts the session to store certain variables using cookies
 		<div id = "heading4">
 		Terms and Conditions
 		</div>
-		
-		<hr>
 
 		<ul>
 		<li>Do not submit comments that contain personal information.</li>

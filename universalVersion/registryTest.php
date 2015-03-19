@@ -108,9 +108,7 @@ session_start(); //starts the session to store certain variables using cookies
 			<input type="password" name="confirmPassword" maxlength="14" size="50">
 			<br><br>
 		
-		<div id = "center">
 		<input type="submit" value="Register"/> 
-		</div>
 		
 		</form> 
 		</div>
@@ -118,8 +116,6 @@ session_start(); //starts the session to store certain variables using cookies
 		<div id = "heading4">
 		Terms and Conditions
 		</div>
-		
-		<hr>
 		
 		<ul>
 		<li>Do not submit comments that contain personal information.</li>
@@ -137,6 +133,7 @@ session_start(); //starts the session to store certain variables using cookies
 		<li>Do not otherwise submit comments that are unlawful, harassing, abusive, threatening, harmful, obscene, profane, sexually orientated or racially offensive. This includes comments that are offensive to others with regards to religion, gender, nationality or other personal characteristic.</li>
 		<li>Do not impersonate other forum members or falsely claim to represent a person or organisation.</li>
 		<li>Do not submit comments or choose user names that contain personal information that would identify yourself or others. For example last names, addresses, phone numbers, email addresses or other online contact details either relating to yourself or other individuals.</li>
+		<li>Do not post comments in languages other than English. </li>
 		<li>Do not spam or flood the forum. Only submit a comment once. Do not resubmit the same, or similar, comments. Keep the number of comments you submit on a topic at a reasonable level. Multiple comments from the same individual, or a small number of individuals, may discourage others from contributing. </li>
 		<li>Do not use an inappropriate user name (vulgar, offensive etc.).</li>
 		<li>If you are under the age of 12 please get your parent/guardian's permission before participating in this forum. Users without this consent are not allowed to participate or provide us with personal information.</li>

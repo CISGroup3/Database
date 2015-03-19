@@ -90,9 +90,8 @@ session_start(); //starts the session to store certain variables using cookies
 			Password:<br>
 			<input type="password" name="userPassword" size="50" maxlength="14">
 			<br><br>
-<div id = "center">
+
 		<input type="submit" value="Sign in"/> 
-		</div>
 				
 		</form>
 		</div>
@@ -100,8 +99,6 @@ session_start(); //starts the session to store certain variables using cookies
 		<div id = "heading4">
 		Terms and Conditions
 		</div>
-		
-		<hr>
 
 		<ul>
 		<li>Do not submit comments that contain personal information.</li>
