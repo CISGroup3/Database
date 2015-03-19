@@ -52,17 +52,11 @@ session_start(); //starts the session to store certain variables using cookies
 				<div id = "nav3">
 					<nav>
 						<ul>
-							<<?php
-							if ($loggedIn == "true")
-							{
-							echo"<li><a href='profilePage.php'>Your Profile</a></li>";
-							echo "<li><b>|</b></li>"; 
-
-							}
+							<li><a href="registryTest.php">Register</a></li>
+							<li><b>|</b></li>
+							<?php
 							if ($loggedIn == "false")
 							{
-							echo"<li><a href='registryTest.php'>Register</a></li>";
-							echo "<li><b>|</b></li>"; 
 							echo "<li><a href=loginTest.php>Sign in</a></li>";
 							$_SESSION['userID'] = "";
 							$_SESSION['voteCount'] = 0; 
@@ -73,6 +67,7 @@ session_start(); //starts the session to store certain variables using cookies
 							
 							echo "<li><a href=logout.php>Sign out</a></li>";
 							?>
+						</ul>
 					</nav>
 				</div>
 			</ul>	
@@ -150,6 +145,22 @@ session_start(); //starts the session to store certain variables using cookies
 <div id="antitablepic">
 <img src="Images/comparisontable.png" alt="Comparison Table" width="945" height="350"/>
 </div>
+
+<p>
+<b>Boot-Time Scan:</b> Content
+<br>
+<b>On-Demand Scan:</b> Content
+<br>
+<b>Support:</b> Content
+<br>
+<b>Web Protection:</b> Content
+<br>
+<b>Live Updates:</b> Content
+<br>
+<b>Cross-Platform:</b> Content
+<br>
+<b>E-mail Security:</b> Content
+</p>
 	
 	<div id="footer">
 	<footer>
