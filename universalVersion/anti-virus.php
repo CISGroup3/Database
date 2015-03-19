@@ -150,6 +150,22 @@ session_start(); //starts the session to store certain variables using cookies
 <div id="antitablepic">
 <img src="Images/comparisontable.png" alt="Comparison Table" width="945" height="350"/>
 </div>
+
+<p>
+<b>Boot-Time Scan:</b>
+<br>
+<b>On-Demand Scan:</b>
+<br>
+<b>Support:</b>
+<br>
+<b>Web Protection:</b>
+<br>
+<b>Live Updates:</b>
+<br>
+<b>Cross-Platform:</b>
+<br>
+<b>E-mail Security:</b>
+</p>
 	
 	<div id="footer">
 	<footer>

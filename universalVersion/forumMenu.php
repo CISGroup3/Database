@@ -166,6 +166,8 @@ session_start(); //starts the session to store certain variables using cookies
 		Terms and Conditions
 		</div>
 		
+		<hr>
+		
 		<ul>
 		<li>Do not submit comments that contain personal information.</li>
 		<li>Do not submit comments that are unlawful, harassing, abusive, threatening, harmful, obscene, profane, sexually orientated or racially offensive.</li>

@@ -157,6 +157,8 @@ session_start(); //starts the session to store certain variables using cookies
 		Terms and Conditions
 		</div>
 		
+		<hr>
+		
 		<p>
 		<ul>
 		<li>Do not submit comments that contain personal information.</li>
