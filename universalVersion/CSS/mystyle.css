@@ -1,0 +1,266 @@
+/* Render as Block */
+footer, nav 
+{
+display:block;
+}
+
+body
+{
+/*centre elements using margin 0*/
+height:100%;
+padding:0px;
+margin:0 auto;
+width:945px;
+font:13px/22px Helveltica, Arial, "sans-serif";
+position:relative;
+top:0;
+text-align:justify;
+background-image: url("../Images/background.jpg");
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+vertical-align: middle;
+}
+
+#feedControl /*Dimensions used for news feed*/
+{
+padding-bottom:10px;
+width:941px;
+font-size:12px;
+}
+
+#borderimg /*Used for the postioning of the image used in the sign in page*/
+{
+position: absolute;
+z-index: -1;
+margin-top:45px;
+margin-left:40px;
+}
+
+#borderimg2 /*Used for the positioning of the image used in the register page*/
+{
+position: absolute;
+z-index: -1;
+margin-top:20px;
+margin-left:40px;
+}
+
+#container /*Used for the positioning of the PHP forms used for both sign in and register pages*/
+{
+padding-top:70px;
+margin-left:280px;
+}
+
+#loadhead /*Header used for deleting question*/
+{
+text-align:center;
+font-size: 30px;
+font-weight: 5px;
+margin:0px;
+padding-top:250px;
+padding-right:20px;
+}
+
+p /*Used to set width of text in content*/
+{
+width:941px;
+}
+
+
+#nav  /*Used for creating the navigation bar*/
+{ 
+height:50px; 
+width:945px;
+float:left;
+padding:0;
+background-color:#262827;
+}
+
+#nav ul  /*Used for positioning of the content on the navigation bar (Logo, Home, Anti-Virus, FAQ, Forum, Trouble-Shooting)*/
+{
+list-style:none;
+width:945px;
+margin:0 auto;
+padding:0;
+}
+
+#nav li /*Used for moving the content on the navigation bar to the left*/
+{
+float:left;
+}
+
+#nav li a /*Used for positioning/alteration of the text (Home, Anti-Virus, FAQ, Forum, Trouble-Shooting) in the navigation bar*/
+{
+display:block;
+padding:14px 15px;
+text-decoration:none;
+font-weight:bold;
+color:#FF6600;
+}
+
+#nav2 ul /*Used for positioning of the content on the navigation bar (Welcome, Name)*/
+{
+list-style:none;
+width:100%;
+}
+
+#nav2 li a /*Used for positioning/alteration of "Name" in the navigation bar (won't be highlighted when the cursor is over)*/
+{
+display:block;
+padding:14px 5px;
+text-decoration:none;
+font-weight:bold;
+color:#FF6600;
+}
+
+#nav2 li b /*Used for positioning/alteration of "Welcome" in the navigation bar*/
+{
+display:block;
+padding:14px 5px;
+text-decoration:none;
+font-weight:bold;
+color:#FF6600;
+padding-left:90px;
+}
+
+#nav3 li /*Moves sign in and register on the navigation bar to the right*/
+{
+float:right;
+}
+
+#nav3 ul /*Used for positioning of the content on the navigation bar (This is used for sign in/register)*/
+{
+list-style:none;
+width:100%;
+}
+
+#nav3 li a /*Used for positioning/alteration of the text in the navigation bar (This is used for sign in/register)*/
+{
+display:block;
+padding:14px 15px;
+text-decoration:none;
+font-weight:bold;
+color:#FF6600;
+}
+
+#nav3 li b /*Used for "|" next to the sign in/register so it doesn't get highlighted when the cursor goes over it*/
+{
+display:block;
+padding:14px 4px;
+text-decoration:none;
+font-weight:bold;
+color:#FF6600;
+}
+
+#nav li a:hover /*When cursor is over the text in the navigation bar, the background colour is changed*/
+{
+background-color:#f7C57E;
+}
+
+#heading/*Main header (FAQ)*/
+{
+text-align: center;
+font-size: 30px;
+font-weight: 5px;
+margin:0px;
+padding-bottom:10px;
+padding-top:60px;
+}
+
+#heading3 /*Header used for comparison table*/
+{
+text-align: center;
+font-size: 30px;
+font-weight: 5px;
+margin:0px;
+padding-bottom:10px;
+}
+
+#heading4 /*Header used for terms and conditions*/
+{
+text-align: center;
+font-size: 30px;
+font-weight: 5px;
+margin:0px;
+padding-top:20px;
+padding-bottom:10px;
+}
+
+#table-heading /*Header used for forum categories*/
+{
+font-size: 18px;
+margin-bottom:8px;
+color:red;
+}
+
+#center
+{
+text-align: center;
+}
+
+a:visited { text-decoration: none; color:red; } /*Colours hyperlinks to a different colour (Does not apply to news feed)*/
+
+#tablepad
+{
+padding-bottom:10px;
+}
+
+#FAQ-subheading /*Sub headings (FAQ)*/
+{
+text-decoration: underline;
+}
+
+#homepic /*Used for the positioning of the main logo on the home page*/
+{
+margin-left:300px;
+}
+
+#antitablepic /*Used for the positioning of the comparison table*/
+{
+position:relative;
+padding-bottom: 10px;
+}
+
+#footer /*Used for creating the navigation bar for the footer*/
+{
+width:945px;
+float:left;
+margin:0 0 0em 0;
+padding:0;
+background-color:#262827;
+position:relative; /*Change this line if you want the footer to follow directly under the content*/
+bottom:0;
+}
+
+#footer ul /*Used for the positioning of the content in the footer*/
+{
+list-style:none;
+width:945px;
+margin:0 auto;
+padding:0; 
+}
+
+#footer li /*Used for moving the content of the footer to the left*/
+{
+float:left; 
+}
+
+#footer li a  /*Used for hyperlinks on footer*/
+{
+display:block;
+padding:8px 63px;
+text-decoration:none;
+font-weight:bold;
+color:#FF6600;
+}
+
+#footer li b /*Used for "|" in footer*/
+{
+display:block;
+padding:8px 1px;
+padding-top:5px;
+font-weight:bold;
+color:#FF6600;
+font-size:25px;
+}
