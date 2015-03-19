@@ -33,7 +33,7 @@ session_start(); //starts the session to store certain variables using cookies
 				<li><a href="anti-virus.php">Anti-Virus</a></li>
 				<li><a href="FAQ.php">FAQ</a></li>
 				<li><a href="forumMenu.php">Forum</a></li>
-				<li><a href="Trouble-shooting.php">Trouble-Shooting</a></li>
+				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>
 				
 				<div id = "nav2">
 					<nav>

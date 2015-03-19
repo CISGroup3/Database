@@ -37,6 +37,7 @@ session_start(); //starts the session to store certain variables using cookies
 	<div id = "nav">
 		<nav>
 			<ul>
+				<li><img src="Images/athenalogo.png" alt="Athena Security" title="Athena Security" height="50" width="65"></li>
 				<li><a href="index.php">Home</a></li>
 				<li><a href="anti-virus.php">Anti-Virus</a></li>
 				<li><a href="FAQ.php">FAQ</a></li>
@@ -91,12 +92,12 @@ session_start(); //starts the session to store certain variables using cookies
 		
 	<?php if(isset($_GET['login']));/*user wants to login link*/?> 
 	
-		<center><form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
 			<b>Title:</b><br>
 			<input type="text" name="questionTitle" size="30" maxlength="30">
 			<br>
 		
-		<textarea rows = "6" cols="132" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="questionContent" placeholder="Please post your response here"></textarea> <center><br>
+		<textarea rows = "6" cols="132" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="questionContent" placeholder="Please post your response here"></textarea> <br>
 		
 		
 		
@@ -124,7 +125,7 @@ session_start(); //starts the session to store certain variables using cookies
 					}	
 				
 				
-				echo '<center><select name="Category" id = "Category" project="Category"></center>';
+				echo '<select name="Category" id = "Category" project="Category">';
 				foreach($variableArray as $title)
 					{
 						echo "<option value='$title'>$title</option>";
@@ -138,7 +139,7 @@ session_start(); //starts the session to store certain variables using cookies
 		<?php 
 			if ($loggedIn == "true")
 				{
-					echo'<center><input type="submit" value="SUBMIT" /></center>'; 
+					echo'<input type="submit" value="SUBMIT" />'; 
 				}
 			else
 				{
