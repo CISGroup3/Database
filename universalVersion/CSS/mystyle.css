@@ -194,9 +194,9 @@ margin-bottom:8px;
 color:red;
 }
 
-#center
+#center /*Centers submit buttons*/
 {
-text-align: center;
+padding-left:160px;
 }
 
 a:visited { text-decoration: none; color:red; } /*Colours hyperlinks to a different colour (Does not apply to news feed)*/
@@ -219,7 +219,6 @@ margin-left:300px;
 #antitablepic /*Used for the positioning of the comparison table*/
 {
 position:relative;
-padding-bottom: 10px;
 }
 
 #footer /*Used for creating the navigation bar for the footer*/
