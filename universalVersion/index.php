@@ -59,7 +59,7 @@ google.setOnLoadCallback(load);
 							<?php //if user is logged in, welcome them by user forum name
 						if($loggedIn == "true" && !empty($_SESSION['userNickname']))
 						{
-						   echo "<li> <b> Welcome, " .$_SESSION['userNickname'] ."!</li> </b>"; 
+						   echo "<li><b> Welcome, ".$_SESSION['userNickname']."!</a></li> </b>";
 						}
 						if($loggedIn == "false")
 						{
@@ -74,9 +74,13 @@ google.setOnLoadCallback(load);
 					<nav>
 						<ul>
 
-							<li><a href="registryTest.php">Register</a></li>
-							<li><b>|</b></li>
-							<?php
+						<?php
+							if ($loggedIn == "true")
+							{
+							echo"<li><a href='profilePage.php'>Your Profile</a></li>";
+							echo "<li><b>|</b></li>"; 
+
+							}
 							if ($loggedIn == "false")
 							{
 							echo "<li><a href=loginTest.php>Sign in</a></li>";
