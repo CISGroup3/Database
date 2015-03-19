@@ -1,3 +1,5 @@
+a:visited { text-decoration: none; color:#0000EE; } /*keeps the colour of hyperlinks blue once clicked*/
+
 .gfg-root {
   width : 100%;
   height : auto;
@@ -9,10 +11,8 @@
   border: 2px solid #262827; /*Colour of the whole table borderlines*/
 }
 
-a:visited { text-decoration: none; color:#0000EE; }
-
 .gfg-title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight : bold;
   color : #3366cc; /*???????????????????????????????????????????????/*/
   background-color: #FF7722; /*Colour for top of table*/
