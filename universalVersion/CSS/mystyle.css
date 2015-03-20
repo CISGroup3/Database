@@ -187,6 +187,11 @@ padding-top:20px;
 padding-bottom:10px;
 }
 
+/* #ChangePassword
+{
+display: none;
+} */
+
 #table-heading /*Header used for forum categories*/
 {
 font-size: 18px;

@@ -90,7 +90,7 @@ session_start(); //starts the session to store certain variables using cookies
 			Password:<br>
 			<input type="password" name="userPassword" size="50" maxlength="14">
 			<br><br>
-<div id = "center">
+		<div id = "center">
 		<input type="submit" value="Sign in"/> 
 		</div>
 				
@@ -100,7 +100,6 @@ session_start(); //starts the session to store certain variables using cookies
 		<div id = "heading4">
 		Terms and Conditions
 		</div>
-		
 		<hr>
 
 		<ul>
@@ -188,9 +187,6 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 		$row = mysql_fetch_row($result);
 		$read = $row[0];
 		
-		
-		//echo $read;
-		
 		$_SESSION['userNickname'] = $read; //retrieves corresponding details and assigns to another session variable 
 		
 		$result = @mysql_query("SELECT userID FROM webforum.userdetails WHERE userEmail='$userEmail' and userPassword='$userPassword'");
@@ -198,6 +194,25 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 		$read = $row[0]; 
 		
 		$_SESSION['userID'] = $read; 
+		
+		$result = @mysql_query("SELECT userFirstName FROM webforum.userdetails WHERE userEmail='$userEmail' and userPassword='$userPassword'");
+		$row= mysql_fetch_row($result);
+		$read = $row[0]; 
+		
+		$_SESSION['userFName'] = $read; 
+		
+		$result = @mysql_query("SELECT userLastName FROM webforum.userdetails WHERE userEmail='$userEmail' and userPassword='$userPassword'");
+		$row= mysql_fetch_row($result);
+		$read = $row[0]; 
+		
+		$_SESSION['userLName'] = $read; 
+		
+		$result = @mysql_query("SELECT reputationPoints FROM webforum.userdetails WHERE userEmail='$userEmail' and userPassword='$userPassword'");
+		$row= mysql_fetch_row($result);
+		$read = $row[0]; 
+		
+		$_SESSION['userRepPoints'] = $read; 
+		
 		$_SESSION['voteCount'] = 0; 
 		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">'; 
 		//header("location:index.php"); redirects if successful
