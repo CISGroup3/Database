@@ -109,21 +109,26 @@ session_start(); //starts the session to store certain variables using cookies
 				<div id = "nav3">
 					<nav>
 						<ul>
-							<li><a href="registryTest.php">Register</a></li>
-							<li><b>|</b></li>
-							
 							<?php
+							if ($loggedIn == "true")
+							{
+							echo"<li><a href='profilePage.php'>Your Profile</a></li>";
+							echo "<li><b>|</b></li>"; 
+
+							}
 							if ($loggedIn == "false")
-							
-							echo "<li><a href=loginTest.php>Sign in</a></li>"
-							
+							{
+							echo"<li><a href='registryTest.php'>Register</a></li>";
+							echo "<li><b>|</b></li>"; 
+							echo "<li><a href=loginTest.php>Sign in</a></li>";
+							$_SESSION['userID'] = "";
+							$_SESSION['voteCount'] = 0; 
+							}
 							?>
 							<?php
 							if ($loggedIn == "true")
 							
-							echo "<li><a href=logout.php>Sign out</a></li>"
-							
-							
+							echo "<li><a href=logout.php>Sign out</a></li>";
 							?>
 							
 						</ul>
@@ -271,7 +276,6 @@ session_start(); //starts the session to store certain variables using cookies
 	<div id = "heading4">
 		Terms and Conditions
 		</div>
-		
 		<hr>
 
 		<ul>
