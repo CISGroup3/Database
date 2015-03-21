@@ -46,12 +46,14 @@ google.setOnLoadCallback(load);
 	<div id = "nav">
 		<nav>
 			<ul>
-				<li><img src="Images/athenalogo.png" alt="Athena Security" title="Athena Security" height="50" width="65"></li>
+			<div id = "navlogofloat">
+				<a href="index.php"><img src="Images/athenalogo.png" alt="Athena Security" title="Athena Security" height="50" width="65"></a>
+			</div>
 				<li><a href="index.php">Home</a></li>
 				<li><a href="anti-virus.php">Anti-Virus</a></li>
 				<li><a href="FAQ.php">FAQ</a></li>
 				<li><a href="forumMenu.php">Forum</a></li>
-				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>
+				<li><a href="Trouble-shooting.php">Trouble-Shooting</a></li>
 				
 				<div id = "nav2">
 					<nav>
@@ -127,10 +129,14 @@ google.setOnLoadCallback(load);
 			– This page will help you diagnose the issue with your computer, it will then give you 
 			some advice on how to get any issues that you are facing.
 			</ul>
-			A news feed is also available which will allow to you keep up to date with recent cyber-crimes, this can be seen below. 
+			A news feed is also available which will allow to you keep up to date with recent cyber-crimes, this can be seen below:
 
 	
-<div id="feedControl"><br><br><br><br><br><br><br></div>
+<div id="feedControl">
+<br><br><br><br>
+<b>Loading News Feed...</b>
+<br><br><br><br>
+</div>
 
 	<div id="footer">
 			<ul>
@@ -142,7 +148,7 @@ google.setOnLoadCallback(load);
 				<li><b>|</b></li>
 				<li><a href="forumMenu.php">Forum</a></li>
 				<li><b>|</b></li>
-				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>	
+				<li><a href="Trouble-shooting.php">Trouble-Shooting</a></li>	
 			</ul>
 	</div>
 	</div>

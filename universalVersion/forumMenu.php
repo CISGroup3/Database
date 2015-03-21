@@ -25,12 +25,14 @@ session_start(); //starts the session to store certain variables using cookies
 	<div id = "nav">
 		<nav>
 			<ul>
-				<li><img src="Images/athenalogo.png" alt="Athena Security" title="Athena Security" height="50" width="65"></li>
+			<div id = "navlogofloat">
+				<a href="index.php"><img src="Images/athenalogo.png" alt="Athena Security" title="Athena Security" height="50" width="65"></a>
+			</div>
 				<li><a href="index.php">Home</a></li>
 				<li><a href="anti-virus.php">Anti-Virus</a></li>
 				<li><a href="FAQ.php">FAQ</a></li>
 				<li><a href="forumMenu.php">Forum</a></li>
-				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>
+				<li><a href="Trouble-shooting.php">Trouble-Shooting</a></li>
 				
 				<div id = "nav2">
 					<nav>
@@ -88,7 +90,7 @@ session_start(); //starts the session to store certain variables using cookies
 	<table width = "100%">
 	<tr>
 
-    <td width = "10%"><img src="Images/malware.png" alt="Malware" title="Malware" height="65" width="90"/></td>
+    <td width = "10%"><a href="index.php"><img src="Images/malware.png" alt="Malware" title="Malware" height="65" width="90"/></td></a>
 
     <td>
 	<div id = "table-heading">
@@ -99,7 +101,7 @@ session_start(); //starts the session to store certain variables using cookies
  </tr>
 
   <tr>
-    <td width = "10%"><img src="Images/antiviruses.png" alt="Anti-Viruses" title="Anti-Viruses" height="60" width="90"/></td>
+    <td width = "10%"><a href="index.php"><img src="Images/antiviruses.png" alt="Anti-Viruses" title="Anti-Viruses" height="60" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Anti-Viruses</a>
@@ -109,7 +111,7 @@ session_start(); //starts the session to store certain variables using cookies
   </tr>
   
   <tr>
-    <td width = "10%"><img src="Images/computersupport.png" alt="Computer Support" title="Computer Support" height="65" width="90"/></td>
+    <td width = "10%"><a href="index.php"><img src="Images/computersupport.png" alt="Computer Support" title="Computer Support" height="65" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Computer Support</a>
@@ -119,7 +121,7 @@ session_start(); //starts the session to store certain variables using cookies
  
   </tr>
    <tr>
-    <td width = "10%"><img src="Images/mobiletablet.png" alt="Mobile/Tablet Support" title="Mobile/Tablet Support" height="50" width="90"/></td>
+    <td width = "10%"><a href="index.php"><img src="Images/mobiletablet.png" alt="Mobile/Tablet Support" title="Mobile/Tablet Support" height="50" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Mobile/Tablet Support</a>
@@ -130,7 +132,7 @@ session_start(); //starts the session to store certain variables using cookies
 		
   </tr>
    <tr>
-    <td width = "10%"><img src="Images/operate.png" alt="Operating Systems" title="Operating Systems" height="60" width="90"/></td>
+    <td width = "10%"><a href="index.php"><img src="Images/operate.png" alt="Operating Systems" title="Operating Systems" height="60" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Operating Systems</a>
@@ -140,7 +142,7 @@ session_start(); //starts the session to store certain variables using cookies
  
   </tr>
    <tr>
-    <td width = "10%"><img src="Images/browsers.png" alt="Browsers" title="Browsers" height="50" width="90"/></td>
+    <td width = "10%"><a href="index.php"><img src="Images/browsers.png" alt="Browsers" title="Browsers" height="50" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Browsers</a>
@@ -150,7 +152,7 @@ session_start(); //starts the session to store certain variables using cookies
  
   </tr>
    <tr>
-    <td width = "10%"><img src="Images/misc.png" alt="Miscellaneous" title="Miscellaneous" height="50" width="90"/></td>
+    <td width = "10%"><a href="index.php"><img src="Images/misc.png" alt="Miscellaneous" title="Miscellaneous" height="50" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
 	<a href="index.php">Miscellaneous</a>
@@ -165,6 +167,8 @@ session_start(); //starts the session to store certain variables using cookies
 		<div id = "heading4">
 		Terms and Conditions
 		</div>
+		
+		<hr>
 		
 		<ul>
 		<li>Do not submit comments that contain personal information.</li>
@@ -199,7 +203,7 @@ session_start(); //starts the session to store certain variables using cookies
 				<li><b>|</b></li>
 				<li><a href="forumMenu.php">Forum</a></li>
 				<li><b>|</b></li>
-				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>	
+				<li><a href="Trouble-shooting.php">Trouble-Shooting</a></li>	
 			</ul>
 		
 	</footer>
