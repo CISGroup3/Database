@@ -37,12 +37,14 @@ session_start(); //starts the session to store certain variables using cookies
 	<div id = "nav">
 		<nav>
 			<ul>
-				<li><img src="Images/athenalogo.png" alt="Athena Security" title="Athena Security" height="50" width="65"></li>
+			<div id = "navlogofloat">
+				<a href="index.php"><img src="Images/athenalogo.png" alt="Athena Security" title="Athena Security" height="50" width="65"></a>
+			</div>
 				<li><a href="index.php">Home</a></li>
 				<li><a href="anti-virus.php">Anti-Virus</a></li>
 				<li><a href="FAQ.php">FAQ</a></li>
 				<li><a href="forumMenu.php">Forum</a></li>
-				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>
+				<li><a href="Trouble-shooting.php">Trouble-Shooting</a></li>
 				
 				<div id = "nav2">
 					<nav>
@@ -139,7 +141,7 @@ session_start(); //starts the session to store certain variables using cookies
 
 		?>
 		<br>
-		<div id = "center">
+		<div id = "center2">
 		<?php 
 			if ($loggedIn == "true")
 				{
@@ -156,6 +158,8 @@ session_start(); //starts the session to store certain variables using cookies
 		<div id = "heading4">
 		Terms and Conditions
 		</div>
+		
+		<hr>
 
 		<ul>
 		<li>Do not submit comments that contain personal information.</li>
@@ -269,7 +273,7 @@ session_start(); //starts the session to store certain variables using cookies
 				<li><b>|</b></li>
 				<li><a href="forumMenu.php">Forum</a></li>
 				<li><b>|</b></li>
-				<li><a href="Trouble-shooting.html">Trouble-Shooting</a></li>	
+				<li><a href="Trouble-shooting.php">Trouble-Shooting</a></li>	
 			</ul>
 	</div>
 </body>
