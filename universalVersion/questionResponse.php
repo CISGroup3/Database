@@ -50,7 +50,7 @@ session_start(); //starts the session to store certain variables using cookies
 			}
 		
 		
-		$dbcnx = @mysql_connect('localhost', 'root', '');
+		$dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 	if (!$dbcnx) //if a connection cannot be made, the code will exit gracefully 
 		{
 			exit( '<p> Unable to connect to the ' . 'database server at this time. </p>' );
