@@ -171,6 +171,12 @@ font-weight: 5px;
 margin:0px;
 padding-bottom:10px;
 padding-top:60px;
+color: #FF6600;
+text-shadow:
+-1px -1px 0 #000,
+1px -1px 0 #000,
+-1px 1px 0 #000,
+1px 1px 0 #000; 
 }
 
 #heading3 /*Header used for comparison table*/
@@ -180,6 +186,12 @@ font-size: 30px;
 font-weight: 5px;
 margin:0px;
 padding-bottom:10px;
+color: #FF6600;
+text-shadow:
+-1px -1px 0 #000,
+1px -1px 0 #000,
+-1px 1px 0 #000,
+1px 1px 0 #000; 
 }
 
 #heading4 /*Header used for terms and conditions*/
@@ -190,6 +202,12 @@ font-weight: 5px;
 margin:0px;
 padding-top:20px;
 padding-bottom:10px;
+color: #FF6600;
+text-shadow:
+-1px -1px 0 #000,
+1px -1px 0 #000,
+-1px 1px 0 #000,
+1px 1px 0 #000; 
 }
 
 /* #ChangePassword
@@ -200,8 +218,38 @@ display: none;
 #table-heading /*Header used for forum categories*/
 {
 font-size: 18px;
+font-weight:bold;
 margin-bottom:8px;
-color:red;
+color: #0000EE;
+text-decoration:underline;
+}
+
+#table-heading2 /*Header used for anti-virus headings*/
+{
+font-size: 18px;
+margin-bottom:8px;
+font-weight:bold;
+color: #FF6600;
+text-shadow:
+-1px -1px 0 #000,
+1px -1px 0 #000,
+-1px 1px 0 #000,
+1px 1px 0 #000; 
+}
+
+#profilecolour /*Used to set the colour of the hyperlinks used in the profile page*/
+{
+color:#0000EE;
+}
+
+a:link, a:visited { /*allows links to have a stick with assigned colour rather than the default blue/purple*/
+color: inherit;
+text-decoration: none;
+}
+
+#questioncolour /*Used to set the colour of the hyperlinks used in the question page*/
+{
+color:#0000EE;
 }
 
 #center /*Centers submit buttons*/
@@ -214,8 +262,6 @@ padding-left:160px;
 padding-left:450px;
 }
 
-a:visited { text-decoration: none; color:red; } /*Colours hyperlinks to a different colour (Does not apply to news feed)*/
-
 #tablepad
 {
 padding-bottom:10px;
@@ -223,8 +269,14 @@ padding-bottom:10px;
 
 #FAQ-subheading /*Sub headings (FAQ)*/
 {
-text-decoration: underline;
-font-size:15px;
+font-size:18px;
+font-weight:bold;
+color: #FF6600;
+text-shadow:
+-1px -1px 0 #000,
+1px -1px 0 #000,
+-1px 1px 0 #000,
+1px 1px 0 #000; 
 }
 
 #homepic /*Used for the positioning of the main logo on the home page*/
