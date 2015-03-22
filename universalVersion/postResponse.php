@@ -33,11 +33,11 @@ session_start(); //starts the session to store certain variables using cookies
 			{
 				exit('<p>Unable to locate the forum ' . 'database at this time. </p>'); 
 			}
-		$_SESSION['responseCategoryID'] = 1; //holds the response category
-		$responseCategoryID = 1; 
-		$responseID = 57; //holds the primary key of the question 
-		$_SESSION['questionID'] = $responseID; 
-		$userID = 17; 
+		
+		$responseCategoryID = $_SESSION['categoryID']; 
+		$responseID = $_SESSION['questionID']; //holds the primary key of the question 
+		//$_SESSION['questionID'] = $responseID; 
+		$userID = $_SESSION['userID']; 
 ?>
 
 	<div id = "nav">

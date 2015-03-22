@@ -15,12 +15,20 @@ session_start(); //starts the session to store certain variables using cookies
 
 <body>
 <?php
+		if (isset($_GET['delete'])) 
+		{
+					$_SESSION['cv']= 1;
+					header("location:currentQuestions.php"); 
+		}
+				
 		$loggedIn = "false";
 		
 		if (array_key_exists('userEmail', $_SESSION) && !empty($_SESSION['userEmail'])) 
 			{
 				$loggedIn = "true";
 			}
+			
+			
 ?>
 	<div id = "nav">
 		<nav>
@@ -94,7 +102,7 @@ session_start(); //starts the session to store certain variables using cookies
 
     <td>
 	<div id = "table-heading">
-	<a href="index.php">Malware</a>
+	<?php echo "<a href='currentQuestions.php?cv=1'>Malware</a>"; ?>
 	</div>
 	Discuss problems and ask questions about malware.
 	</td>		
@@ -104,7 +112,7 @@ session_start(); //starts the session to store certain variables using cookies
     <td width = "10%"><a href="index.php"><img src="Images/antiviruses.png" alt="Anti-Viruses" title="Anti-Viruses" height="60" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
-	<a href="index.php">Anti-Viruses</a>
+	<?php echo '<a href="currentQuestions.php?cv=2">Anti-Viruses</a>' ?>
 	</div>
 	Discuss problems and ask questions about anti-viruses.
 	</td>		
@@ -114,7 +122,7 @@ session_start(); //starts the session to store certain variables using cookies
     <td width = "10%"><a href="index.php"><img src="Images/computersupport.png" alt="Computer Support" title="Computer Support" height="65" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
-	<a href="index.php">Computer Support</a>
+	<?php echo '<a href="currentQuestions.php?cv=3">Computer Support</a>' ?>
 	</div>
 	Discuss problems and ask questions about computers.
 	</td>		
@@ -124,7 +132,7 @@ session_start(); //starts the session to store certain variables using cookies
     <td width = "10%"><a href="index.php"><img src="Images/mobiletablet.png" alt="Mobile/Tablet Support" title="Mobile/Tablet Support" height="50" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
-	<a href="index.php">Mobile/Tablet Support</a>
+	<?php echo '<a href="currentQuestions.php?cv=4">Mobile/Tablet Support</a>' ?>
 	</div>
 		Discuss problems and ask questions about about mobile or tablets.
 	</td>	
@@ -135,7 +143,7 @@ session_start(); //starts the session to store certain variables using cookies
     <td width = "10%"><a href="index.php"><img src="Images/operate.png" alt="Operating Systems" title="Operating Systems" height="60" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
-	<a href="index.php">Operating Systems</a>
+	<?php echo '<a href="currentQuestions.php?cv=5">Operating Systems</a>' ?>
 	</div>
 	Discuss problems and ask questions about operating systems.
 	</td>	
@@ -145,7 +153,7 @@ session_start(); //starts the session to store certain variables using cookies
     <td width = "10%"><a href="index.php"><img src="Images/browsers.png" alt="Browsers" title="Browsers" height="50" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
-	<a href="index.php">Browsers</a>
+	<<?php echo '<a href="currentQuestions.php?cv=6">Browsers</a>' ?>
 	</div>
 	Discuss problems and questions about browsers.
 	</td>		
@@ -155,7 +163,7 @@ session_start(); //starts the session to store certain variables using cookies
     <td width = "10%"><a href="index.php"><img src="Images/misc.png" alt="Miscellaneous" title="Miscellaneous" height="50" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
-	<a href="index.php">Miscellaneous</a>
+	<?php echo '<a href="currentQuestions.php?cv=7">Miscellaneous</a>' ?>
 	</div>
 	Discuss problems and ask questions about anything not covered within the previous categories.
 	</td>	
