@@ -137,6 +137,11 @@ session_start(); //starts the session to store certain variables using cookies
 						echo "<center><h2><a href='questionResponse.php?qid=$relID'>$title</a></h2></center>";
 						$arrayCounter = $arrayCounter + 1; 
 					} 
+					
+			if ($loggedIn == "true")
+				{
+					echo "<center><a href='addNewQuestion.php'>Add a New Question!</a></center>";
+				}
 	?>
 	</div>
 	<div id="footer">

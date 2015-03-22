@@ -103,7 +103,7 @@ session_start(); //starts the session to store certain variables using cookies
 			<input type="text" name="questionTitle" size="30" maxlength="30">
 			<br>
 		
-		<textarea rows = "6" cols="132" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="questionContent" placeholder="Please post your response here"></textarea> <br>
+		<textarea rows = "6" cols="100" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="questionContent" placeholder="Please post your response here"></textarea> <br>
 		
 		
 		
