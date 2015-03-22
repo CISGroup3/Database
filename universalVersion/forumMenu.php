@@ -94,22 +94,24 @@ session_start(); //starts the session to store certain variables using cookies
 		Forum
 		</div>
 		
+		
 		<div id = "tablepad">
 	<table width = "100%">
 	<tr>
 
-    <td width = "10%"><a href="index.php"><img src="Images/malware.png" alt="Malware" title="Malware" height="65" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=1"><img src="Images/malware.png" alt="Malware" title="Malware" height="65" width="90"/></td></a>
 
     <td>
 	<div id = "table-heading">
-	<?php echo "<a href='currentQuestions.php?cv=1'>Malware</a>"; ?>
+	<?php echo "<a href='currentQuestions.php?cv=1'>Malware</a>" ?>
 	</div>
+
 	Discuss problems and ask questions about malware.
 	</td>		
  </tr>
 
   <tr>
-    <td width = "10%"><a href="index.php"><img src="Images/antiviruses.png" alt="Anti-Viruses" title="Anti-Viruses" height="60" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=2"><img src="Images/antiviruses.png" alt="Anti-Viruses" title="Anti-Viruses" height="60" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
 	<?php echo '<a href="currentQuestions.php?cv=2">Anti-Viruses</a>' ?>
@@ -119,7 +121,7 @@ session_start(); //starts the session to store certain variables using cookies
   </tr>
   
   <tr>
-    <td width = "10%"><a href="index.php"><img src="Images/computersupport.png" alt="Computer Support" title="Computer Support" height="65" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=3"><img src="Images/computersupport.png" alt="Computer Support" title="Computer Support" height="65" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
 	<?php echo '<a href="currentQuestions.php?cv=3">Computer Support</a>' ?>
@@ -129,7 +131,7 @@ session_start(); //starts the session to store certain variables using cookies
  
   </tr>
    <tr>
-    <td width = "10%"><a href="index.php"><img src="Images/mobiletablet.png" alt="Mobile/Tablet Support" title="Mobile/Tablet Support" height="50" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=4"><img src="Images/mobiletablet.png" alt="Mobile/Tablet Support" title="Mobile/Tablet Support" height="50" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
 	<?php echo '<a href="currentQuestions.php?cv=4">Mobile/Tablet Support</a>' ?>
@@ -140,7 +142,7 @@ session_start(); //starts the session to store certain variables using cookies
 		
   </tr>
    <tr>
-    <td width = "10%"><a href="index.php"><img src="Images/operate.png" alt="Operating Systems" title="Operating Systems" height="60" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=5"><img src="Images/operate.png" alt="Operating Systems" title="Operating Systems" height="60" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
 	<?php echo '<a href="currentQuestions.php?cv=5">Operating Systems</a>' ?>
@@ -150,17 +152,17 @@ session_start(); //starts the session to store certain variables using cookies
  
   </tr>
    <tr>
-    <td width = "10%"><a href="index.php"><img src="Images/browsers.png" alt="Browsers" title="Browsers" height="50" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=6"><img src="Images/browsers.png" alt="Browsers" title="Browsers" height="50" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
-	<<?php echo '<a href="currentQuestions.php?cv=6">Browsers</a>' ?>
+	<?php echo '<a href="currentQuestions.php?cv=6">Browsers</a>' ?>
 	</div>
 	Discuss problems and questions about browsers.
 	</td>		
  
   </tr>
    <tr>
-    <td width = "10%"><a href="index.php"><img src="Images/misc.png" alt="Miscellaneous" title="Miscellaneous" height="50" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=7"><img src="Images/misc.png" alt="Miscellaneous" title="Miscellaneous" height="50" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
 	<?php echo '<a href="currentQuestions.php?cv=7">Miscellaneous</a>' ?>
@@ -170,6 +172,7 @@ session_start(); //starts the session to store certain variables using cookies
  
   </tr>
 </table>
+</div>
 </div>
 
 		<div id = "heading4">

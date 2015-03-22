@@ -1,4 +1,4 @@
-a:visited { text-decoration: none; color:#0000EE; } /*keeps the colour of hyperlinks blue once clicked*/
+a:link, a:visited { text-decoration: none; color:#0000EE; } /*keeps the colour of hyperlinks blue once clicked*/
 
 .gfg-root {
   width : 100%;

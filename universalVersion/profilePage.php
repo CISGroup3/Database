@@ -83,10 +83,10 @@ session_start(); //starts the session to store certain variables using cookies
 			</ul>	
 		</nav>
 	</div>
-<br>
-		<br>
-		<center><h1>Your Profile</h1></center>
-		<br>
+		
+		<div id = "heading">
+		Profile
+		</div>
 		<?php 
 				
 				$profileEmail = $_SESSION['userEmail']; 
@@ -106,9 +106,9 @@ session_start(); //starts the session to store certain variables using cookies
 			
 			<?php if(isset($_GET['login']));/*user wants to login link*/?> 
 
-
-		<a href="javascript:toggleFormVisibility();" id="sub">Show the form</a>
-		
+		<div id = "profilecolour">
+		<a href="javascript:toggleFormVisibility();" id="sub">Change Password?</a>
+		</div>
 		
 		<center><form action="<?php echo $_SERVER['PHP_SELF']; ?> #" method="post" name ="subscribe" id="subscribe_frm" style ="display: none">
 			Old Password:<br>
@@ -120,11 +120,13 @@ session_start(); //starts the session to store certain variables using cookies
 			<input type="password" name="newPassword" size="50" maxlength="14">
 			<br><br>
 
+		<div id = "profilecolour">
 		<input type="submit" id = "subscribe_frm" name = "subscribe" value="Submit"/> 
-		<a href="javascript:toggleFormVisibility();" id="nosub" style="display: none">Hide the form</a>		
+		<br>
+		<a href="javascript:toggleFormVisibility();" id="nosub" style="display: none">Done?</a>		
 		</form></center>
 		<p></p>
-		
+		</div>
 		
 		<?php 
 		

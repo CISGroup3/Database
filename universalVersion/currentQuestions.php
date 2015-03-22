@@ -99,10 +99,12 @@ session_start(); //starts the session to store certain variables using cookies
 			</ul>	
 		</nav>
 	</div>
-	<br>
-	<br>
-	<center><h1>Current Questions</h1></center>
+
+		<div id = "heading">
+		Current Questions
+		</div>
 	
+	<div id = "questioncolour">
 	<?php
 
 			
@@ -136,7 +138,7 @@ session_start(); //starts the session to store certain variables using cookies
 						$arrayCounter = $arrayCounter + 1; 
 					} 
 	?>
-
+	</div>
 	<div id="footer">
 			<ul>
 				<li><a href="index.php">Home</a></li>

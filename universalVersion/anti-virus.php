@@ -92,7 +92,7 @@ session_start(); //starts the session to store certain variables using cookies
     <td width = "10%"><img src="Images/nortonlogo.png" alt="Norton" title="Norton" height="90" width="90"/></td>
 
     <td>
-	<div id = "table-heading">
+	<div id = "table-heading2">
 		Norton
 	</div>
 	Norton anti-virus is one of the market leaders in anti-virus companies founded in 1991, 
@@ -103,7 +103,7 @@ session_start(); //starts the session to store certain variables using cookies
   <tr>
     <td width = "10%"><img src="Images/avglogo.png" alt="AVG" title="AVG" height="90" width="90"/></td>
     <td>
-		<div id = "table-heading">
+		<div id = "table-heading2">
 	Anti-Virus Guard (AVG)
 	</div>
 	AVG is one of the leading free anti-virus software out there and despite being a relatively new is 
@@ -114,7 +114,7 @@ session_start(); //starts the session to store certain variables using cookies
   <tr>
     <td width = "10%"><img src="Images/avastlogo.png" alt="Avast" title="Avast" height="75" width="90"/></td>
     <td>
-		<div id = "table-heading">
+		<div id = "table-heading2">
 	Avast
 	</div>
 	Avast is also a high quality anti-virus software provider; even though they are not as impressive as 
@@ -125,7 +125,7 @@ session_start(); //starts the session to store certain variables using cookies
    <tr>
     <td width = "10%"><img src="Images/mcafeelogo.png" alt="McAfee" title="McAfee" height="70" width="90"/></td>
     <td>
-		<div id = "table-heading">
+		<div id = "table-heading2">
 	McAfee
 	</div>
 	MacAfee is one of the oldest anti-virus companies out there consistently providing protection for 
@@ -136,7 +136,7 @@ session_start(); //starts the session to store certain variables using cookies
    <tr>
     <td width = "10%"><img src="Images/wdefend.png" alt="Windows Defender" title="Windows Defender" height="90" width="90"/></td>
     <td>
-		<div id = "table-heading">
+		<div id = "table-heading2">
 	Windows Defender
 	</div>
 	Windows defender comes free with every copy of a windows operating system and offers a good basic 
