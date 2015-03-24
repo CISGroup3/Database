@@ -179,6 +179,12 @@ text-shadow:
 1px 1px 0 #000; 
 }
 
+#heading2 /*Used as small headings within the content (Used in home home page and anti-virus page)*/
+{
+font-size:12px;
+font-weight:bold;
+}
+
 #heading3 /*Header used for comparison table*/
 {
 text-align: center;
@@ -237,7 +243,19 @@ text-shadow:
 1px 1px 0 #000; 
 }
 
-#profilecolour /*Used to set the colour of the hyperlinks used in the profile page*/
+#txt-decorate
+{
+font-size: 14px;
+font-weight:bold;
+color: #FF6600;
+text-shadow:
+-1px -1px 0 #000,
+1px -1px 0 #000,
+-1px 1px 0 #000,
+1px 1px 0 #000; 
+}
+
+#profilecolour /*Used to set the colour of the hyperlinks used in the profile page and Add a question page for "post reply"*/
 {
 color:#0000EE;
 }

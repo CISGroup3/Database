@@ -115,23 +115,22 @@ google.setOnLoadCallback(load);
 			
 			<ul>
 			<li>
-			<b>Anti-Virus Page</b>
+			<b><a href="anti-virus.php">Anti-Virus Page</a></b>
 			– This has a number of anti-virus software and will help you decide which bests suites your needs.
 			<li>
-			<b>FAQ Page</b> 
+			<b><a href="FAQ.php">FAQ Page</a></b> 
 			– This has basic information which will help you stay protected from cyber-crime.
 			<li>
-			<b>Forum Page</b> 
+			<b><a href="forumMenu.php">Forum Page</a></b> 
 			– This page allows you to post questions which the team at Athena security and the general public will 
 			answer, this ensures you can get advice which is personalised for your needs.
 			<li>
-			<b>Trouble-Shooting Page</b> 
+			<b><a href="Trouble-shooting.php">Trouble-Shooting Page</a></b> 
 			– This page will help you diagnose the issue with your computer, it will then give you 
 			some advice on how to get any issues that you are facing.
 			</ul>
 			A news feed is also available which will allow to you keep up to date with recent cyber-crimes, this can be seen below:
 
-	
 <div id="feedControl">
 <br><br><br><br>
 <b>Loading News Feed...</b>

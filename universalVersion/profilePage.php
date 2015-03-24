@@ -123,7 +123,7 @@ session_start(); //starts the session to store certain variables using cookies
 		<div id = "profilecolour">
 		<input type="submit" id = "subscribe_frm" name = "subscribe" value="Submit"/> 
 		<br>
-		<a href="javascript:toggleFormVisibility();" id="nosub" style="display: none">Done?</a>		
+		<a href="javascript:toggleFormVisibility();" id="nosub" style="display: none">Close</a>		
 		</form></center>
 		<p></p>
 		</div>

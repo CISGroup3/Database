@@ -104,7 +104,6 @@ session_start(); //starts the session to store certain variables using cookies
 		Current Questions
 		</div>
 	
-	<div id = "questioncolour">
 	<?php
 
 			
@@ -140,10 +139,10 @@ session_start(); //starts the session to store certain variables using cookies
 					
 			if ($loggedIn == "true")
 				{
-					echo "<center><a href='addNewQuestion.php'>Add a New Question!</a></center>";
+					echo "<center><div id = 'questioncolour'><a href='addNewQuestion.php'>Add a New Question!</a></div></center>";
 				}
 	?>
-	</div>
+
 	<div id="footer">
 			<ul>
 				<li><a href="index.php">Home</a></li>

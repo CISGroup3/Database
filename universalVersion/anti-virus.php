@@ -153,19 +153,40 @@ session_start(); //starts the session to store certain variables using cookies
 <img src="Images/comparisontable.png" alt="Comparison Table" width="945" height="350"/>
 </div>
 	<p>
-<b>Boot-Time Scan:</b> Content
-<br>
-<b>On-Demand Scan:</b> Content
-<br>
-<b>Support:</b> Content
-<br>
-<b>Web Protection:</b> Content
-<br>
-<b>Live Updates:</b> Content
-<br>
-<b>Cross-Platform:</b> Content
-<br>
-<b>E-mail Security:</b> Content
+<div id="txt-decorate">
+Boot-Time Scan
+</div>
+A boot time scan is a scan of the computer for virus etc. That runs when the computer starts up.
+
+<div id="txt-decorate">
+On-Demand Scan
+</div>
+On-demand scan works in a similar way to a boot time scan except it can be run at any time and is slightly less comprehensive.
+
+<div id="txt-decorate">
+Support
+</div>
+Support is whether or not the company providing the anti-virus service provides a support service in case something goes wrong.
+
+<div id="txt-decorate">
+Web Protection
+</div>
+Web protection allows protection from malicious content when browsing the web and will often allow you to see whether or not a website is safe before visiting it.
+
+<div id="txt-decorate">
+Live Updates
+</div>
+Live updates are whether or not the service is updated after the initial release to fix problems, add new features etc.
+
+<div id="txt-decorate">
+Cross-Platform
+</div> 
+Cross-platform is whether or not the service works on multiple devices e.g. phones, tablets.
+
+<div id="txt-decorate">
+E-mail Security
+</div> 
+E-mail security is protection against threats that could come from emails being sent or opened.
 </p>
 	<div id="footer">
 	<footer>
