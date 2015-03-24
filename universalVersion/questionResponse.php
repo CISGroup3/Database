@@ -68,7 +68,7 @@ session_start(); //starts the session to store certain variables using cookies
 		$responseCategoryID = $_SESSION['categoryID']; 
 		$responseID = $questionID; //holds the primary key of the question 
 		$_SESSION['questionID'] = $responseID; 
-		$userID = 17; 
+		$userID = $_SESSION['userID']; 
 		
 		$checkExists = "SELECT * FROM questiondetails WHERE questionID = '$responseID'";
 		$result = mysql_query($checkExists);
