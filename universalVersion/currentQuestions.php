@@ -112,7 +112,7 @@ session_start(); //starts the session to store certain variables using cookies
 	$variableArray = array(); //holds question titles
 	$idArray = array();
 	
-	$questionsList = @mysql_query("SELECT questionID, questionTitle FROM questionDetails WHERE categoryID = '$categoryID'");
+	$questionsList = @mysql_query("SELECT questionID, questionTitle FROM questionDetails WHERE categoryID = '$categoryID' ORDER BY questionID DESC");
 		
 		if (!$questionsList) 
 					{
@@ -133,7 +133,7 @@ session_start(); //starts the session to store certain variables using cookies
 			foreach($variableArray as $title)
 					{
 						$relID = $idArray[$arrayCounter];
-						echo "<center><h2><a href='questionResponse.php?qid=$relID'>$title</a></h2></center>";
+						echo "<center><h2><a href='questionResponse.php?qid=$relID' id='questionTitle'>$title</a></h2></center>";
 						$arrayCounter = $arrayCounter + 1; 
 					} 
 					

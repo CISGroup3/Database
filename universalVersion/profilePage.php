@@ -165,11 +165,15 @@ session_start(); //starts the session to store certain variables using cookies
 											$stringCheck = "false"; 
 										}
 						
+						if ($oldPassword == $_POST['newPassword'])
+							{
+								$stringCheck = "false"; 
+							}
 						
 						
 						if ($stringCheck == "false")
 							{
-								echo "You have neglected to fill out an old or new password, or entered a wrong old password."; 
+								echo "You have: neglected to fill out one of the fields, entered the wrong current password, or not changed the new password."; 
 							
 							}
 						
@@ -202,6 +206,39 @@ session_start(); //starts the session to store certain variables using cookies
 							}
 				
 					} //end if 
+		
+			//include a function to return all the questions associated with one user 
+			echo "<center><h1>Your Questions</h1></center>";
+			
+			
+			$arrayCounter = 0; 
+			$variableArray = array(); //holds question titles
+			$idArray = array();
+	
+			$questionsList = @mysql_query("SELECT questionID, questionTitle FROM questionDetails WHERE userID = '$profileID' ORDER BY questionID DESC");
+			
+			if (!$questionsList) 
+					{
+						exit('<p>Error performing query: ' . mysql_error() . '</p>');
+					}
+					
+				while ($question = mysql_fetch_array($questionsList)) 
+					{
+						$questionTitle = $question['questionTitle'];
+						$variableArray[$arrayCounter] = $question['questionTitle'];
+						$idArray[$arrayCounter] = $question['questionID']; 
+						
+						$arrayCounter = $arrayCounter + 1; //array counter 
+					}	
+				
+				$arrayCounter = 0;
+			
+			foreach($variableArray as $title)
+					{
+						$relID = $idArray[$arrayCounter];
+						echo "<center><h2><a href='questionResponse.php?qid=$relID' id='questionTitle'>$title</a></h2></center>";
+						$arrayCounter = $arrayCounter + 1; 
+					} 
 		
 		?>
 <div id="footer">
