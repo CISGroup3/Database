@@ -317,6 +317,47 @@ margin-left:300px;
 position:relative;
 }
 
+/*Pagination stuff starts here*/
+
+.page
+{
+float: right;
+margin: 0;
+padding: 0;
+}
+.page li
+{
+	list-style: none;
+	display:inline-block;
+}
+.page li a, .current
+{
+display: block;
+padding: 5px;
+text-decoration: none;
+color: #8A8A8A;
+}
+.current
+{
+	font-weight:bold;
+	color: #000;
+}
+.button
+{
+padding: 5px 15px;
+text-decoration: none;
+background: #333;
+color: #F3F3F3;
+font-size: 13PX;
+border-radius: 2PX;
+margin: 0 4PX;
+display: block;
+float: left;
+}
+
+
+/*  Pagination stuff ends here*/
+
 #footer /*Used for creating the navigation bar for the footer*/
 {
 width:945px;
