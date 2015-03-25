@@ -133,7 +133,7 @@ session_start(); //starts the session to store certain variables using cookies
 			foreach($variableArray as $title)
 					{
 						$relID = $idArray[$arrayCounter];
-						echo "<center><h2><a href='questionResponse.php?qid=$relID' id='questionTitle'>$title</a></h2></center>";
+						echo "<center><h2><a href='questionResponse.php?qid=$relID&id=1' id='questionTitle'>$title</a></h2></center>";
 						$arrayCounter = $arrayCounter + 1; 
 					} 
 					

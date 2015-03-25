@@ -149,8 +149,13 @@ session_start(); //starts the session to store certain variables using cookies
 		$getCategory = "SELECT title FROM categories INNER JOIN questionDetails
 		ON categories.categoryID = questionDetails.categoryID WHERE categoryID = '$sessionVariableHere'"; //once a session variable is passed, this can be used to select the category
 		
+		$responseQuery = "SELECT userID FROM questionDetails
+			WHERE questionID = '$responseID'"; 
+			$result = mysql_query($responseQuery); 
+			$row = mysql_fetch_row($result);
+			$posterID = $row[0]; //assign the ID of the poster of the question to a variable
 		
-		if ($loggedIn == "true" && $userID == $_SESSION['userID'])
+		if ($loggedIn == "true" && $userID == $posterID)
 			{
 			echo "<div id = 'questioncolour'><a href='deleteQuestion.php?delete=true'>Delete Your Question</a></div>";
 			}
@@ -165,12 +170,12 @@ session_start(); //starts the session to store certain variables using cookies
 		
 		if ($loggedIn == 'true')
 		{
-			echo "<p><div id = 'questioncolour'><a href='postResponse.php?postResponse=true'>Post a Reply!</a></div>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Page No.</p>";
+			echo "<p><div id = 'questioncolour'><a href='postResponse.php?postResponse=true'>Post a Reply!</a></div>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>";
 		}
 		
 		$responseQuery = "SELECT userNickname FROM userDetails INNER JOIN questionDetails 
 		ON userDetails.userID = questionDetails.userID
-		WHERE userDetails.userID = '$userID'"; 
+		WHERE questionID = '$responseID'"; 
 		$result = mysql_query($responseQuery); 
 		$row = mysql_fetch_row($result);
 		$userNickname = $row[0];
@@ -202,12 +207,6 @@ session_start(); //starts the session to store certain variables using cookies
 		$score = $row[0];
 		$_SESSION['score'] = $score; 
 		
-		$responseQuery = "SELECT userID FROM questionDetails
-			WHERE questionID = '$responseID'"; 
-			$result = mysql_query($responseQuery); 
-			$row = mysql_fetch_row($result);
-			$posterID = $row[0]; //assign the ID of the poster of the question to a variable
-		
 			$sameUser = ""; 
 			$answerCheck = $_SESSION['voteCount']; 
 			
@@ -220,7 +219,7 @@ session_start(); //starts the session to store certain variables using cookies
 			{
 				$sameUser = "false"; 
 			}
-
+		
 		if ($sameUser == "false" && $answerCheck != 1 && $loggedIn == "true")
 		{
 		echo "<p id=questionHeader>&#8593 <a href='questionResponse.php?upvote=true'>Up Vote</a> &nbsp; &#8595 <a href='questionResponse.php?downvote=true'>Down Vote</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Score: <big><b>$score</b></big>
@@ -239,42 +238,61 @@ session_start(); //starts the session to store certain variables using cookies
 		</p> ";
 		}
 		
-	//now we need to retrieve any responses
-		$getAllResponses = "SELECT responseContent, userID FROM responseDetails WHERE questionID = $responseID";
-		$responseList = mysql_query($getAllResponses); 
-		$responseArray = array(); 
-		$responderArray = array(); 
-		$arrayCounter = 0; 
-		
-		if (!$responseList) 
+		echo "<br>"; 
+	//now we need to retrieve any responses (using the magic of pagination)
+		$start=0;
+		$limit=2;
+
+if(isset($_GET['id']))
+{
+	$id=$_GET['id'];
+	$start=($id-1)*$limit;
+}
+//echo $id;
+$query=mysql_query("SELECT responseContent, responseDetails.userID, userNickname FROM responseDetails INNER JOIN userDetails ON responseDetails.userID = userDetails.userID WHERE questionID = $responseID LIMIT $start, $limit");
+
+	while($query2=mysql_fetch_array($query))
+		{
+			echo "<p>".$query2['responseContent']."</p>";
+			//$title = implode($query2.['responseContent']);
+			//echo $title; 
+			
+			echo "<p> Posted by ".$query2['userNickname']."</p>"; 
+		}
+
+
+
+$rows=mysql_num_rows(mysql_query("SELECT responseContent, userID FROM responseDetails WHERE questionID = $responseID LIMIT $start, $limit"));
+
+$newQuery = "SELECT responseContent, userID FROM responseDetails WHERE questionID = $responseID ";
+$newTotal = 0; //used to find the amount of rows returned. 
+$newQuery = "SELECT responseContent, userID FROM responseDetails WHERE questionID = $responseID";
+$responseList = mysql_query($newQuery); 
+while ($response = mysql_fetch_array($responseList)) //iterate through all the rows  
 				{
-					exit('<p>Error performing query: ' . mysql_error() . '</p>');
-				}
-			while ($response = mysql_fetch_array($responseList)) //iterate through all the rows  
-				{
-						$responseText = $response['responseContent'];
-						$responseArray[$arrayCounter] = $responseText; //assign each response to one of the array values.
-						$responderID = $response['userID'];
-						$responderArray[$arrayCounter] = $responderID; //assign the corresponding user ID's of the poster to an array 
-						$arrayCounter = $arrayCounter + 1; //moves to fill each array position	
+						$newTotal = $newTotal + 1; 
 				}	
+
+
+$total=ceil($newTotal/$limit);		
+if($id>1)
+{
+	echo "<a href='?qid=$responseID&id=".($id-1)."' class='button'>PREVIOUS</a>";
+}
+if($id<$total)
+{
+	echo "<a href='?qid=$responseID&id=".($id+1)."' class='button'>NEXT</a>";
+}
+
+echo "<ul class='page'>"; //displays the page number 
+		for($i=1;$i<=$total;$i++)
+		{
+			if($i==$id) { echo "<li class='current'>".$i."</li>"; }
 			
-			echo "<h1>$arrayCounter Answers</h1>"; 
-			echo "<hr></hr>";
-			echo "<br></br>";
-			
-	//iterate through the responses and post them onto the page 
-		$counter = 0; 
-		foreach ($responseArray as $value)
-			{ 
-				echo "<center><p id=questionFormat>$value</p></center>";
-				$userID = $responderArray[$counter];
-				$sql = "SELECT userNickname FROM userDetails WHERE userID = $userID";
-				$responderNickname = mysql_query($sql); 
-				$row = mysql_fetch_row($responderNickname);
-				$responderNickname = $row[0]; 
-				echo "<p>answered by $responderNickname</p>"; 
-			}
+			else { echo "<li><a href='?id=".$i."'>".$i."</a></li>"; }
+		}
+echo "</ul>";
+echo "<br>";
 	?>
 
 	
