@@ -112,9 +112,10 @@ session_start(); //starts the session to store certain variables using cookies
 		#show the section of the question 
 	?>
 	
-	<hr> </hr>
+	<br><br><br>
+	
 	<form action="<?php echo $_SERVER["PHP_SELF"]; if($loggedIn != "true"){echo'style ="display:none"';} ?>" method="post" id="questionFormat" input type="text" name="responseContent">
-	<textarea action="<?php  if($loggedIn != "true"){echo'style ="display:none"';} echo $_SERVER["PHP_SELF"];?>" method="post" style="width: 939px; height: 150px" id="questionFormat" name="responseContent" placeholder="Please post your response here"></textarea>
+	<textarea action="<?php  if($loggedIn != "true"){echo'style ="display:none"';} echo $_SERVER["PHP_SELF"];?>" method="post" style="width: 939px; height: 150px" id="questionFormat" name="responseContent" placeholder="Please post your response here" maxlength="800"></textarea>
 	<br>
 	
 	<div id ="center2">

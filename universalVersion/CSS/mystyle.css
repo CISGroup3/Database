@@ -273,7 +273,11 @@ color:#0000EE;
 #questionTitle
 {
 border-style: solid;
-border-width: 1px;
+border-width: 2px;
+border-color: #FF6600;
+background-color: white;
+padding-left:10px;
+padding-right:10px;
 }
 
 #center /*Centers submit buttons*/
