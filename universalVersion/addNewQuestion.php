@@ -5,7 +5,7 @@ session_start(); //starts the session to store certain variables using cookies
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-<title> Add New Question </title>
+<title>Reply to Question</title>
 <meta charset = "utf-8">
 <link rel="stylesheet" type="text/css" href="CSS/mystyle.css"/>
 </head>

@@ -35,10 +35,5 @@ session_start(); //starts the session to store certain variables using cookies
 							}
 ?>
 
-<div id = "loadhead">
-Loading...
-</div>
-
-
 </body>
 </html>

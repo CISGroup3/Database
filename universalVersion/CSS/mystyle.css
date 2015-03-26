@@ -216,6 +216,21 @@ text-shadow:
 1px 1px 0 #000; 
 }
 
+#heading5 /*Header used for questions in forums*/
+{
+text-align: center;
+font-size: 30px;
+font-weight: 5px;
+margin:0px;
+padding-top:15px;
+color: #FF6600;
+text-shadow:
+-1px -1px 0 #000,
+1px -1px 0 #000,
+-1px 1px 0 #000,
+1px 1px 0 #000; 
+}
+
 /* #ChangePassword
 {
 display: none;
@@ -243,9 +258,9 @@ text-shadow:
 1px 1px 0 #000; 
 }
 
-#txt-decorate
+#txt-decorate /*Decorates text without adding padding (used in anti-virus page)*/
 {
-font-size: 14px;
+font-size: 16px;
 font-weight:bold;
 color: #FF6600;
 text-shadow:
@@ -270,7 +285,19 @@ text-decoration: none;
 color:#0000EE;
 }
 
-#questionTitle
+#questioncolour2 /*Used to move "delete question to the right"*/
+{
+color:#0000EE;
+float:right;
+}
+
+#gototop /*Used to give properties to the "back to top" function*/
+{
+text-align:center;
+color:#0000EE;
+}
+
+#questionTitle /*Used for adding a border to the current questions within a category*/
 {
 border-style: solid;
 border-width: 2px;
@@ -278,6 +305,14 @@ border-color: #FF6600;
 background-color: white;
 padding-left:10px;
 padding-right:10px;
+}
+
+#questionTitle2 /*Used for adding a border on the question response*/
+{
+border-style: solid;
+border-width: 2px;
+border-color: #FF6600;
+background-color: white;
 }
 
 #center /*Centers submit buttons*/
@@ -290,7 +325,7 @@ padding-left:160px;
 padding-left:450px;
 }
 
-#tablepad
+#tablepad /*Used to separate anti-virus name from text*/ 
 {
 padding-bottom:10px;
 }
