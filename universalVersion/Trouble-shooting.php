@@ -1,20 +1,19 @@
 ﻿<?php
 session_start(); //starts the session to store certain variables using cookies
  ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
+ 
+ <!DOCTYPE html>
+<html lang="en"> 
 <head>
-<title>Forum</title>
+<title> Your Profile </title>
 <meta charset = "utf-8">
-
+<script script type="text/javascript" src="Javascript/getelementbyid-form.js"></script>
 <link rel="stylesheet" type="text/css" href="CSS/mystyle.css"/>
-
 
 </head>
 
 <body>
+
 <?php
 		$loggedIn = "false";
 		
@@ -41,7 +40,8 @@ session_start(); //starts the session to store certain variables using cookies
 							<?php //if user is logged in, welcome them by user forum name
 						if($loggedIn == "true" && !empty($_SESSION['userNickname']))
 						{
-						   echo "<li> <b> Welcome, " .$_SESSION['userNickname'] ."!</li> </b>"; 
+						
+						   echo "<li><b> Welcome, ".$_SESSION['userNickname']."!</a></li> </b>"; 
 						}
 						if($loggedIn == "false")
 						{
@@ -55,18 +55,27 @@ session_start(); //starts the session to store certain variables using cookies
 				<div id = "nav3">
 					<nav>
 						<ul>
-							<li><a href="registryTest.php">Register</a></li>
-							<li><b>|</b></li>
-							<?php
+							
+						<?php
+							if ($loggedIn == "true")
+							{
+							echo"<li><a href='profilePage.php'>Your Profile</a></li>";
+							echo "<li><b>|</b></li>"; 
+							}
+							
 							if ($loggedIn == "false")
-							
-							echo "<li><a href=loginTest.php>Sign in</a></li>"
-							
+							{
+							echo "<li><a href=registryTest.php>Register</a></li>";
+							echo "<li><b>|</b></li>"; 
+							echo "<li><a href=loginTest.php>Sign in</a></li>";
+							$_SESSION['userID'] = "";
+							$_SESSION['voteCount'] = 0; 
+							}
 							?>
 							<?php
 							if ($loggedIn == "true")
 							
-							echo "<li><a href=logout.php>Sign out</a></li>"
+							echo "<li><a href=logout.php>Sign out</a></li>";
 							?>
 						</ul>
 					</nav>
