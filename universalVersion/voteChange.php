@@ -35,23 +35,27 @@ session_start(); //starts the session to store certain variables using cookies
 					
 //change the score
 			$_SESSION['oldScore'] = 0; //initialise variable to hold the previous score of the question 
-
-			if ($_SESSION['vote'] == 'Up')
+			
+			$_SESSION['vote'] = $_GET['vote'];
+			$questionID = $_SESSION['questionID'];
+			$relID = $_SESSION['qid'];
+			
+			if ($_SESSION['vote'] == 'up')
 				{
 					$_SESSION['oldScore'] = $_SESSION['score']; //hold the old score in case the user wants to their up/down vote
 					$_SESSION['score'] = $_SESSION['score'] + 1; 
 					$_SESSION['currentScore'] = $_SESSION['score']; 
 					$newScore = $_SESSION['score'];
-					$questionID = $_SESSION['questionID'];
-				
+					
+					
 					$sql = "UPDATE questionDetails SET score = $newScore WHERE questionID = $questionID";
 						if($result = mysql_query($sql))
 							{
-								header("location:questionResponse.php"); 
+								header("location:questionResponse.php?qid=$relID&id=1"); 
 							}
 				} //end if
 			
-			if ($_SESSION['vote'] == 'Down')
+			if ($_SESSION['vote'] == 'down')
 				{
 					$_SESSION['oldScore'] = $_SESSION['score']; //hold the old score in case the user wants to their up/down vote
 					$_SESSION['score'] = $_SESSION['score'] - 1; 
@@ -62,10 +66,10 @@ session_start(); //starts the session to store certain variables using cookies
 					$sql = "UPDATE questionDetails SET score = $newScore WHERE questionID = $questionID";
 						if($result = mysql_query($sql))
 							{
-								header("location:questionResponse.php"); 
+								header("location:questionResponse.php?qid=$relID&id=1"); 
 							}
 				}
-			if ($_SESSION['vote'] == 'Cancel')
+			if ($_SESSION['vote'] == 'cancel')
 				{
 					$_SESSION['score'] = $_SESSION['oldScore']; 
 					$newScore = $_SESSION['score'];
@@ -74,7 +78,7 @@ session_start(); //starts the session to store certain variables using cookies
 					$sql = "UPDATE questionDetails SET score = $newScore WHERE questionID = $questionID";
 						if($result = mysql_query($sql))
 							{
-								header("location:questionResponse.php"); 
+								header("location:questionResponse.php?qid=$relID&id=1"); 
 							}
 			
 				} //end if

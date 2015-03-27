@@ -28,11 +28,19 @@ session_start(); //starts the session to store certain variables using cookies
 			}
 			$deleteMe = $_SESSION['questionID'];
 			//echo "<p>" .$deleteMe ."</p>"; 
-			$sql = "DELETE FROM questiondetails WHERE questionID = '$deleteMe'";
-			if($result = mysql_query($sql))
+			
+			$sql = "DELETE FROM responsedetails WHERE questionID = '$deleteMe'"; //first delete any associated responses 
+			
+			if ($result = mysql_query($sql))
+				{
+			
+					$sql = "DELETE FROM questiondetails WHERE questionID = '$deleteMe'";
+						if($result = mysql_query($sql))
 							{
 								header("location:forumMenu.php"); 
 							}
+				}
+				
 ?>
 
 </body>
