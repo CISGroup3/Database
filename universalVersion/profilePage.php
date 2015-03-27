@@ -173,8 +173,13 @@ session_start(); //starts the session to store certain variables using cookies
 						
 						if ($stringCheck == "false")
 							{
-								echo "You have: neglected to fill out one of the fields, entered the wrong current password, or not changed the new password."; 
-							
+								//echo "You have: neglected to fill out one of the fields, entered the wrong current password, or not changed the new password."; 
+								?>
+									<script>if (window.confirm('You have neglected to fill out one of the fields, entered the wrong current password, or not entered a new different password. Retry?')) {
+											window.location.href='profilePage.php';
+											}
+						</script> <!--runs a script to redirect the user, asking if they want to log in right away -->
+						<?php
 							}
 						
 						
@@ -236,7 +241,7 @@ session_start(); //starts the session to store certain variables using cookies
 			foreach($variableArray as $title)
 					{
 						$relID = $idArray[$arrayCounter];
-						echo "<center><h2><a href='questionResponse.php?qid=$relID' id='questionTitle'>$title</a></h2></center>";
+						echo "<center><h2><a href='questionResponse.php?qid=$relID&id=1' id='questionTitle'>$title</a></h2></center>";
 						$arrayCounter = $arrayCounter + 1; 
 					} 
 		
