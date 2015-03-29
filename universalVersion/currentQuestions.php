@@ -104,43 +104,69 @@ session_start(); //starts the session to store certain variables using cookies
 		Current Questions
 		</div>
 	
-	<?php
-
-			
-	
-	$arrayCounter = 0; 
-	$variableArray = array(); //holds question titles
-	$idArray = array();
-	
-	$questionsList = @mysql_query("SELECT questionID, questionTitle FROM questionDetails WHERE categoryID = '$categoryID' ORDER BY questionID DESC");
+	<?php			
 		
-		if (!$questionsList) 
-					{
-						exit('<p>Error performing query: ' . mysql_error() . '</p>');
-					}
-					
-				while ($question = mysql_fetch_array($questionsList)) 
-					{
-						$questionTitle = $question['questionTitle'];
-						$variableArray[$arrayCounter] = $question['questionTitle'];
-						$idArray[$arrayCounter] = $question['questionID']; 
-						
-						$arrayCounter = $arrayCounter + 1; //array counter 
-					}	
+		//retrieve current questions in that category 
+				$start=0;
+				$limit=2; //Change this line to alter limit of posts for each page
+				$arrayCounter = 0; 
+				$variableArray = array(); //holds question titles
+				$idArray = array();
 				
-				$arrayCounter = 0;
+		if(isset($_GET['id']))
+			{
+				$id=$_GET['id'];
+				$start=($id-1)*$limit;
+			}
 			
-			foreach($variableArray as $title)
-					{
-						$relID = $idArray[$arrayCounter];
-						echo "<center><h2><a href='questionResponse.php?qid=$relID&id=1' id='questionTitle'>$title</a></h2></center>";
-						$arrayCounter = $arrayCounter + 1; 
-					} 
-					
-			if ($loggedIn == "true")
+//echo $id;
+$query=mysql_query("SELECT questionID, questionTitle FROM questionDetails WHERE categoryID = '$categoryID' ORDER BY questionID DESC LIMIT $start, $limit");
+
+	while($query2=mysql_fetch_array($query))
+		{
+			$questionTitle = $query2['questionTitle'];
+			$variableArray[$arrayCounter] = $query2['questionTitle'];
+			
+			$questionID = $query2['questionID']; 
+			$idArray[$arrayCounter] = $query2['questionID']; 
+			
+			echo "<p id=questionTitle2><a href='questionResponse.php?qid=$questionID&id=1'>$questionTitle</a></p>"; 
+		
+		}
+		
+
+
+$rows=mysql_num_rows(mysql_query("SELECT questionID, questionTitle FROM questionDetails WHERE categoryID = '$categoryID' ORDER BY questionID LIMIT $start, $limit"));
+
+$newTotal = 0; //used to find the amount of rows returned. 
+$newQuery = "SELECT questionID, questionTitle FROM questionDetails WHERE categoryID = '$categoryID' ORDER BY questionID";
+$responseList = mysql_query($newQuery); 
+while ($response = mysql_fetch_array($responseList)) //iterate through all the rows  
 				{
-					echo "<center><div id = 'questioncolour'><a href='addNewQuestion.php'>Add a New Question!</a></div></center>";
-				}
+						$newTotal = $newTotal + 1; 
+				}	
+
+
+$total=ceil($newTotal/$limit);		
+if($id>1)
+{
+	echo "<a href='?cv=$categoryID&id=".($id-1)."' class='button'>PREVIOUS</a>";
+}
+if($id<$total)
+{
+	echo "<a href='?cv=$categoryID&id=".($id+1)."' class='button'>NEXT</a>";
+}
+
+echo "<ul class='page'>"; //displays the page number 
+		for($i=1;$i<=$total;$i++)
+		{
+			if($i==$id) { echo "<li class='current'>".$i."</li>"; }
+			
+			else { echo "<li><a href='?id=".$i."'>".$i."</a></li>"; }
+		}
+echo "</ul>";
+echo "<br><br>";
+		
 	?>
 	
 	<div id = "heading4">
