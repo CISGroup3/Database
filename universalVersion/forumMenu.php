@@ -18,7 +18,7 @@ session_start(); //starts the session to store certain variables using cookies
 		if (isset($_GET['delete'])) 
 		{
 					$_SESSION['cv']= 1;
-					header("location:currentQuestions.php"); 
+					header("location:currentQuestions.php?id=1"); 
 		}
 				
 		$loggedIn = "false";
@@ -99,11 +99,11 @@ session_start(); //starts the session to store certain variables using cookies
 	<table width = "100%">
 	<tr>
 
-    <td width = "10%"><a href="currentQuestions.php?cv=1"><img src="Images/malware.png" alt="Malware" title="Malware" height="65" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=1&id=1"><img src="Images/malware.png" alt="Malware" title="Malware" height="65" width="90"/></td></a>
 
     <td>
 	<div id = "table-heading">
-	<?php echo "<a href='currentQuestions.php?cv=1'>Malware</a>" ?>
+	<?php echo "<a href='currentQuestions.php?cv=1&id=1'>Malware</a>" ?>
 	</div>
 
 	Discuss problems and ask questions about malware.
@@ -111,30 +111,30 @@ session_start(); //starts the session to store certain variables using cookies
  </tr>
 
   <tr>
-    <td width = "10%"><a href="currentQuestions.php?cv=2"><img src="Images/antiviruses.png" alt="Anti-Viruses" title="Anti-Viruses" height="60" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=2&id=1"><img src="Images/antiviruses.png" alt="Anti-Viruses" title="Anti-Viruses" height="60" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
-	<?php echo '<a href="currentQuestions.php?cv=2">Anti-Viruses</a>' ?>
+	<?php echo '<a href="currentQuestions.php?cv=2&id=1">Anti-Viruses</a>' ?>
 	</div>
 	Discuss problems and ask questions about anti-viruses.
 	</td>		
   </tr>
   
   <tr>
-    <td width = "10%"><a href="currentQuestions.php?cv=3"><img src="Images/computersupport.png" alt="Computer Support" title="Computer Support" height="65" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=3&id=1"><img src="Images/computersupport.png" alt="Computer Support" title="Computer Support" height="65" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
-	<?php echo '<a href="currentQuestions.php?cv=3">Computer Support</a>' ?>
+	<?php echo '<a href="currentQuestions.php?cv=3&id=1">Computer Support</a>' ?>
 	</div>
 	Discuss problems and ask questions about computers.
 	</td>		
  
   </tr>
    <tr>
-    <td width = "10%"><a href="currentQuestions.php?cv=4"><img src="Images/mobiletablet.png" alt="Mobile/Tablet Support" title="Mobile/Tablet Support" height="50" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=4&id=1"><img src="Images/mobiletablet.png" alt="Mobile/Tablet Support" title="Mobile/Tablet Support" height="50" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
-	<?php echo '<a href="currentQuestions.php?cv=4">Mobile/Tablet Support</a>' ?>
+	<?php echo '<a href="currentQuestions.php?cv=4&id=1">Mobile/Tablet Support</a>' ?>
 	</div>
 		Discuss problems and ask questions about about mobile or tablets.
 	</td>	
@@ -142,30 +142,30 @@ session_start(); //starts the session to store certain variables using cookies
 		
   </tr>
    <tr>
-    <td width = "10%"><a href="currentQuestions.php?cv=5"><img src="Images/operate.png" alt="Operating Systems" title="Operating Systems" height="60" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=5&id=1"><img src="Images/operate.png" alt="Operating Systems" title="Operating Systems" height="60" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
-	<?php echo '<a href="currentQuestions.php?cv=5">Operating Systems</a>' ?>
+	<?php echo '<a href="currentQuestions.php?cv=5&id=1">Operating Systems</a>' ?>
 	</div>
 	Discuss problems and ask questions about operating systems.
 	</td>	
  
   </tr>
    <tr>
-    <td width = "10%"><a href="currentQuestions.php?cv=6"><img src="Images/browsers.png" alt="Browsers" title="Browsers" height="50" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=6&id=1"><img src="Images/browsers.png" alt="Browsers" title="Browsers" height="50" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
-	<?php echo '<a href="currentQuestions.php?cv=6">Browsers</a>' ?>
+	<?php echo '<a href="currentQuestions.php?cv=6&id=1">Browsers</a>' ?>
 	</div>
 	Discuss problems and questions about browsers.
 	</td>		
  
   </tr>
    <tr>
-    <td width = "10%"><a href="currentQuestions.php?cv=7"><img src="Images/misc.png" alt="Miscellaneous" title="Miscellaneous" height="50" width="90"/></td></a>
+    <td width = "10%"><a href="currentQuestions.php?cv=7&id=1"><img src="Images/misc.png" alt="Miscellaneous" title="Miscellaneous" height="50" width="90"/></td></a>
     <td>
 	<div id = "table-heading">
-	<?php echo '<a href="currentQuestions.php?cv=7">Miscellaneous</a>' ?>
+	<?php echo '<a href="currentQuestions.php?cv=7&id=1">Miscellaneous</a>' ?>
 	</div>
 	Discuss problems and ask questions about anything not covered within the previous categories.
 	</td>	
