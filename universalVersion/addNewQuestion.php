@@ -199,7 +199,7 @@ session_start(); //starts the session to store certain variables using cookies
 			$questionDate = time(); 
 			
 			$categoryItem = $_POST['Category'];
-			echo "<p>$categoryItem</p>";
+			//echo "<p>$categoryItem</p>";
 			
 			$counter = 0;
 			
@@ -216,8 +216,8 @@ session_start(); //starts the session to store certain variables using cookies
 							}
 				}
 			
-			echo $arrayCounter;
-			echo $counter;
+			//echo $arrayCounter;
+			//echo $counter;
 			$categoryID = $idArray[$counter];
 			//echo $categoryID;
 			
@@ -236,23 +236,23 @@ session_start(); //starts the session to store certain variables using cookies
 				
 				//echo"<p>$questionTitle, $userID, $categoryID, $questionText</p>"; 
 			
+			
+			if (!empty($_POST['questionContent']) && !empty($_POST['questionTitle']))
+			{
 				$sql = "INSERT INTO questionDetails SET questionTitle='$questionTitle', userID ='$userID', categoryID = '$categoryID', questionText = '$questionText', questionStatus = 'Open', questionDate = FROM_UNIXTIME($questionDate), score =0";
 				//creates a new user through a SQL insert query
-				
+			}
 				
 			if ($checker == "true")
 			{
+			
 				if (@mysql_query($sql))
 					{
 						echo '<p>Your query has been submitted.</p>';
-						echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">'; //redirects to prevent the user refreshing the page and creating a user account twice
+						echo '<META HTTP-EQUIV="Refresh" Content="0; URL=forumMenu.php">'; //redirects to prevent the user refreshing the page and creating a user account twice
 					}
 			}	
-				else if ($sql === false) //if the query doesn't work/returns false, then catch the error gracefully
-					{
-						echo '<p>Error adding submission: ' .
-						mysql_error() . '</p>';
-					} //end else 
+				
 			
 		
 			if ($checker == 'false')

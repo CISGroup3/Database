@@ -54,12 +54,13 @@ CREATE TABLE `questiondetails` (
   `questionDate` date NOT NULL,
   `questionStatus` text NOT NULL,
   `categoryID` int(11) NOT NULL,
+  `score` int(11) DEFAULT '0',
   PRIMARY KEY (`questionID`),
   KEY `userInformation` (`userID`),
   KEY `categoryID` (`categoryID`),
   CONSTRAINT `questiondetails_ibfk_1` FOREIGN KEY (`categoryID`) REFERENCES `categories` (`categoryID`),
   CONSTRAINT `userInformation` FOREIGN KEY (`userID`) REFERENCES `userdetails` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +69,7 @@ CREATE TABLE `questiondetails` (
 
 LOCK TABLES `questiondetails` WRITE;
 /*!40000 ALTER TABLE `questiondetails` DISABLE KEYS */;
-INSERT INTO `questiondetails` VALUES (48,'Add your question text here.\r\n		',17,'fh','0000-00-00','Open',1),(49,'Something else',17,'Something','0000-00-00','Open',1),(50,'Add your question text here.\r\n		',17,'second','2015-03-08','Open',1),(51,'RFYHUNHYGT',17,'xdtgbuuj','2015-03-09','Open',1);
+INSERT INTO `questiondetails` VALUES (67,'A browser redirect happens when Google is opened called Snap.Do. Is it malware, and can it be removed?',17,'Browser Redirection','2015-03-30','Open',1,0),(69,'How can I close an unresponsive tab in Chrome without closing all windows?',17,'Chrome Unresponsive Page','2015-03-30','Open',6,0),(70,'Can anyone recommend a good, free and safe virus scanner for my computer? My computer runs very slowly and the pre-installed scanner may not be picking up all of the malware. ',17,'Virus Scanner','2015-03-30','Open',1,0),(71,'Does reputable software exist for scanning a download file to check for viruses?',17,'Software for File Scanning?','2015-03-30','Open',1,0),(72,'Is there an anti-virus software program built especially for Apple? Which ones are incompatible?',17,'Apple Anti-Virus Software','2015-03-30','Open',2,0),(73,'I am 99.9% certain my PC has contracted a virus. How can I be certain it has been removed? Are there files I can simply delete, or do I need to reformat my computer?',17,'Virus infection - how to fix PC?','2015-03-30','Open',2,0),(74,'How do I know if my firewall is functioning? Are there better options than the system default?',17,'Is my firewall functioning?','2015-03-30','Open',2,0),(75,'My computer response time is very slow. Is there a way I can improve it? ',17,'Computer Response Time','2015-03-30','Open',3,0),(76,'How often should I de-frag my computer?',17,'De-fragmentation','2015-03-30','Open',3,0),(78,'iTunes will not seem to work with my Android tablet. Is it not currently supported? ',17,'iTunes Compatiblity Issues','2015-03-30','Open',4,0),(79,'Which operating system is the most secure? ',17,'Security Query','2015-03-30','Open',5,0),(81,'What is the safest way of disposing of old hardware? Is deleting all the data from C: enough?',17,'Disposing of old hardware','2015-03-30','Open',7,0);
 /*!40000 ALTER TABLE `questiondetails` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,12 +87,14 @@ CREATE TABLE `responsedetails` (
   `score` int(11) NOT NULL,
   `responseDate` date NOT NULL,
   `preferredAnswer` enum('T','F') NOT NULL,
+  `responseContent` tinytext,
   PRIMARY KEY (`responseID`),
   KEY `fk_responseuser` (`userID`),
-  KEY `questionID` (`questionID`),
+  KEY `fkresponse` (`questionID`),
+  CONSTRAINT `fkresponse` FOREIGN KEY (`questionID`) REFERENCES `questiondetails` (`questionID`) ON DELETE CASCADE,
   CONSTRAINT `responsedetails_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `userdetails` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `responsedetails_ibfk_2` FOREIGN KEY (`questionID`) REFERENCES `questiondetails` (`questionID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,6 +103,7 @@ CREATE TABLE `responsedetails` (
 
 LOCK TABLES `responsedetails` WRITE;
 /*!40000 ALTER TABLE `responsedetails` DISABLE KEYS */;
+INSERT INTO `responsedetails` VALUES (15,18,71,0,'2015-03-30','F','You could try using VirusTotal, which is an online service. '),(16,40,71,0,'2015-03-30','F','Also, when installing, make sure to refuse any add-ons that the installer offers. These are usually malware. '),(17,17,71,0,'2015-03-30','F','I tried VirusTotal with Firefox, but is there an equivalent plugin for Chrome?');
 /*!40000 ALTER TABLE `responsedetails` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,9 +123,9 @@ CREATE TABLE `userdetails` (
   `userPassword` text NOT NULL,
   `IPAddr1` text,
   `IPAddr2` text,
-  `reputationPoints` int(11) DEFAULT NULL,
+  `reputationPoints` int(11) DEFAULT '0',
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +134,7 @@ CREATE TABLE `userdetails` (
 
 LOCK TABLES `userdetails` WRITE;
 /*!40000 ALTER TABLE `userdetails` DISABLE KEYS */;
-INSERT INTO `userdetails` VALUES (17,'katme','katrionaangel@rocketmail.com','K','Angel','me',NULL,NULL,NULL);
+INSERT INTO `userdetails` VALUES (17,'katme','katrionaangel@rocketmail.com','K','Angel','new',NULL,NULL,0),(18,'Demo','demo@demo.com','Demo','Demo','me2',NULL,NULL,0),(40,'nicho','nicholaj05@hotmail.co.uk','Alex','Nicholson','me',NULL,NULL,0),(41,'jamhall','jam-hall@hotmail.co.uk','James','Hall','me',NULL,NULL,0),(42,'lqbaker','lqb@live.co.uk','Luke','Baker','me',NULL,NULL,0),(43,'ozarock','oza-rock@hotmail.com','Owen','Hufton','me',NULL,NULL,0);
 /*!40000 ALTER TABLE `userdetails` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -143,4 +147,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-03-09 17:56:44
+-- Dump completed on 2015-03-30 15:09:44

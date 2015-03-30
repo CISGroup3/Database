@@ -106,6 +106,14 @@ session_start(); //starts the session to store certain variables using cookies
 	
 	<?php			
 		
+		
+		$questionCategory = "SELECT title from categories WHERE categoryID = '$categoryID'";
+		$result = mysql_query($questionCategory); 
+		$row = mysql_fetch_row($result);
+		$categoryName = $row[0];
+		
+		echo "<h2>$categoryName</h2>"; //shows the category title 
+		
 		//retrieve current questions in that category 
 				$start=0;
 				$limit=2; //Change this line to alter limit of posts for each page
@@ -150,11 +158,11 @@ while ($response = mysql_fetch_array($responseList)) //iterate through all the r
 $total=ceil($newTotal/$limit);		
 if($id>1)
 {
-	echo "<a href='?cv=$categoryID&id=".($id-1)."' class='button'>PREVIOUS</a>";
+	echo "<a href='?cv=".$categoryID."&id=".($id-1)."' class='button'>PREVIOUS</a>";
 }
 if($id<$total)
 {
-	echo "<a href='?cv=$categoryID&id=".($id+1)."' class='button'>NEXT</a>";
+	echo "<a href='?cv=".$categoryID."&id=".($id+1)."' class='button'>NEXT</a>";
 }
 
 echo "<ul class='page'>"; //displays the page number 
@@ -162,7 +170,7 @@ echo "<ul class='page'>"; //displays the page number
 		{
 			if($i==$id) { echo "<li class='current'>".$i."</li>"; }
 			
-			else { echo "<li><a href='?id=".$i."'>".$i."</a></li>"; }
+			else { echo "<li><a href='?cv=".$categoryID."&id=".$i."'>".$i."</a></li>"; }
 		}
 echo "</ul>";
 echo "<br><br>";

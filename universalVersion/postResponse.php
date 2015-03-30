@@ -108,14 +108,14 @@ session_start(); //starts the session to store certain variables using cookies
 		$getCategory = "SELECT title FROM categories INNER JOIN questionDetails
 		ON categories.categoryID = questionDetails.categoryID WHERE categoryID = '$sessionVariableHere'"; //once a session variable is passed, this can be used to select the category
 	
-		$responseCategoryID = 1;  //for now the category is set to 1. 
+		
 		#show the section of the question 
 	?>
 	
 	<br><br><br>
 	
 	<form action="<?php echo $_SERVER["PHP_SELF"]; if($loggedIn != "true"){echo'style ="display:none"';} ?>" method="post" id="questionFormat" input type="text" name="responseContent">
-	<textarea action="<?php  if($loggedIn != "true"){echo'style ="display:none"';} echo $_SERVER["PHP_SELF"];?>" method="post" style="width: 939px; height: 150px" id="questionFormat" name="responseContent" placeholder="Please post your response here" maxlength="800"></textarea>
+	<textarea action="<?php  if($loggedIn != "true"){echo'style ="display:none"';} echo $_SERVER["PHP_SELF"];?>" method="post" style="width: 939px; height: 150px" id="questionFormat" name="responseContent" placeholder="Please post your response here"></textarea>
 	<br>
 	
 	<div id ="center2">
@@ -140,10 +140,12 @@ session_start(); //starts the session to store certain variables using cookies
 		{
 			$responseContent = $_POST['responseContent']; 
 			$questionID = $_SESSION['questionID'];
-			echo "<p>Response content is" .$responseContent ."here</p>";
+			//echo "<p>Response content is" .$responseContent ."here</p>";
 			$responseDate = time(); 
 			$sql = "INSERT INTO responseDetails SET userID = '$userID', questionID = '$questionID', score = 0, responseDate = FROM_UNIXTIME($responseDate), preferredAnswer = 'F', responseContent = '$responseContent'";
-			
+			//echo $userID;
+			//echo $questionID;
+			//echo $responseContent; 
 			
 			if (@mysql_query($sql))
 					{
