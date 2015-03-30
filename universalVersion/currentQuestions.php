@@ -103,9 +103,14 @@ session_start(); //starts the session to store certain variables using cookies
 		<div id = "heading">
 		Current Questions
 		</div>
-	
-	<?php			
 		
+		<?php 
+		if ($loggedIn == "true")
+		{
+			echo '<center><div id="questioncolour2"><a href="addNewQuestion.php">Add New Question</a></div></center>';
+		}
+	?>
+	<?php			
 		
 		$questionCategory = "SELECT title from categories WHERE categoryID = '$categoryID'";
 		$result = mysql_query($questionCategory); 
@@ -116,7 +121,7 @@ session_start(); //starts the session to store certain variables using cookies
 		
 		//retrieve current questions in that category 
 				$start=0;
-				$limit=2; //Change this line to alter limit of posts for each page
+				$limit=8; //Change this line to alter limit of posts for each page
 				$arrayCounter = 0; 
 				$variableArray = array(); //holds question titles
 				$idArray = array();
