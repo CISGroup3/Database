@@ -241,9 +241,20 @@ session_start(); //starts the session to store certain variables using cookies
 			foreach($variableArray as $title)
 					{
 						$relID = $idArray[$arrayCounter];
-						echo "<center><h2><a href='questionResponse.php?qid=$relID&id=1' id='questionTitle'>$title</a></h2></center>";
+						
+						$categoryQuery = "SELECT categoryID FROM questiondetails WHERE questionID = '$relID'";
+						$result = mysql_query($categoryQuery); 
+						$row = mysql_fetch_row($result);
+						$cID = $row[0];
+						
+						echo "<center><h2><a href='questionResponse.php?qid=$relID&id=1&cID=$cID' id='questionTitle'>$title</a></h2></center>";
 						$arrayCounter = $arrayCounter + 1; 
 					} 
+			
+			if (empty($variableArray))
+				{
+					echo "<center><p>You have no questions yet.</p></center>"; 
+				}
 		
 		?>
 		

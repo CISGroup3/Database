@@ -92,7 +92,7 @@ session_start(); //starts the session to store certain variables using cookies
 
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 			Forum Name:<br>
-			<input type="text" name="userForumName" maxlength="10" size="50"> 
+			<input type="text" name="userForumName" pattern=".{5,7}" required title="Forum name must be between 5 and 7 characters" size="50"> 
 			<br>
 
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">

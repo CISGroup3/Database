@@ -216,6 +216,9 @@ $dbcnx = @mysql_connect('localhost', 'root', 'cisgroup');
 		$_SESSION['userRepPoints'] = $read; 
 		
 		$_SESSION['voteCount'] = 0; 
+		$_SESSION[votedOn]=array(); //array to hold which questions the user has voted on 
+		$_SESSION[votedOn2]=array(); //array to hold which responses have been voted on 
+		
 		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">'; 
 		//header("location:index.php"); redirects if successful
 		
