@@ -177,10 +177,10 @@ session_start(); //starts the session to store certain variables using cookies
 	<?php 
 		if ($loggedIn == "true")
 		{
-			echo '<center><h2><a href="addNewQuestion.php">Add a New Question</a></h2></center>';
+			echo '<center><div id = "table-heading"><a href="addNewQuestion.php">Add a New Question</a></div></center>';
 		}
 	?>
-		
+	
 </div>
 
 		<div id = "heading4">

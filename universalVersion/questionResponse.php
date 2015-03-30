@@ -268,7 +268,7 @@ session_start(); //starts the session to store certain variables using cookies
 		
 	//now we need to retrieve any responses (using the magic of pagination)
 		$start=0;
-		$limit=2; //Change this line to alter limit of posts for each page
+		$limit=8; //Change this line to alter limit of posts for each page
 
 if(isset($_GET['id']))
 {
@@ -385,7 +385,9 @@ if ($loggedIn == "true" && $userID == $posterID)
 		
 		
 	?>
-	
+		<div id = "gototop">
+			<b><a href='#top'>Back to Top</a></b>
+		</div>
 	<div id = "heading4">
 		Terms and Conditions
 		</div>
