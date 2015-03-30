@@ -121,7 +121,7 @@ session_start(); //starts the session to store certain variables using cookies
 		
 		//retrieve current questions in that category 
 				$start=0;
-				$limit=8; //Change this line to alter limit of posts for each page
+				$limit=2; //Change this line to alter limit of posts for each page
 				$arrayCounter = 0; 
 				$variableArray = array(); //holds question titles
 				$idArray = array();

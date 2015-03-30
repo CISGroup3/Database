@@ -221,16 +221,20 @@ session_start(); //starts the session to store certain variables using cookies
 				$sameUser = "false"; 
 			}
 		
-		if(count($_SESSION['votedOn']) > 0)
+		
+		if ($loggedIn == 'true')
 		{
-			foreach($_SESSION['votedOn'] as $value) 
+			if(count($_SESSION['votedOn']) > 0)
 				{
-					if ($questionID == $value)
+					foreach($_SESSION['votedOn'] as $value) 
 						{
-							$votedOn = "true"; 
-						}
+							if ($questionID == $value)
+								{
+									$votedOn = "true"; 
+								}
 
 					
+						}
 				}
 		}
 		
@@ -268,7 +272,7 @@ session_start(); //starts the session to store certain variables using cookies
 		
 	//now we need to retrieve any responses (using the magic of pagination)
 		$start=0;
-		$limit=8; //Change this line to alter limit of posts for each page
+		$limit=2; //Change this line to alter limit of posts for each page
 
 if(isset($_GET['id']))
 {
@@ -304,18 +308,20 @@ $query=mysql_query("SELECT responseID, responseContent, responseDetails.userID, 
 			}
 			
 			
-			
-			if(count($_SESSION['votedOn2']) > 0)
+			if ($loggedIn == 'true')
 				{
-					foreach($_SESSION['votedOn2'] as $value) 
-						{
-							if ($resID == $value)
-								{
-									$votedOn2 = "true"; 
-								}
+				if(count($_SESSION['votedOn2']) > 0)
+					{
+						foreach($_SESSION['votedOn2'] as $value) 
+							{
+								if ($resID == $value)
+									{
+										$votedOn2 = "true"; 
+									}
 
-						//echo $value; 
-						}
+								//echo $value; 
+							}
+					}
 				}
 				
 				
