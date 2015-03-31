@@ -16,7 +16,7 @@ session_start(); //starts the session to store certain variables using cookies
 <script src="Javascript/newsfeed.js" type="text/javascript"></script> <!--Refers to another JavaScript used for the news feed-->
 
 <div id = "newsfeedcss"> <!--Division class to set layout for news feed-->
-<style type="text/css"> <!--Refer to style-->
+<style type="text/css">
 @import url("CSS/newsfeedstyle.css"); <!--Refer to news feed CSS file-->
 </style>
 </div>
